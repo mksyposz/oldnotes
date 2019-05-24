@@ -1,0 +1,333 @@
+\subsection{Zastosowanie wyznaczików macierzy}
+\begin{tw} 
+     $$
+     (\ast) \left\{ 
+        \begin{array}{l}
+        a_{11} x_{1} + \dots a_{1n} x_{n} = b_1 \\
+        \vdots \\
+        a_{n1} x_{1} + \dots a_{nn} x_{n} = b_n 
+        \end{array}
+    \right.$$
+    $$
+    \text{inaczej}
+    \begin{pmatrix} 
+        a_{11} \ \dots \ a_{1n} \\
+         \ \vdots \ \\ 
+        a_{n1} \ \dots \ a_{nn} 
+    \end{pmatrix}
+    \begin{pmatrix}
+        x_1 \\ 
+        \vdots \\ 
+        x_n
+    \end{pmatrix}
+    = 
+    \begin{pmatrix}
+        b_1 \\ 
+        \vdots \\ 
+        b_n
+    \end{pmatrix} 
+    \text{lub jeszcze inaczej } A\footnote{macierz A to macierz główna układu}X = b
+    $$
+    Układ $(\ast)$ ma jednoznacznie rozwiązanie $\Leftrightarrow$ $\det A \neq 0 $ i rozwiązanie ma postać 
+    $x_i = \frac{\det A^{(i)}}{\det A}$, gdzie $A^{(i)} = (A_1,\dots,\overset{i}{b},\dots,A_n)$
+\end{tw}
+
+\begin{dd} 
+    $$ A  \overset{ozn}{=} (A_1,\dots,A_n) $$ 
+    $$(\ast) x_1A_1 + x_2A_2 + \dots + x_nA_n = b$$
+    $$ \det A^(i) = det(A_1,\dots,\underset{i}{b},\dots,A_n) = \det(A_1,\dots,A_{i-1},\sum_{k=1}^n x_kA_k,A_{i+1},\dots,A_n) = $$
+    $$ = \sum_{k=1}^n x_k \det(A_1,\dots,A_{i-1},A_k,A_{i+1},\dots,A_n) = x_i \det (A_1,\dots, A_{i-1},A_i,A_{i+1},\dots,A_n) = $$
+    $$ = x_i = \det A$$
+    $$ \det A^{(i)} = x_i \det A$$
+Jeśli $det A \neq 0$ to $x_i = \frac{\det A^{(i)}}{\det A}$. \\
+Jeśli $\det A = 0$, to $ker F \neq \{0\}, F: K^n \rightarrow K^n : F(X) = AX$
+
+\begin{lem}
+    Odwozrowanie $F: K^n \rightarrow K^n \text{t. że} F(X) = AX $ jest różnowartościowe/na/odwaracalne/ bijekcją ma trywialne jądro.$\Leftrightarrow \det A \neq 0$
+\end{lem}
+$ F^{-1} [b] = 
+    \begin{cases} 
+        \emptyset & \text{jeśli } b \notin \operatorname{Im} F\\ 
+        \{v\} + \ker F & \text{jeśli } b \in \operatorname{Im} F,\text{ dla pewnego } v \in V
+    \end{cases}$ \\
+$ \dim ker F > 0 \Rightarrow \dim ImF < n \Rightarrow ImF \neq K^n $ \\
+$b = F(v)$ dla pewnego $v \in V$ \\ 
+$ \underset{w \in ker F}{F(v+w)} = F(v) + \underscript{F(w)}{\verteq}{0} = F(v) = b$ 
+\begin{align}
+    b &= F(v) \label{jeden}\\
+    b &= F(v') \label{dwa} \\
+    \shortintertext{Odejmując \eqref{jeden} od \eqref{dwa} otrzymujemy}
+    0 &= F(v) - F(v') = F(v-v'), \text{ czyli } v-v' \in ker F \notag
+\end{align}
+    $v = v' + \underscript{(v - v')}{\vertin}{\ker F}$
+\end{dd}
+
+\begin{dd}
+  (lematu)
+
+  Jeśli $F$ jest odwracalna, to istnieje $G: K^n \rightarrow K^n$, $G(X)=BX$,
+  takie że
+  \[F \circ G = G \circ F = id\]
+  \[m(F \circ G) = m(G \circ F) = I\]
+  \[AB = BA = I\]
+  czyli $B=A^{-1}$ ($A$ odwracalna).
+  \[1 = \det (AB) \overset{\text{ćw}} = \det A \det B\]
+  więc $\det A \neq 0$.
+
+  W~drugą stronę ($\det A \neq 0 \Rightarrow A \text{ odwracalna} \land B \text{ odwracalna}$) to wniosek z~następnego faktu.
+  \hfill \qed
+\end{dd}
+\begin{ft}
+  $B = (b, j)$ jest macierzą odwrotną do $A$, wtedy i~tylko wtedy, gdy:
+  \[b_{ji} = \frac1{\det A}(-1)^{i+j} +
+  \begin{vmatrix}
+  & & & \\ 
+  & a_{ij} \makebox(-10,0){\rule[4mm]{0.4pt}{2.5\normalbaselineskip}} 
+      \makebox(-10,0){\rule[2.5mm]{2.5\normalbaselineskip}{0.4pt}} 
+  & \\ 
+  & & &
+  \end{vmatrix}
+  \]
+\end{ft}
+\begin{prz}
+  \[A = \begin{pmatrix}1&0&1\\0&2&1\\1&1&1\end{pmatrix}\qquad\det A = -1\]
+  \[A^{-1}=\frac1{-1}\begin{pmatrix}1&+1&-2\\+1&0&-1\\-2&-1&2\end{pmatrix}^T
+    =\begin{pmatrix}-1&-1&2\\-1&0&-1\\2&1&-2\end{pmatrix}\]
+\end{prz}
+\begin{dd}
+  (faktu)
+
+  \[AB=I\]
+  \[A\cdot(B_1, \dots, B_n)=(e_1, \dots, e_n)\]
+  \[AB_i=e_i \qquad e_i = \begin{pmatrix} 0 \\ \vdots \\ 1 \\vdots \\ 0\end{pmatrix} i\]
+  układ Cramera.
+  \[A = \begin{pmatrix}b_{1i}\\\vdots\\b_{ni}\end{pmatrix} i\]
+    \[b_{ji}=\frac{\det(A_1,\dots,e_i,\dots,A_n}{\det A}=\frac1{\det A}i
+    \begin{vmatrix}
+      a_{11}&\dots&0&\dots&a_{1n}\\
+      &&\vdots&&\\
+      &&1&&\\
+      &&\vdots&&\\
+      a_{n1}&\dots&0&\dots&a_{nn}
+    \end{vmatrix} = \frac1{\det A}1\cdot(-1)^{i+j}
+    \begin{vmatrix}
+  & & & \\ 
+  & a_{ij} \makebox(-10,0){\rule[4mm]{0.4pt}{2.5\normalbaselineskip}} 
+      \makebox(-10,0){\rule[2.5mm]{2.5\normalbaselineskip}{0.4pt}} 
+  & \\ 
+  & & &
+  \end{vmatrix}
+    \]
+\end{dd}
+\begin{uw}
+  Operacje elementarne (wierszowe i~kolumnowe) nie wpływają na zerowanie się
+  wyznacznika.
+\end{uw}
+\begin{ft}
+  Dany jest \textit{jednorodny} układ równań liniowych ($a_{ij} \in K$).
+  \[\text{(J)}\left\{\begin{array}{l}
+      a_{11}x_1+\dots+a_{1n}x_n = 0
+      \\\vdots\\
+      a_{m1}x_1+\dots+a_{mn}x_n = 0
+    \end{array}\right.\]
+  Zbiór rozwiązań układu (J) jest podprzestrzenią $K^n$.
+\end{ft}
+\begin{dd}
+  Oznaczmy $X = \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}$.
+  \[F: K^n \rightarrow K^m, F(X)=AX\]
+  zbiór rozwiązań to $\mathrm{ker}F < K^n$.
+  \hfill \qed
+\end{dd}
+\begin{ft}
+  Dany jest \textit{niejednorodny} układ równań liniowych
+  ($a_{ij}, b_i \in K$):
+  \[\text{(NJ)}\left\{\begin{array}{l}
+      a_{11}x_1+\dots+a_{1n}x_n = b_1
+      \\\vdots\\
+      a_{m1}x_1+\dots+a_{mn}x_n = b_m
+    \end{array}\right.\]
+  Zbiór rozwiązań układu (NJ) jest albo $\emptyset$ albo ${v}+\mathrm{ker}F$,
+  gdzie:
+  \begin{itemize}
+    \item $F: K^n \rightarrow K^m, F(X)=AX$
+    \item $v$ - \textit{dowolne} rozwiązanie (NJ).
+  \end{itemize}
+\end{ft}
+\begin{dd}
+  \[F^{-1}[b]\]
+  $1^\circ$ $b \notin \mathrm{Im} F$
+  \[F^{-1}[b] = \emptyset\]
+  $2^\circ$ $b \in \mathrm{Im} F$ 
+  \begin{center}$b= F(v)$ dla pewnego (jakiegokolwiek) $v\in K^n$\end{center}
+
+  $v'$ jest rozwiązaniem (NJ) $\Leftrightarrow F(v')=b$
+  \[F(v+(v'-v)) = b\]
+  \[F(v)+F(v'-v) = b\]
+  \[b+\underscript{F(v'-v)}{\verteq}{0} = b\]
+  \[v'-v \in \mathrm{ker}F\]
+  \hfill \qed
+\end{dd}
+\begin{def}
+  \textit{Warstwą} podprzestrzeni $W < V$ nazywamy każdy zbiór postaci
+  $v + W \subseteq V$. Zbiór wszystkich warstw podprzestrzeni $W < V$
+  oznaczamy $V/W$.
+\end{def}  
+\begin{ft}
+  Jeśli na~przestrzeni liniowej $V$ wprowadzimy relację
+  \[\sim_W: v\sim_Wv' \Leftrightarrow v-v'\in W\]
+  (gdzie $W$ --- ustalona podprzestrzeń), to:
+  \begin{enumerate}
+    \item $\sim_W$ jest relacją równoważności
+    \item $[v]_{\sim_W} = v+W$
+  \end{enumerate}
+  Dowód --- ćw.
+\end{ft}
+\begin{ft}
+  $V/W$ z~działaniami:
+  \begin{itemize}
+    \item $(v+W)+(v'+W) = (v+v')+W$
+    \item $\alpha(v+W) = (\alpha v) + W$
+  \end{itemize}
+  jest przestrzenią liniową (ilorazową).
+\end{ft}
+\begin{ft}
+  $\dim(V/W) = \dim V - \dim W$
+\end{ft}
+\begin{dd}
+  \[V \ni v \overset F\longmapsto v+W \in V/W\]
+  \[\mathrm{ker}F = W\]
+  twierdzenie o indeksie:
+  \[\dim V = \underscript{\dim kerF}{\verteq}{\dim W} + \underscript{\dim\mathrm{Im}F}{\verteq}
+  {\dim(V/W)}\]
+  \hfill \qed
+\end{dd}
+
+\begin{prz}
+    $$ \int: C([0,1]) \rightarrow C'([0,1]) \text{/ \{funkcje stałe\} }$$ 
+\end{prz}
+
+\begin{ft} 
+    Układ równań (NJ): 
+    \begin{enumerate}[{(}1{)}]
+        \item jest sprzeczny $\Leftrightarrow Lin\{A_1,\dots,A_n\} \neq Lin\{A_1,\dots,A_n,b\}$ 
+        \item jeśli jest niesprzeczny, to jego zbiór rozwiązań na wymiar $n - \dim Lin\{A_1,\dots,A_n\}$
+    \end{enumerate}
+\end{ft}
+
+\begin{dd} \hfill
+    \begin{enumerate}[{(}1{)}]
+        \item $Lin\{A_1,\dots,A_n\} < Lin\{A_1,\dots,A_n,b\}$ \\
+        Układ $AX = b$ ma rozwiązanie $\Leftrightarrow$ b jest kombinacją liniową $A_1,\dots,A_n \Leftrightarrow Lin\{A_1,\dots,A_n\} = \\ = Lin\{A_1,\dots,A_n\}$
+        \item jeśli układ (NJ) niesprzeczny to zbiór rozwiązań to $v+ \ker F$ gdzie $\ker F$ to zbiór rozwiązań układu (J). 
+        $$ F: K^n \rightarrow K^m,  F(X) = AX$$ 
+        $$ \dim \ker F = \underscript{\dim K^n}{\verteq}{n} - \dim Im F = n - \dim Lin\{A_1,\dots,A_n\}$$ 
+        \hfill \qed
+    \end{enumerate}
+\end{dd}
+
+\begin{wn} ~\\
+    Układ (NJ) jest sprzeczny \\
+    \hspace*{20mm} $\Updownarrow$ \\
+    $\dim Lin\{A_1,\dots,A_n\} < \dim Lin \{A_1,\dots,A_n\}$
+\end{wn}
+
+\begin{df}
+    Rzędem (kolumnowym) macierzy $A \in M_{m \times n} (K) $ nazywamy wymiar podprzestrzeni $K^n$ rozpiętej przez kolumny macierzy A. \\ 
+    Rzędem (wierszowym) nazywamy wymiar podprzestrzeni rozpiętej przez wiersze A. 
+\end{df}
+
+\begin{uw}
+    Rząd wierszowy/kolumnowy = max. liczba lnz wierszy/kolumn.
+\end{uw}
+
+\begin{tw} 
+    rząd wierszowym $A$ = rząd kolumnowy $A$.
+\end{tw}
+
+\begin{dd} \hfill
+    \begin{enumerate}[{(}1{)}]
+        \item rząd kolumnowy jest niezmienniczy na operacje kolumnowe
+        \begin{align*}
+            Lin\{A_1,\dots,A_n\} & = Lin\{A_1,\dots,A_j,\dots,A_i,\dots,A_n\} \\
+            & = Lin \{A_1, \dots,A_i + \alpha A_j, \dots, A_n\} \\
+            & = \underset{\alpha \neq 0}{Lin \{A_1, \dots, \alpha A_i, \dots, A_n \}}
+        \end{align*}
+        \item rząd kolumnowy jest niezmienniczy na operacje wierszowe
+        $$
+        \begin{pmatrix}
+            1 \ 1 \\ 
+            1 \ 1 \\ 
+            1 \ 0 
+        \end{pmatrix}
+            \rightarrow
+        \begin{pmatrix}
+            1 \ 1 \\ 
+            0 \ 0 \\ 
+            1 \ 0
+        \end{pmatrix}
+        $$
+        %odpowiedni komentarz od kolegi po prawej xD 
+        operacja wierszowa: $$ A \rightarrow EA $$ E - macierz elementarna
+        $$A_1, \dots A_n \rightarrow EA_1,\dots,EA_n$$ 
+        $$ F_E : K^n \rightarrow K^n $$
+        $$ X \mapsto EX $$
+        $F_E$ jest odwracalne ( bo $\det E \neq 0$ ) tzn. jest bijekcją. \\
+        W szczególności $\dim W = \dim F_E (W)$ dla dowolnego $ W < K^n$, \\ 
+        czyli $\dim Lin \{A_1,\dots,A_n\} = \dim Lin \{EA_1,\dots,EA_n\}$.
+        \item rząd wierszowy również jest niezmienniczy na operacje wierszowe i kolumnowe (bo rząd wierszowy $A$ = rząd kolumnowy $A^T$).
+        \item dowolną (prostokątną) macierz $A$ możemy przy pomocy operacji wierszowych i kolumnowych sprowadzić do postaci $$
+        \begin{pmatrix}
+        1 & & & & & & \\ 
+        & \ddots & & & & &  \\
+        & & 1 & & & & \\
+        & & & 0 & & & \\ 
+        & & & & \ddots & & \\ 
+        & & & & & 0 \dots \\
+        \end{pmatrix} 
+        $$
+        a tu rząd kolumnowy = rząd wierszowy. \qed
+    \end{enumerate}
+\end{dd} 
+
+\begin{ozn}
+    rank A= rząd( wierszowy/kolumnowy) macierzy A
+\end{ozn} 
+
+\begin{tw} (Kronecker-Capelli) \\ 
+    Układ (NJ) ma rozwiązanie $\Leftrightarrow \overset{\text{macierz główna układu}}{rank A} = \overset{\text{macierz rozszerzona układu}}{rank(A|b)}$
+\end{tw}
+
+\begin{dd}
+    Już był. \qed
+\end{dd}
+
+\begin{tw}
+    Jeśli układ (NJ) ma rozwiązanie to wymiar zboru rozwiązan wynosi $n - rank A$. 
+\end{tw}
+\underline{W szczególności:} układ m lnz równań z n niewiadomymi ma zbiór rozwiązań wymiaru n-m.
+
+\begin{ft}
+    $v_1,\dots,v_n \in K ^n $ lnz $ \Leftrightarrow \det(v_1,\dots,v_n) \neq 0$.
+\end{ft}
+\begin{dd} 
+    $$ v_1, \ldots, v_n \text{ są lz}$$
+    $$\Updownarrow$$ 
+    $$ \operatorname{rank} (v_1, \dots , v_n) < n $$  
+   $$ \Updownarrow $$  
+   $$ \det (v_1,\dots v_n) = 0 $$ \hfill \qed 
+\end{dd} 
+
+\begin{tw} Rozwiązanie ogólne układu $AX = b$ jest postaci $v + W$, gdzie \\
+    W - przestrzeń rozwiązań $AX = 0 \ (\ker A)$\\ 
+    v - jakiekolwiek rozwiązanie AX = b (rozwiązanie szczególne)
+\end{tw} 
+\subsection{Metoda eliminacji Gaussa} 
+    $(A |b)$ macierz rozszerzona układu    
+    \begin{itemize} 
+        % jest jakiś rudy rysunek xD
+        \item[Krok 1]   Sprowadzenie $(A |b)$ do postaci schodkowej, przy pomocy operacji \underline{wierszowych}. 
+        $c_i \neq 0$ - wyrazy wiodące. Zmienne odpowiadające kolumnom z wyrazami wiodącymi nazywamy zmiennymi
+        zależnymi. Pozostałe zmienne to zmienne niezależne, alb zmienne wolne. 
+        Liczba zmiennych wolnych = $n - rank A$. 
+        \item[Krok 2] Wyliczyć zmienne zależne przy pomocy zmiennych wolnych i zapisać rozwiązanie ogólne.
+    \end{itemize} 

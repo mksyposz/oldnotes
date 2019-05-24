@@ -1,0 +1,305 @@
+
+\section{Ciała i przestrzenie liniowe}
+
+\begin{df}
+Ciałem nazywamy układ $(K, + ,\cdot,1,0)$, gdzie:
+    \begin{itemize}
+        \item[] $K$ jest zbiorem
+        \item[$+$]: $K \times K \rightarrow K$
+        \item[$\cdot$]: $K \times K \rightarrow K$
+        \item[] $0 \neq 1 \in K$
+    \end{itemize}
+    który spełnia następujące warunki (tzw. aksjomaty ciała):
+    \begin{itemize}
+        \item[(D1)] $\forall a, b, c \in K  \quad (a+b)+c = a+(b+c)$
+        \item[(D2)] $\forall a \in K \quad a+0 = 0+a = a$
+        \item[(D3)] $\forall a \in K \ \exists \text{-}a \in K \quad a + (\text{-}a) = (\text{-}a) + a = 0$
+        \item[(D4)] $\forall a, b \in K \quad a+b = b+a$
+        \item[(M1)] $\forall a, b, c \in K \quad (ab)c = a(bc) $
+        \item[(M2)] $\forall a \in K \quad 1\cdot a = a\cdot 1 = a$
+        \item[(M3)] $\forall a \in K \setminus \{0\} \ \exists a^{-1} \in K \quad a\cdot a^{-1} = a^{-1}\cdot a = 1$
+        \item[(M4)] $\forall a, b \in K \quad a\cdot b = b\cdot a$
+        \item[(R)] $ \forall a,b, c \in K \quad (a+b)\cdot c = a\cdot c + b\cdot c $
+    \end{itemize}
+\end{df}
+
+\begin{przy}
+    ~\\
+    $ \RR, \mathbb{Q}, \mathbb{C} \\
+    \mathbb{F}_p = \{0, 1, \dots, p-1\} \text{ gdzie p to l. pierwsza} (+_{mod\ p}, \cdot_{mod\ p})\\
+    \mathbb{Q}(\sqrt{2}) = \{a+b\sqrt{2} : a+b \in \mathbb{Q}\}$
+\end{przy}
+
+\begin{df}
+Przestrzeń liniowa nad ciałem K, to układ $(V,+,\cdot\ ,0)$, gdzie:
+\begin{itemize}
+        \item[] $V$ jest zbiorem
+        \item[+]: $V \times V \rightarrow V$
+        \item[$\cdot$]: $K \times V \rightarrow V$
+        \item[] $0 \in V$
+    \end{itemize}
+    który spełnia następujące warunki(tzw. aksjomaty przestrzeni liniowej):
+    \begin{itemize}
+        \item[(D1)] $\forall u, v, w \in V \quad (u+v)+w = u + (v+w)$
+        \item[(D2)] $\forall u \in V \quad u+0 = 0+u = u$
+        \item[(D3)] $\forall u \in V \ \exists \text{-}u \in V \quad u + (\text{-}u) = (\text{-}u) + u = 0$
+        \item[(D4)] $\forall u, v \in K \quad u+v = v+u$
+        \item[(M1)] $\forall a, b \in K\  \forall u \in V \quad (a\cdot b)\cdot u = a\cdot (b\cdot u) $
+        \item[(M2)] $\forall u \in V \quad 1\cdot u = u$
+        \item[(R1)] $ \forall a,b \in K\ \forall u \in V \quad (a+b)\cdot u = a\cdot u + b\cdot u $
+        \item[(R2)] $ \forall a \in K\ \forall u,v \in V \quad a\cdot (u+v) = a\cdot u + a\cdot v $
+    \end{itemize}
+    \vspace{5mm}
+    Elementy przestrzeni liniowej są nazywane wektorami.
+    Przestrzeń liniowa czasami jest zwana przestrzenią wektorową.
+\end{df}
+
+\begin{przy}
+    ~\\
+    $\RR^2, \RR^3, \RR^n =
+        \left\{
+        \begin{pmatrix}
+            x_1 \\
+            \vdots \\
+            x_n
+        \end{pmatrix}
+        : x_i \in \RR \quad
+        \right\}\\
+        \ K^n\ (\text{tak samo jak } \RR \text{ tylko } K ) %xDDD
+        \\
+        K[x] \text{ - wielomiany zmiennej x o współczynnikach z } K \\
+        K_n[x] \text{ - wielomiany stopnia} \leqslant n \\
+        F(\RR,\RR) = \{f: \RR \rightarrow \RR\} \ (f+g)(x) = f(x) + g(x), \ (t\cdot f)(x) = t\cdot f(x),\ t \in \RR \\
+        F(\mathbb{N},K) \text{ - zbiór ciągów o wyrazach w } K \\
+        C(\RR) = \{f: \RR \rightarrow \RR , f \text{ ciągła} \} \\
+        C'(\RR) = \{f: \RR \rightarrow \RR , f' \in C(\RR) \} \\
+        C^k(\RR) = \{f: \RR \rightarrow \RR, f^{(k)} \in C(\RR) \} \\
+        C^\infty(\RR) = \{f : \RR \rightarrow \RR, f \infty \text{ razy różniczkowalna} \} \ f\text{( to f-kcja gładka)} \\
+        \{0\}
+    $
+\end{przy}
+
+\begin{df}
+    Pozdbiór $W \subset V$ przestrzeni liniowej $V$ nazywamy podprzestrzenią (ozn. $W < V$) jeśli jest zamknięta na $+$ i $\cdot$.
+\end{df}
+
+\begin{ft}
+    Podprzestrzeń $W < V$ też jest przestrzenią liniową (z działaniami obciętymi z działań $V$).
+\end{ft}
+
+\begin{dd}
+    ~\\
+    $ 0\cdot w = 0 \in W$ \\
+    $(-1)\cdot w = -w \in W$
+\end{dd}
+\begin{przy}
+    ~\\
+    $K_n[x] < K[x]$ \\
+    $C^\infty(\RR) < C'(\RR) < C(\RR) < F(\RR,\RR)$ \\
+    $\{f \in C(\RR) : \forall x \in [-\infty,0] \ f(x) = 0\} < C(\RR)$ \\
+    $\{P \in \RR_4[x] : P(1) = P(2) = 0\} < \RR_4[x]$ \\
+    $\{(a_n) \in F(\mathbb{N},\RR) : \forall n \geqslant 2 \quad a_n = a_{n-1} + a_{n-2} \} < F(\mathbb{N},\RR)$ \\
+    $\left\{
+        \begin{pmatrix}
+            x \\
+            y \\
+            z
+        \end{pmatrix}
+        \in \RR^3 : 2x + 3y - 4z = 0
+        \right\} < \RR^3
+    $
+\end{przy}
+\begin{ft}
+    Jeśli $W_i < V $ dla $i \in I$ to $\cap W_i < V$.
+\end{ft}
+
+\begin{df}
+    Niech $V$ - przestrzeń liniowa nad K. Jeśli $A \subset V$, to \\
+    $\operatorname{\Lin}(A) = \cap \{W < V: A \subset W \}$ nazywamy otoczkę liniową $A$ 
+    (podprzestrzenią $V$ generowaną przez $A$).
+\end{df}
+\begin{uw}
+    $\Lin(A) < V $ z faktu \thesection.2.
+\end{uw}
+
+\begin{przy}
+    ~\\
+    $\Lin\left\{
+        \begin{pmatrix}
+            1 \\
+            2
+        \end{pmatrix}
+    \right\} < \RR^2 \text{ (prosta)}
+    $ \\
+    $\Lin\left\{
+        \begin{pmatrix}
+            1 \\
+            2
+        \end{pmatrix},
+        \begin{pmatrix}
+            0 \\
+            1
+        \end{pmatrix}
+        \right\} < \RR^2 \text{ (cała płaszczyzna)}
+    $\\
+    $
+        \Lin\left\{
+        \begin{pmatrix}
+            1 \\
+            1 \\
+            1
+        \end{pmatrix},
+        \begin{pmatrix}
+            1 \\
+            0 \\
+            3
+        \end{pmatrix}
+        \right\} < \RR^3 \text{ (płaszczyzna)}
+    $ \\
+    $
+        \Lin\{1,x^2,x^4,\dots\} < R[x] \text{ (wielomiany o parzystych potęgach)}
+    $
+\end{przy}
+
+\begin{ft}
+    $\Lin(A) = \{ \sum\limits_{i=1}^{n} \alpha_i v_i, \quad \alpha_i \in K, v_i \in A\} < V$
+\end{ft}
+
+\begin{dd}
+    ~\\
+    $\subset, \text{ bo } \{ \sum\limits_{i=1}^{n} \alpha_i v_i\} < V$ \\
+    $\supset, \Lin(A) < V, \text{więc jest zamknięte na} +,\cdot$
+    \qed
+\end{dd}
+\begin{uw}
+    $\Lin(\emptyset)=\{0\} < V $
+\end{uw}
+
+\begin{df}
+    Zbiór wektorów $ A \subset V $ jest liniowo niezależny (lnz) jeśli żaden z tych wektorów nie jest kombinacją liniową pozostałych.
+\end{df}
+
+\begin{prz}
+    ~\\
+    \begin{minipage}[t]{0.5\textwidth}
+    $
+    a^{(n)}_i = \begin{cases}
+                0 & i \neq n \\
+                1 & i = n
+              \end{cases}
+    $ \\
+    $b_i = 1$
+    \end{minipage}%
+    \begin{minipage}[t]{0.5\textwidth}
+       $\overbrace{\{a^{(1)},a^{(2)},\dots,b\}}^{lnz} \subset F(\mathbb{N},\RR)$
+
+    \end{minipage}
+\end{prz}
+
+\begin{ft} \hfill
+    \begin{enumerate}[{(}1{)}]
+         \item $v_1,\dots,v_n$ są liniowo niezależne \\
+        $ \hspace*{25mm} \Updownarrow
+        \\
+        \forall _{\alpha_1,\dots,\alpha_n\in K} (\alpha_1v_1+\dots+\alpha_nv_n = 0 \Rightarrow \alpha_1 = \dots = \alpha_n =0)$
+        \item $A \in V $ jest zbiorem lnz $\iff$ każdy skończony podzbiór $A$ jest lnz.
+    \end{enumerate}
+\end{ft}
+\begin{dd} \hfill
+    \begin{enumerate}[{(}1{)}]
+        \item \begin{itemize}
+            \item[($\Downarrow$)] $\alpha_1v_1 + \dots + \alpha_nv_n = 0$ \\
+                gdyby $\alpha_i = 0 $, to $v_i$ byłby kombinacją liniową pozostałych \lightning
+            \item[($\Uparrow$)] Gdyby nie było lnz, to $v_i = \alpha_1v_1+\dots+ \widehat{\alpha_i v_i} \text{\footnotemark} +\dots + \alpha_nv_n$, to \\ $\alpha_i + \dots + \alpha_{i-1}v_{i-1} - v_i + \dots + \alpha_nv_n = 0 $ \lightning
+        \end{itemize}
+        \item Każda kombinacja liniowa wykorzystuje skończenie wiele wektorów. \qed
+    \end{enumerate}
+\end{dd}
+\footnotetext{Suma bez elementu pod daszkiem}
+
+
+\begin{tw}
+  Niech $ B \subset V $. Wówczas NWSR:
+  \begin{enumerate}[{(}1{)}]
+    \item $ B $ jest lnz i $ \Lin(B) = V $
+    \item Każdy wektor zapisuje się jednoznacznie jako kombinacja liniowa wektorów z $ B $
+    \item $ B $ jest maksymalnym zbiorem lnz
+    \item $ B $ jest minimalnym zbiorem generującym
+  \end{enumerate}
+\end{tw}
+
+\begin{df}
+    Bazą $ B $  przestrzeni liniowej $ V $ nazywamy podzbiór spełniający którykolwiek/każdy z równoważnych warunków (1) -- (4).
+\end{df}
+
+\begin{dd} \hfill
+    \begin{itemize}
+        \item[ (3) $\Rightarrow$ (1) ] $ B $ jest maxymalnym zbiorem lnz\\
+            Weźmy $ v \in V $. Gdyby $ v \in V \setminus \Lin(B)$, to $ B \cup \{v\}$ byłby lnz. (sprzeczność)
+        \item[(1) $\Rightarrow$ (4)] $ B $ jest lnz i generuje $ V $\\
+            Gdyby $ B' \subsetneq B$, $ \Lin(B') = V $, to $ v \in B \setminus B'$ byłby kombinacją liniową elementów z $ B'$. (sprzeczność z założeniem $B$ lnz)
+        \item[(4) $\Rightarrow$ (2)] $ B $ jest minimalnym zbiorem generującym\\
+            Weźmy dowolny wektor $ v \in V $.
+            $$ v = \alpha_1v_1 + \dots + \alpha_nv_n = \beta_1v_1 + \dots + \beta_nv_n$$
+            gdzie $ \alpha_i, \beta_i \in K, v_i \in B$. Więc
+            $$ (\alpha_1 - \beta_1)v_1 + \dots + (\alpha_n - \beta_n)v_n = 0 $$
+            Zatem $ \alpha_i = \beta_i $. \\
+            (gdyby $ \alpha_i \neq \beta_i $, to $ v_i = -\frac{\alpha_1 - \beta_1}{\alpha_i - \beta_i}v_1 - \dots - \hat{v_i} - \dots -\frac{\alpha_n - \beta_n}{\alpha_i - \beta_i}v_n $,
+            czyli $ \Lin(B \setminus \{v_i\}) = V $ co jest sprzeczne z zał. $ B $ - minimalny)
+            Więc $ v $ zapisuje się jednoznacznie jako kombinacja liniowa $ B $.
+        \item[(2) $\Rightarrow$ (3)] Każdy wektor zapisuje się jednoznacznie jako kombinacja liniowa $ B $\\
+            Zauważmy, że $ 0 = 0 v_1 + \dots + 0 v_n $, więc $ \alpha_1 = \alpha_2 = \dots = \alpha_n = 0 $, więc $ B $ jest lnz.
+            $ B \cup \{v\} $ nie jest lnz, bo $ v = \alpha_1v_1 + \dots + \alpha_nv_n$. Zatem B jest maksymalnym zbiorem lnz. \qed
+
+    \end{itemize}
+\end{dd}
+
+
+\begin{tw} Każda przestrzeń ma bazę. \end{tw}
+
+\begin{dd}
+    ~\\
+    $ \{0\} \neq V $ (przestrzeń liniowa) \\
+    $ \mathcal{X} = \{ X \subset V : X \text{ lnz} \}, \mathcal{X}  \neq \{0\}$ \\
+    Niech $\mathcal{Y} \in \mathcal{X} $ to łańcuch (tzn. $\forall y_1, y_2 \in \mathcal{Y} \ (y_1 \subset y_2 \lor y_1 \supset y_2)$) \\
+    $\mathcal{Y}$ ma ograniczenie górne (tzn. $\exists Y \in \mathcal{X} \ \forall y \in \mathcal{Y} \ y \in Y$) \\
+    Y $\overset{\mathrm{def}}{=} \bigcup\limits_{y_i \in \mathcal{Y}} y_i \in \mathcal{X}$, bo Y lnz, bo każdy skończony podzbiór Y jest w pewnym $y_i \in $ Y, czyli jest lnz.
+    Zgodnie z lematem Kuratowskieg-Zorna w $\mathcal{X}$ istnieje element maksymalny (tzn. max zbiór lnz = baza). \qed
+\end{dd}
+
+\begin{prz}
+    Istnieje $ B \subset \RR $, taki że każda liczba rzeczywista $ r $ zapisuje się w postaci
+    $ q_1r_1 + \dots + q_nr_n $, gdzie $ q_i \in \mathbb{Q}, r_i \in \RR $.
+\end{prz}
+
+\begin{tw}
+    Niech $ V $ -- przestrzeń liniowa nad $ K $\\
+    $ N \subset G \subset V$, gdzie $ N $ lnz, $\Lin(G) = V$\\
+    Wówczas istnieje baza $ B $ przestrzeni $ V $, taka że $ N \subset B \subset G $
+\end{tw}
+
+\begin{dd}
+    $ \mathcal{X} = \{ X \subset V : X \text{ lnz} , N \subset X \subset G\}$ \\
+    $ Y = \bigcup y \text{ lnz } V$ \\
+    $ N \subset Y \subset G \subset V $ \\
+    Zatem z lematu Kuratowskiego-Zorna w $\mathcal{X} $ istnieje element maksymalny  $B \in \mathcal{X}.$
+    $B$ lnz. Chcemy $\Lin(B) = V$. Weźmy $g \in G \setminus B.$ Wówczas $N \subset B \cup \{g\} \subset G $ liniowo zależny (lz), czyli $g \in \Lin(B)$. Analogicznie $G \subset \Lin(B)$, czyli $V \subset \Lin(G) \subset \Lin(B)$, czyli B jest bazą. \qed
+\end{dd}
+
+\begin{wn} \hfill
+    \begin{enumerate}[{(}1{)}]
+        \item Każdy zbiór lnz można powiększyć do bazy.
+        \item Każdy zbiór generujący zawiera bazę.
+    \end{enumerate}
+\end{wn}
+
+\begin{tw}
+    Każde dwie bazy przestrzeni liniowej $ V $ są równoliczne.
+\end{tw}
+
+\begin{df}
+    Wymiarem przestrzeni liniowej $ V $ ( $ \dim(V) $ ) nazywamy moc bazy.
+\end{df}
+
+
+%{\color{white} $\widehat{}$} %PROBABLY THE BEST BUG FIX YOU'RE EVER GOING TO FIND

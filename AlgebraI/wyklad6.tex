@@ -1,0 +1,174 @@
+\begin{df} 
+    \underline{Minorem} rzędu k macierzy $ A \in M_{m \times n} (K) $ nazywamy wyznacznik macierzy $ k \times k $ powstałej z A przez usunięie pewnej liczby kolumn i wierszy.
+\end{df} 
+
+\begin{ft}
+    $$ v_1,\dots,v_n \in K^n \text{ są lnz} $$ 
+    $$ \Updownarrow $$ 
+    $$\operatorname{rank} (v_1,\dots,v_n) = m$$
+    $$ \Updownarrow $$ 
+    $$\text{macierz} (v_1,\dots,v_n) \text{ma niezerowy minor rzędu m.}$$
+\end{ft}
+
+\begin{ft} 
+    Rząd macierzy = największy rząd niezerowego minora. 
+\end{ft} 
+
+\begin{dd} 
+    $$ A = (A_1,\dots, A_n) \in M_{m \times n } (K) $$ 
+    $$ \operatorname{rank}A \ge k \Leftrightarrow \exists \ i_1,\dots,i_k \quad \operatorname{rank} (A_{i_1},\dots,A_{i_k}) = k $$
+    $$ \Updownarrow $$ 
+    $$ \exists i_1,\dots,i_k,j_1,\dots,j_k \ \operatorname{rank} B = k $$
+    $$ \text{gdzie } B \text{ to macierz złożona z wierszy } (A_{i_1},\dots,A_{i_k}) \text{ o numerach } j_1,\dots,j_k$$
+    $$ \Updownarrow $$ 
+    $$\text{istnieje niezerowy minor rzędu k dla macierzy } A$$
+    Zatem $\operatorname{rank}A = k \Leftrightarrow$ największy rząd niezerowego minora to k. 
+\end{dd} 
+
+\section{Wartości i wektory własne} 
+
+\begin{df} 
+    Niech
+    $$ F : V \rightarrow V \text{ liniowe (endomorfizm)}$$
+    Wektor $v \in V $ nazywamy \underline{wektorem własnym} $F$, jeśli $\exists \lambda \in K \quad F(v) = \lambda v.$
+    \underline{Wartością własną} przekształcenia $F$ nazywamy $\lambda \in K$, taką, że istnieje \underline{niezerowy} wektor własny dla $\lambda \ (\text{ tzn. } \exists_{v \neq 0} \ F(v) = \lambda v)$.
+\end{df} 
+
+%przykład trzeba zrobić fajne rysunku
+
+\begin{ft}
+    $V_{\lambda}(F) = \{ v \in V : F(v) = \lambda v\} $ jest podprzestrzenią $V$ (zwaną \underline{przestrzenią własną}). 
+\end{ft} 
+
+\begin{dd} 
+    $v,v' \in V_\lambda$.
+    $$ F(v) = \lambda v,\ F(v') = \lambda v' \Rightarrow F(v+v') = \lambda (v+v')$$
+    Podobnie mnożenie przez skalar.
+\end{dd} 
+
+\begin{ft} 
+    Jeśli $\lambda_1, \dots, \lambda_n \in K $ to parami różne, wartości własne $F: V \rightarrow V$, zaś $v_1,\dots,v_n$ - niezerowe wektory własne dla odpowiednio $\lambda_1, \dots, \lambda_n $ to $v_1,\dots,v_n$ lnz. 
+\end{ft}
+
+\begin{dd} 
+    $$ \alpha_1 v_1 + \ldots + \alpha_n v_n = 0 $$ 
+    $$ F(\alpha_1 v_1 + \ldots + \alpha_n v_n) = 0$$ 
+    $$ \alpha_i F(v_1) + \ldots + \alpha_n F(v_n) = 0 $$ 
+    $$ \left\{ 
+        \begin{array}{l}
+            \alpha_1 v_1 + \ldots + \alpha_n v_n = 0 \\ 
+            \alpha_1 \lambda_1 v_1 + \ldots + \alpha_n \lambda _n v_n = 0 \\ 
+            \alpha_1 \lambda_1^2 v_1 + \ldots + \alpha_n \lambda_n^2 v_n = 0 \\ 
+            \vdots \\ 
+            \alpha_1 \lambda_1^{n_1} v_1 + \ldots + \alpha_n \lambda_n^{n-1} v_n = 0
+        \end{array}
+    \right.$$
+    $$
+    \begin{pmatrix} 
+        & &  \\
+        [v_1]_B & \ldots & [v_n]_B \\
+        & &  
+    \end{pmatrix} 
+    \cdot 
+    \begin{pmatrix} 
+        \alpha_1  & &\\
+        & \ddots &\\ 
+        &  & \alpha_n
+    \end{pmatrix} 
+    \cdot 
+    \overset{\text{odwracalna}}{
+    \begin{pmatrix} 
+        1 & \lambda_1 & \ldots & \lambda_1^{n-1}\\ 
+        1 & \lambda_2 & \ldots & \lambda_2^{n-1}\\
+          & & \vdots & \\
+        1 & \lambda_n & \vdots & \lambda_n^{n-1}
+\end{pmatrix}}
+    = 
+    0 
+    $$
+    $$
+    \begin{pmatrix} 
+        \alpha_1 [v_1]_B & \ldots & \alpha_n [v_n]_B
+    \end{pmatrix} 
+    = 0
+    $$ 
+    $$ \forall i \ \alpha_i [v_i]_B = 0 \text{, czyli} $$
+    $$ \forall i \ \alpha_i = 0$$
+\end{dd} 
+
+\begin{tw} (o diagonalizacji macierzy) \\
+    $ A \in M_{n \times n} (K)$ \\
+    $v_1, \ldots, v_n \in K^n$ wektory własne przekształcenia \\
+    $F_A: K^n \to K^n \quad F_A(X) = AX$ dla wartości własnych $\lambda_1,\ldots,\lambda_n$\\
+    Wówczas
+    $$ A = PDP^{-1} \text{, gdzie}$$
+    $$ D = \begin{pmatrix} \lambda_1 & & \\ & \ddots & \\ & & \lambda_n \end{pmatrix},
+     \quad 
+     P = (v_1,\ldots,v_n)$$
+\end{tw} 
+
+\begin{dd} 
+    $Pe_i = v_i$ \\ 
+    $A(P e_i) = A v_i  = \lambda_i v_i = \lambda_i (P e_i) = PD e_i$ \\ 
+    czyli $(AP)e_i = (PD)e_i$, stąd $AP=PD$ \\ 
+    czyli $A = PDP^{-1}$ \\ 
+    ($P$ odwracalna, bo $v_1,\ldots,v_n$ - baza $K^n$). \hfill \qed
+\end{dd} 
+\begin{ft} 
+    $$\lambda \in K \text{ jest wartością własną macierzy } A \in M_{n \times n}(K)$$
+    $$ \Updownarrow $$
+    $$\text{jest pierwiastkiem wielomianu } \det(A-xI)\footnotemark$$
+    \footnotetext{zwany wielomianem charakterystycznym}
+\end{ft}
+\begin{dd} 
+    $$\lambda \in K \text{ jest wartością własną}$$
+    $$ \Updownarrow $$
+    $$\exists v \neq 0 \quad Av = \lambda v$$
+    $$ \exists v \neq 0 \quad (A-\lambda I) = 0 $$
+    $$ \det(A-\lambda I) = 0$$
+    \hfill \qed
+\end{dd} 
+\begin{wn} 
+    Macierz $A \in M_{n \times n} (K)$ ma co najwyżej $n$ wartości własnych. 
+\end{wn}
+\begin{dd} 
+    Wielomian charakterystyczny ma stopień $\le n$. 
+\end{dd} 
+\begin{ft} 
+    Wielomian charakterystyczny przekształcenie liniowego $F: V \to V$ \underline{nie zależy} od wyboru bazy 
+\end{ft} 
+\begin{dd} 
+    $$\det (m_B^B (F) - \lambda I) = \det (m_C^C (F) - \lambda I)$$ 
+    szczegóły były na ćwiczeniach. (trick $PP^{-1} = I$)
+\end{dd} 
+\begin{ft} 
+    Zadanie 12(?) z ćwiczeń.
+\end{ft} 
+\begin{ft} 
+    \begin{align*}
+        \text{Macierz} A \in &M_{n \times n}(K) \text{ jest diagonalizowalna} \\
+         &\Updownarrow \\ 
+        \sum _{\lambda \in \sigma (A))}& \dim V_\lambda = n 
+    \end{align*}
+    ($\sigma (A) \overset{\text{ozn}}{=}$ spekturm macierzy $A$ = zbiór wartości własnych)
+\end{ft} 
+\begin{ft} 
+    $A \in M_{n \times n} (K)$ \\ 
+    Jeśli $\lambda$ jest pierwiastkiem k-krotnym $X_A$ to $\dim V_\lambda \le k$.
+\end{ft} 
+\begin{dd} 
+    Niech $\dim V_\lambda = s$ \\ 
+    $v_1,\ldots,v_s \in V_\lambda$ lnz \\ 
+    $B = (v_1,\ldots,v_s,v_{s+1},\ldots,v_n)$ - baza $V = K^n$
+    $$ m_B^B (F_A) = \begin{pmatrix} \lambda I & A \\ 0 & C \end{pmatrix} $$ 
+    $ \chi _A ^{(x)} = \det(m_B^B (F_A) - xI) = \det(\lambda I - xI) \det(C - xI) =(\lambda -x)^s \det(C-xI)$ \\
+    czyli $\lambda$ jest $\ge s$-krotnym pierwiastkiem $\chi_A$. \hfill \qed 
+\end{dd} 
+\begin{wn} 
+    Macierz $A$ jest diagonalizowalna $\Leftrightarrow$ $\forall \lambda \in \sigma (A) \dim V_\lambda$ = 
+    krotność $\lambda$ (jako pierwstka $X_A$) oraz $\chi_A$ ma
+    $\deg \chi _A$ pierwiastków (licząc z krotnościami).
+\end{wn}
+\begin{wn} 
+    Jeśli $\lambda$ jest 1-krotnym pierwiastkiem $X_A$, to $\dim V_\lambda = 1$
+\end{wn} 

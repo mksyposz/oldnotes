@@ -1,0 +1,275 @@
+\section{Izomorfizmy}
+\begin{df}
+    Przekształcenie liniowe $F: V \rightarrow W$ nazywamy
+    \textbf{izomorfizmem}, jeśli istnieje przekształcenie
+    liniowe $G: W\rightarrow V$, takie że $G\circ F = id_V$
+    i~$F\circ G=id_W$.
+\end{df}
+
+\begin{ft}
+    $F: V \rightarrow W$ jest izomorfizmem $\Leftrightarrow$ jest liniową
+  bijekcją.
+\end{ft}
+
+\begin{dd} ~\\
+    $\Rightarrow$ oczywiste\\
+  $\Leftarrow$ $F^{-1}: W \rightarrow V$ (funkcja)
+  Potrzeba pokazać, że $F^{-1}$ jest liniowa. Przykładowo:
+  $$F^{-1}(w+w')=F^{-1}(F(v)+F(v'))=F^{-1}(F(v+v'))=v+v'=F^{-1}(w)+F^{-1}(w')$$ 
+  Analogicznie dowodzimy jednorodność.
+\end{dd}
+
+\begin{df}
+    Przestrzenie liniowe $V$ i~$W$ są izomorficzne ($V \simeq W$), gdy istnieje
+    izomorfizm $F: V \rightarrow W$.
+\end{df}
+
+\begin{przy}
+    \[K^n \simeq K_{n-1}[x]\]
+    \[F: K^n \rightarrow K_{n-1}[x]\]
+    \[\begin{pmatrix}a_0\\ \vdots \\a_n\end{pmatrix} \overset{F}{\longmapsto}
+    \left(a_0+a_1x+...+a_{n-1}x^{n-1}\right)\]
+    
+    $F$ --- bijekcja, liniowa.
+    
+    \vspace{5mm}
+    $M_{m\times n}(K)$ --- przestrzeń liniowa nad $K$.
+  \[M_{m\times n}(K) \simeq K^{mn}\]
+  \[F: M_{m\times n}(K) \rightarrow K^{mn}\]
+
+  \[(a_{ij}) \longmapsto \begin{pmatrix}a_{11}\\ \vdots\\a_{1n}\\
+    a_{21}\\ \vdots \\a_{mn}\end{pmatrix}\]
+\end{przy}
+
+\begin{tw}
+    Jeśli $V$ jest skończenie wymiarową przestrzenią liniową nad $K$, to
+  \[V \simeq K^n\]
+  gdzie $n=\dim V$.
+\end{tw}
+
+\begin{dd}
+    Niech $B=(b_1, ..., b_n)$ będzie bazą $V$. Wówczas
+  \[F: V \rightarrow K^n\]
+  \[F(v) = [v]_B\]
+  jest izomorfizmem.
+\end{dd}
+
+\section{Macierz odwrotna}
+
+\begin{df}
+    \textbf{Macierzą odwrotną} do $A \in M_{n\times n}(K)$ nazywamy macierz
+  $B \in M_{n\times n}(K)$ taką, że
+  \[AB = BA = I\]
+\end{df}
+
+\begin{ft}
+    Dla $A,B \in M_{n\times n}(K)$ zachodzi
+    \[AB=I \Rightarrow BA=I\]
+\end{ft}
+
+\begin{df}
+    Operacjami elementarnymi (wierszowymi) na macierzy prostokątnej $A$
+    nazywamy następujące operacje:
+    \begin{enumerate}[{(}1{)}]
+        \item zamiana miejscami $i$-tego i~$j$-tego wiersza ($i \neq j$)
+        \item przemnożenie $i$-tego wiersza przez $\alpha \in K \setminus \{0\}$
+        \item dodanie do $j$-tego wiersza $\alpha$-krotności $i$-tego wiersza
+          ($i \neq j$, $\alpha \in K \setminus \{0\}$)
+    \end{enumerate}
+    Analogicznie definiujemy operacje elementarne (kolumnowe).
+\end{df}
+
+\begin{uw}
+    Wszystkie te operacje można zapisać mnożąc z~lewej (wierszowe) lub
+  z~prawej (kolumnowe) przez odpowiednią macierz.
+
+  Ad 1. (zamiana $i$ i $j$)
+  \[\begin{pmatrix}
+     1 &...&...&...\\
+    ...& 0 & 1 &...\\
+    ...& 1 & 0 &...\\
+    ...&...&...& 1
+  \end{pmatrix}\begin{pmatrix}
+    a_{11}&...&a_{1n}\\
+    ...&a_{jk}&...\\
+    ...&a_{ik}&...\\
+    a_{m1}&...&a_{mn}
+  \end{pmatrix}=\begin{pmatrix}
+    a_{11}&...&a_{1n}\\
+    ...&a_{ik}&...\\
+    ...&a_{jk}&...\\
+    a_{m1}&...&a_{mn}
+  \end{pmatrix}\]
+
+  Analogicznie, wykonanie elementarnej operacji na $A$ to
+  mnożenie $A$ przez pewną macierz $B_{op}$.
+  
+  $B_{op}$ to po prostu $I$, na ktorym została wykonana ta operacja.
+\end{uw}
+
+\begin{ft}
+    \[A = (a_{ij}) \in M_{m\times n}(K)\]
+  \begin{enumerate}
+    \item Jeśli ciąg operacji elementarnych \textit{wierszowych} przeprowadza
+      macierz \[(A|I)=\begin{pmatrix}
+        a_{11}&...&a_{1n}& 1 &...& 0 \\
+        ...&...&...&...& 1 &...\\
+        a_{m1}&...&a_{mn}& 0 &...& 1 \\
+      \end{pmatrix}\]
+      na $(I|B)$, to $B = A^{-1}$
+    \item Albo istnieje ciąg operacji elementarnych wierszowych
+      przeprowadzających $A$ na~$I$, albo istnieje ciąg operacji
+      wierszowych zamieniających $A$ na~macierz z~zerową kolumną /
+      zerowym wierszem
+  \end{enumerate}
+\end{ft}
+
+\begin{dd}
+    \[(E_k...E_2E_1)A=I\]
+  \[E_k...E_2E_1I=E_k...E_2E_1=A^{-1}\]
+\end{dd}
+
+\section{Wyznacznik}
+    Intuicyjnie: $n$-wymiarowa objętość (dim = 1: długość, dim = 2: pole powierzchni, dim = 3: objętość). \\
+    Zerowy wyznacznik oznacza liniową zależność wektorów w~macierzy. \\
+    Wzory Kramera --- rozwiązywanie układów równań przy pomocy wyznaczników.
+
+\begin{df}
+    Odwzorowanie
+  $F: \underbrace{V \times V \times ... \times V}_{n} \rightarrow K$
+  (gdzie $V$ jest przestrzenią liniową nad $K^n$) nazywamy:
+  \begin{enumerate}
+    \item \textbf{wieloliniowym}, jeśli
+      $\forall_k\forall_{v_i,v_{i'}\in V}\forall_{\alpha\in K}$:
+      \[F(v_1, ..., v_k+v_{k'}, ..., v_n)
+      = F(v_1, ..., v_k, ..., v_n) + F(v_1, ...,v_{k'}, ..., v_n)\]
+      oraz
+      \[F(v_1, ..., \alpha v_k, ..., v_n) = \alpha F(v_1, ..., v_n)\]
+    \item \textbf{antysymetrycznym}, jeśli $\forall_{i,j}$:
+      \[F(v_1, ..., v_i, ..., v_j, ..., v_n)
+      = -F(v_1, ..., v_j, ..., v_i, ..., v_n)\]
+  \end{enumerate}
+\end{df}
+
+\begin{tw}
+    Dla każdej liczby $c \in K$ istnieje dokładnie jedno odwzorowanie
+    \[F: \underbrace{K^n \times K^n \times ... \times K^n}_{n} \rightarrow K\]
+    które jest $n$-liniowe, antysymetryczne oraz $F(I) = c$.
+\end{tw}
+
+\begin{dd}
+    \[e_i=\begin{pmatrix}0\\ \vdots \\1\\ \vdots \\0\end{pmatrix} \leftarrow i\]
+  \[A=(a_{ij})=(A_1, ..., A_n)\]
+  \[F(A_1, ..., A_n) = F(\sum_{i_1}a_{i_1}e_{i_1}, ..., \sum_{i_n}a_{i_n}e_{i_n}) =\]
+  (z~$n$-liniowości)
+  \[= \sum_{i_1}...\sum_{i_n}a_{i_1}...a_{i_n}F(e_{i_1}, ..., e_{i_n}) =\]
+  (z~antysymetryczności) $F(...v...v...)=-F(...v...v...)$,
+  czyli $2F(...v...v...)=0$. Dla ciał, że $1+1=0$ też, z~inną def. antysymetryczności)
+  \[= \sum_{\sigma\in S_n}a_{\sigma(1)1}...a_{\sigma(n)n}F(e_{\sigma(1)}, ..., e_{\sigma(n)}) = \]
+  \[= \sum_{\sigma\in S_n} \pm a_{\sigma(1)1}...a_{\sigma(n)n}F(e_1, ..., e_n)\]
+  gdzie $F(e_1, ..., e_n)=c$.
+  \[\sigma: \{1, 2, ..., n\} \overset{\mathrm{na}}{\underset{\mathrm{,,1-1''}}{\longrightarrow}} \{1, 2, ..., n\}\]
+
+\end{dd}
+
+\begin{lem}
+    Jeśli permutację $\sigma$ rozłożymy na złożenie transpozycji, to $(-1)^{\#\mathrm{transpozycji}}$ jest niezależna od rozkładu (i~oznaczana jest $\mathrm{sgn}(\sigma)$).
+\end{lem}
+
+\begin{dd}
+    Zdefiniujmy $t(\sigma)$ jako:
+  \[t(\sigma)=\{(i,j): i<j \land \sigma(i)>\sigma(j)\}\]
+  liczbę nieporządków\\
+  Przykład:
+  \[\begin{pmatrix}1&...&n\\\sigma(1)&...&\sigma(n)\end{pmatrix}
+    =\begin{pmatrix}1&2&3&4&5\\5&4&1&3&2\end{pmatrix}\]
+
+  \[t(\sigma) = 8\]
+  \[\mathrm{sgn}(\sigma) = (-1)^8 = +1\]
+  \[\sigma(id) = 0\]
+
+  Transpozycja to permutacja postaci:
+  \[\begin{pmatrix}
+    1&...&i&...&j&...&n\\
+    1&...&j&...&i&...&n
+  \end{pmatrix}\]
+
+  \[t(\mathrm{transpozycja})=2(j-i-1)+1\]
+  a~zatem
+  \[\mathrm{sgn}(\mathrm{transpozycja})=-1\]
+
+  Wystarczy pokazać, że jeśli
+  \[\sigma' = \tau \circ \sigma\;,\qquad \tau=\mathrm{transpozycja}\]
+  to
+  \[t(\sigma') \equiv t(\sigma)+1 \;(\mathrm{mod}\; 2)\]
+  \[1^\circ\; \sigma(i) < \sigma(j)\]
+  \[2^\circ\; \sigma(i) > \sigma(j)\]
+  czyli \#transpozycji $\equiv t(\sigma)$ (mod 2).
+  zatem $(-1)^{\#\mathrm{transpozycji}}$ nie zależy od rozkładu.\\
+  Pozostaje sprawdzić, że otrzymany wzór
+  \[F(A_1, ..., A_n)=\sum_{\sigma \in S_n}\mathrm{sgn}(\sigma)a_{\sigma(1)1}...a_{\sigma(n)n}\]
+  spełnia zadane warunki. \qed
+\end{dd}
+
+\begin{df}
+    Wyznacznikiem nazywamy \textit{jedyną} funkcję
+  \[\det: (K^n)^n \rightarrow K\]
+  \[\left((K^n)^n \simeq M_{n \times n}(K)\right)\]
+  która jest $n$-liniowa, antysymetryczna i~$\det I=1$
+\end{df}
+
+\begin{ft}
+    \[\det A^T = \det A\]
+  \[\begin{vmatrix}1&2&3\\1&4&1\\2&0&0\end{vmatrix}
+    =\begin{vmatrix}1&1&2\\2&4&0\\3&1&0\end{vmatrix}\]
+\end{ft}
+\begin{dd}
+    \[\sum_\sigma\mathrm{sgn}(\sigma)a_{\sigma(1)1}...a_{\sigma(n)n}\]
+    \[\sum_\sigma\mathrm{sgn}(\sigma^{-1})a_{\sigma^{-1}(1)1}...a_{\sigma^{-1}(n)n}\]
+    \[\sum_{\sigma^{-1}}\mathrm{sgn}(\sigma^{-1})a_{\sigma^{-1}(1)1}...a_{\sigma^{-1}(n)n}\]
+\end{dd}
+
+\begin{wn}
+    Dla macierzy $A \in M_{n \times n}(K)$ wyznacznik $\det A$:
+    \begin{enumerate}[{(}1{)}]
+        \item zmienia znak przy zamianie miejscami dwóch wierszy/kolumn
+        \item nie zmienia się po dodaniu krotności jednego wiersza/kolumny do innego
+        \item mnoży się przez $t \in K$ przy pomnożeniu przez $t$ wybranego
+          wiersza/kolumny
+    \end{enumerate}
+\end{wn}
+
+\begin{dd} \hfill
+    \begin{enumerate}[{(}1{)}]
+        \item Antysymetryczność
+        \item $\det(A_1,\dots,A_i+tA_j,\dots,A_n) = \det(A_1,\dots,A_i,\dots,A_n) + \\ + t \overbrace{\det(A_1,\dots,A_i,\dots,A_i
+        ,\dots,A_n)}^0 = \det(A_1,\dots,A_n)$
+        \item $\det(A_1,\dots,tA_i,\dots,A_n) = t \det(A_1,\dots,A_i,\dots,A_n)$
+    \end{enumerate}
+\end{dd}
+
+\begin{tw}[o rozwinięciu Laplace'a] ~\\
+    Dla $A \in M_{n \times n} (K) $ oraz ustalonego $i \in \{1,\dots,n\}$ 
+        $$\det(A) = \sum_{j=1}^n (-1)^{i+j} a_{ij} A_{ij}$$
+        gdzie $A_{ij}$ to wyznacznik macierzy A z usuniętym i-tym wierszem i j-tą kolumną. 
+        \end{tw}
+\begin{uw}
+    Twierdzenie jest prawdziwe gdy zamienimy miejscami i i j.
+\end{uw}
+
+\begin{dd} 
+    $\det A^T = \det A$, więc wystarczy pokazać dla wierszy. \\
+    \textit{intuicja}: Liczenie wyznacznika to liczenie rozstawień wież na szachownicy, tak aby się wzajemnie nie szachowały. Patrząc na wzór widać, że jest to dokładnie to w postaci rekurencyjnej. Jedyne, co zostało sprawdzić to czy znak się zgadza.
+    $$\sigma : \{1,\dots,n\} \rightarrow \{1,\dots,n\} $$ 
+    $$\sigma (i) = j$$
+    $$\sigma_{ij} = \{1,\dots,\hat i, \dots, n\} \rightarrow \{1,\dots,\hat j, \dots, n\} $$
+    $$ \{1,\dots,n-1\} \qquad \{1,\dots,n-1\} $$
+    $$ sgn(\sigma) \overset{?}{=} (-1)^{i+j} sgn(\sigma_{ij})$$
+    $$ n(\sigma) = n(\sigma_{ij}) + \underbrace{|\{k < i: \sigma(k)  > j\}|}_x + |\{k > i : \sigma(k) < j\}| \footnote{chodzi o nieporzadki}$$ 
+    $$ n(\sigma) = n(\sigma_{ij} + 2x + j - i $$
+    $$ n(\sigma) = n(\sigma_{ij}) + (i+j) + 2(x - i) $$
+    $$ n(\sigma) = n(\sigma_{ij} + (i+j) mod 2 $$
+    $$ (-1)^{n(\sigma)} = (-1)^{n(\sigma_{ij})} (-1)^{i+j}$$
+    $$ sgn(\sigma) = sgn(\sigma_{ij}) \cdot (-1)^{i+j} $$
+    \hfill \qed
+\end{dd}

@@ -1,0 +1,271 @@
+\section{Iloczyn skalarny} 
+\begin{df} 
+    Iloczyn skalarny na rzeczywistej przestrzeni liniowej $V$, 
+    to funckja $\langle \cdot, \cdot \rangle$: $V \times V \to \RR$, która jest 
+    dwuliniową, symetryczną i dodatnio określoną forma. 
+    \begin{enumerate}[(1)] 
+        \item $\langle \alpha_1 v_1 + \alpha_2 v_2, w \rangle = 
+            \alpha_1 \langle v_1, w \rangle + \alpha_2 \langle v_2, w \rangle$
+        \item $\langle v, w \rangle = \langle w, v\rangle$ 
+        \item $\langle v, v \rangle > 0 $ dla $v \neq 0$ 
+    \end{enumerate} 
+\end{df} 
+\begin{df} 
+    Przestrzeń euklidesowa to przestrzeń liniowa (rzeczywista) z iloczynem skalarnym. 
+\end{df} 
+\begin{df} 
+    $V$ - przestrzeń euklidesowa 
+    \begin{enumerate}[(1)]
+        \item $|v| = \sqrt{ \langle v, v \rangle}$ (długość wektora)
+        \item $\cos\sphericalangle(u,v) = \frac{\langle u, v \rangle}{|u||v|}$ (kąt 
+            miedzy wektorami)
+        \item $u \bot v \Leftrightarrow \langle u, v \rangle = 0$ (ortogonalnosć)
+    \end{enumerate} 
+\end{df} 
+\begin{uw} ~\hfill
+    \begin{enumerate}[(1)] 
+        \item $|v| \in \RR_+$ dla $v \neq 0 \\
+            |0| = 0 \qquad(\langle 0, 0 \rangle = \langle 0, \alpha 0 \rangle = \alpha 
+            \langle 0 , 0 \rangle$ zatem $\langle 0, 0 \rangle = 0)$
+        \item $| \langle u, v \rangle | \le |u| |v|$ 
+    \end{enumerate} 
+\end{uw} 
+\begin{ft}[Nierówność Schwarza] \[ | \langle u, v \rangle | \le |u| |v| \] \end{ft} 
+\begin{dd} ~\\ 
+    $\langle u +tv, u +tv \rangle \ge 0 \quad t \in \RR$ \\ 
+    $f(t) = \langle u,u \rangle + t^2 \langle v,v \rangle + 2t \langle u, v \rangle \ge 0,$
+    $f: \RR \to \RR$ \\ 
+    $\Delta \le 0$ \\
+    $(2 \langle u,v \rangle)^2 - 4 |u|^2 |v|^2 \le 0$ \\ 
+    $ \langle u,v \rangle )^2 \le (|u||v|)^2 $ \\ 
+    $ |\langle u, v \rangle| \le |u| |v|$ \hfill \qed
+\end{dd} 
+\begin{ft}[Nierwność trójkąta] 
+    \[ |u+v| \le |u| + |v| \]
+\end{ft} 
+\begin{dd} 
+    $|u+v|^2 = \langle u+v, u+v \rangle = \langle u, u \rangle + \langle v, v \rangle + 
+    2 \rangle u, v \langle = |u|^2 + |v|^2 + 2 \langle u, v \rangle \overset{\text{Schwarz}
+    }{\le} |u|^2 + |v|^2 + 2|u||v| = (|u| + |v|)^2$ \hfill \qed
+\end{dd} 
+\begin{wn} ~\\ 
+    $V$ - przestrzeń euklidesowa \\ 
+    Wówczas $d(u,v) := |u-v|$ jest metryką na $V$. 
+\end{wn} 
+\begin{dd} \hfill 
+    \begin{enumerate}[(1)] 
+        \item $|u-v| = |v-u| \\ 
+            |-w| = \sqrt{\langle -w,-w \rangle} = \sqrt{\cancel{(-1)}\cancel{(-1)}
+            \langle w, w \rangle } = |w|$
+        \item $|u-v| + |v-w| \ge |u-w|$ \\ 
+            Nierówność trójkąta dla $u-v$ i $v-w$. 
+        \item $|u - v| < 0 $ dla $u \neq v \quad |0| = 0$ \\ 
+            Dodatnia określonosć $\langle \cdot, \cdot \rangle$
+    \end{enumerate} 
+\end{dd}
+\begin{przy} \hfill 
+    \begin{enumerate}[(1)] 
+        \item $\RR^n$ \\ 
+            $\left \langle \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}, 
+                \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix} \right \rangle
+            = \sum\limits_{i=1}^n x_i y_i$ (standardowy iloczyn na $\RR^n$)
+        \item $\RR_n[x]$ \\ 
+            $\langle P, Q \rangle = \int\limits_0^1 P(x) Q(x) dx$
+        \item niestandardowy iloczyn skalarny na $\RR^n$ \\ 
+            $\langle u, v \rangle = u^\top A v$, gdzie $A$ - symetryczna dodatnie określona
+            macierz \\ 
+            np. $A = \begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix}$ \\ 
+            $\left \langle \begin{pmatrix} x \\ y \end{pmatrix}, 
+                     \begin{pmatrix} x' \\ y' \end{pmatrix} \right \rangle_A = 
+                     \begin{pmatrix} x & y \end{pmatrix}
+                     \begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix}
+                     \begin{pmatrix} x' \\ y' \end{pmatrix} = xx' + 2yy' + xy' + x'y$
+        \item $C[0,1]$ \\ 
+            $\langle f, g \rangle = \int\limits_0^1 f(x)g(x) dx$
+    \end{enumerate} 
+\end{przy} 
+\begin{df} 
+    $V$ - przestrzeń euklidesowa \\ 
+    $A \subset V$ \\ 
+    Dopełnieniem ortogonalnym $A$ nazywamy 
+    \[ A^\bot = \{ v \in V: (\forall a \in A) (\scp av = 0)\}\]
+\end{df} 
+\begin{ft} \hfill 
+    \begin{enumerate}[(1)] 
+        \item $A^\bot < V$ 
+        \item $A^\bot = (\Lin A)^\bot$
+        \item $A \subset B \Rightarrow A^\bot \supset B^\bot$ 
+        \item Jeśli $\dim V < \infty, \ W < V$, to $V = W \oplus W^\bot$
+    \end{enumerate} 
+\end{ft}
+\begin{dd} \hfill 
+    \begin{enumerate}[(1)] 
+        \item $\begin{aligned} \scp a{v_1} = 0 \\ \scp a{v_2} = 0 \end{aligned}
+            \Rightarrow \scp{a}{\alpha_1 v_1 + \alpha_2 v_2} = 0$
+        \item $\supset$ z $(3)$ \\
+              $\subset$ \\ 
+              $ v \in A^\bot$ tzn $\scp av = 0 \quad \forall a \in V$ \\ 
+              $\alpha_1 v_1 + \ldots \alpha_n v_n \in \Lin A,\ a_i \in A,\ \alpha_1 \in\RR
+              \\ \scp v{\alpha_1 a_1 + \ldots + \alpha_n v_n} =
+              \alpha_1 \underscript{\scp{v_1}{a_1}}{\verteq}{0} + \ldots +
+              \underscript{\scp{v_n}{a_n}}{\verteq}{0} = 0$ 
+        \item $\checkmark$
+        \item $\underscript{W \cap W^\bot}{\vertni}{w} = \{0\}$, bo $\scp ww = 0$, czyli 
+            $w = 0$ \\ 
+            $b_1,\ldots,b_k$ - baza $W$ \\ 
+            $F: V \to \RR^k$ liniowe $v \mapsto \begin{pmatrix} \scp v{b_1} \\ \vdots \\ 
+            \scp v{b_n} \end{pmatrix}$ \\ 
+            $\ker F = \{b_1,\ldots,b_n\}^\bot = W^\bot$ \\ 
+            $\underscript{\dim V}{\verteq}{n} = \underscript{\dim\operatorname{Im}F}
+            {\vertge}{k} + \underscript{\dim W^\bot}{\vertle}{n-k}$ \\ 
+            $\dim W^\bot + \dim W \underset{=}{\ge} \dim V$ \hfill \qed
+    \end{enumerate} 
+\end{dd} 
+\begin{df} 
+    $V - $ przetrzeń euklidesowa $\dim V < \infty,\ W < V$ 
+    Rzutem prostopadłym (ortogonalnym) na $W$ nazywamy odwzorowanie $P_W: V \to V$ 
+    takie, że $P_W (v) = w$, gdzie $v = \underscript{w}{\vertni}{W} +
+    \underscript{w^\bot}{\vertni}{W^\bot}$ to jednoznaczne takie przedstawienie. 
+\end{df} 
+\begin{ft} 
+    $P_W$ jest liniowe
+\end{ft} 
+\begin{dd} ~\\ 
+    $\begin{aligned}[t] 
+        v_1 &= w_1 + w_1^\bot \\ 
+        v_2 &= w_2 + w_2^\bot \\ 
+        v_1 + v_2 &= \underscript{w_1+w_2}{\vertni}{W}+
+        \underscript{w_1^\bot+w_2^\bot}{\vertni}{W^\bot}
+    \end{aligned}$ \\czyli $P_w(v_1 + v_2) = w_1 + w_2= P_W (v_1) + P_W (v_2)$ (podobnie
+    jednorodność)
+\end{dd} 
+\begin{ft} 
+    Jeśli $W = \Lin\{W\}$, to $P_W(v) = P_w(v) = \frac{\scp vw}{\scp ww} w$
+\end{ft} 
+\begin{dd} 
+    $v = \underscript{\frac{\scp vw}{\scp ww}}{\vertni}{W} w
+    + (v- \underscript{\frac{\scp vw}{\scp ww}}{\vertin\; ?}{\underscript{W^\bot}{\verteq}
+    {w^\bot}})$ \\ 
+    $\scp w {v - \frac{\scp vw}{\scp ww}w} = \scp wv - \frac{\scp vw}{\cancel{\scp ww}}
+    \cancel{\scp ww} = 0$
+\end{dd} 
+\begin{ft} 
+    $P_W(v)$ to jedyny punkt minimalizujący odległość od $v$
+\end{ft} 
+\begin{dd} 
+%piękny rysunek xD %%% twierdznie pitagorasa 
+    $\begin{aligned}[t]
+        (d(v,w))^2 = |v-w|^2 &= |(v - P_W(v)) + (P_W(v)-w)|^2 \\ 
+                             &= \scp{(v-P_W(v))+(P_W(v)-w)}{(v-P_W(v))+(P_W(v)-w)} \\
+                             &= |v - P_W(v)|^2 + |P_W(v)-w|^2 + 2\underscript
+                             {\scp{v-P_W(v)}{P_W(v)-w}}{\verteq}{0}
+    \end{aligned}$ \\
+    czyli $|v-w|^2 \ge |v - P_W(v)|^2 \Leftrightarrow P_W(v) = w$
+\end{dd} 
+\begin{df} 
+    $V -$ przestrzeń euklidesowa, $\dim V < \infty$ \\ 
+    $B = (b_1,\ldots,b_n)$ - baza 
+    $B$ nazywamy: 
+    \begin{itemize}
+        \item bazą ortogonalną, jeśli $\scp{b_i}{b_j} = 0$ dla $i \neq j$
+        \item bazą ortonormalną (ON), jeśli 
+            $\scp{b_i}{b_j} = \begin{cases} 0, & i \neq j \\ 1, & i = j \end{cases}$
+    \end{itemize} 
+\end{df} 
+\begin{ft} 
+    Każda skończonie wiele wymiarowa przestrzeń euklidesowa ma bazę ortonomrlaną
+\end{ft} 
+\begin{dd} [ortogonalizacja Grama-Schmidta] ~\\ 
+    $b_1,\ldots,b_n$ - dowolona baza \\ 
+    $\begin{aligned} 
+        b_1' &= b_1 \\ 
+        b_2' &= b_2 - P_{b_1'}(b_2) \\ 
+        b_3' &= b_3 - P_{b_2'}(b_3)  - P_{b_1'}(b_3) = b_3 - P_{\Lin\{b_1',b_2'\}}(b_3)\\
+             &\vdots \\ 
+        b_k' &= b_k - P_{\Lin\{b_1',\ldots,b_{k-1}'\}}(b_k) = 
+                b_k - \sum\limits_{i=1}^{k-1} P_{b_i'}(b_k)
+    \end{aligned}$ \\
+    Indukcja dla $j < k$: 
+    $\scp{b_k'}{b_j'} = \scp{b_j'}{b_k - \sum\limits_{i=1}^{k-1} P_{b_i'} (b_k)} = 
+    \scp{b_j'}{b_k} - \sum\limits_{i=1}^{k-1} \scp{b_j'}{\frac{\scp{b_k}{b_i'}}
+    {\scp{b_i'}{b_i'}b_i'}} \overset{\text{zał ind.}}{=} \scp{b_j'}{b_k} - 
+    \scp{b_j'}{\frac{\scp{b_k}{b_j'}}{\scp{b_j'}{b_j'}} b_j'} = 0$, czyli \\ 
+    $b_1',\ldots,b_n'$ - parami ortogonalne \\ 
+    Dodatkowo: 
+    $\Lin\{b_1,\ldots,b_n\} = \Lin\{b_1',\ldots,b_n'\}$ prosta induckja, więc \\ 
+    $b_1',\ldots,b_n'$ - baza ortogonalna \\ 
+    $\frac{b_1'}{|b_1'|},\ldots,\frac{b_n'}{|b_n'|}$ - baza ortonormalna \\ 
+    Ponadto \\ 
+    $b_k = \underscript{b_k'}{\vertin}{\Lin\{b_1',\ldots,b_{k-1}'\}^\bot} + 
+    \underscript{\sum\limits_{i=1}^{k-1} P_{b_i'} (b_k)}{\vertin}{\Lin\{b_1',\ldots,b_{k-1}
+    \}}$, czyli \\ 
+    $\sum P_{b_i} (b_k) = P_{\Lin\{b_1',\ldots,b_{k-1}'\}} (b_k)$
+\end{dd} 
+\begin{wn} 
+    Jeśli $b_1,\ldots,b_k$ - baza ortogonalna $W$, to $P_W(v) = \sum\limits_{i=1}^k P_{b_i}
+    (v)$
+\end{wn} 
+\begin{ft} 
+    $V $ - przestrzeń euklidesowa, $\dim V < \infty$, to $(V,\scp \cdot \cdot )$ jest
+    izomorficzne z $(\RR^n,\scp \cdot \cdot _{\text{st}})$ przez izomorfizm 
+    zachowujący iloczyn skalarny. 
+\end{ft} 
+\begin{dd} 
+    $B = (b_1,\ldots,b_n)$ - ortonormalna baza $V$ \\ 
+    $F: V \to \RR^n \quad F$ liniowe $F(b_i) = e_i, F(v) = [v]_B$ \\ 
+    $v = \sum \alpha_i b_i$ \\ 
+    $v - \sum \alpha_i'b_i$ \\ 
+    $\scp v{v'} = \scp{\sum\limits_i\alpha_i b_i}{\sum\limits_j\alpha_j b_j} = 
+    \sum\limits_i\sum\limits_j \alpha_i\alpha_j \scp{b_i}{b_j} = \sum\limits_i \alpha_i
+    \alpha_i' = \scp{\begin{pmatrix} \alpha_1 \\ \vdots \\ \alpha_n \end{pmatrix}}
+    {\begin{pmatrix} \alpha_1' \\ \vdots \\ \alpha_n' \end{pmatrix}}_{\text{st}}$
+\end{dd} 
+
+\begin{df} 
+    $V $- przestrzeń liniowa nad $\CC$ 
+    Zespolonym iloczynem skalarnym nazywamy funckję $\scp \cdot \cdot : V \times V 
+    \to \CC$ takie, że 
+    \begin{enumerate}[(1)] 
+        \item $\scp{v_1+v_2}{w} = \scp{v_1}w + \scp{v_2}w$ \\ 
+            $\scp{\alpha v}{w} = \alpha\scp wv$ \\ 
+            $\scp{v}{w_1+w_2} = \scp{v}{w_1}+\scp{v}{w_2}$ \\ 
+            $\scp{v}{\alpha w} = \overline{\alpha} \scp vw$ 
+        \item $\scp{v}{w} = \overline{\scp vw}$ 
+        \item $\scp vv \in \RR_+$ dla $v \neq 0$
+    \end{enumerate} 
+    \rule{3cm}{0.4pt} \\ 
+    \footnotesize
+    { 
+        jeżeli $\scp \cdot \cdot$ spełnia
+        \begin{itemize} 
+            \item (1) jest formą 1,5 - liniową 
+            \item (1) i (2) jest formą hermitowską 
+            \item wszystkie to jest zespolonym iloczynem skalarnym
+        \end{itemize} 
+    } 
+\end{df} 
+$\scp {iv}{iv} = i\overline{i}\scp vv = \scp vv$
+\begin{uw} 
+    Jeśli $\scp \cdot \cdot: \CC^n \times \CC^n \to \CC$ zespolony iloczyn skalarny, to 
+    $ \scp \cdot \cdot |_{\RR^n \times \RR^n}$ jest rzeczywistym iloczynem skalarnym. 
+\end{uw} 
+\begin{prz} \hfill 
+    \begin{itemize} 
+        \item[$1_\RR$] $\RR^n, \ \scp{\begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}}
+            {\begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix}} = \sum x_i y_i$
+        \item[$1_\CC$] $\CC^n, \ \scp{\begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}}
+            {\begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix}} = \sum x_i\overline{y_i}$ 
+        \item[$2_\RR$] $C[0,1] = \{ f:[0,1] \to \RR, f \text{ciągła} \} \\ 
+            \scp f g = \int\limits_0^1 f(x) g(x) dx$
+        \item[$2_\CC$] $C[0,1] = \{ f:[0,1] \to \CC, f \text{ciągła} \} \\ 
+            \scp f g = \int\limits_0^1 f(x) \overline{g(x)} dx$
+    \end{itemize} 
+\end{prz} 
+\begin{uw} 
+    Prawie wszystko to co powiedzieliśmy (rzut ortogonalny, ortogonalność, 
+    metoda Grama-Schmidta, nierówność Schwarza) 
+    aplikuje się do zaespolonego iloczynu skalarnego. 
+\end{uw} 
+\textbf{Zadanie domowe} \\ 
+Przeczytać wszystkie dzisiejsze dowody i znaleźć miejsca, które nie adaptuja się do 
+przypadku zespolonego.
