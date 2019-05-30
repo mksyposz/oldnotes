@@ -1,0 +1,297 @@
+\section{Twierdzenie spektralne}
+\begin{tw}[spektralne] \hfill
+  \begin{itemize}
+    \item[$\RR$] Każda macierz symetryczna $(A^\top = A)$ macierz $A \in M_{n \times n}(\RR)$
+    diagonalizuje się w pewnej bazie ortonormalnej i wszystkie jej wartości
+    własne są rzeczywiste.
+    \item[$\CC$] Każda samosprzężona (tzn $\underscript{\overline A^\top}
+    {\verteq \text{ozn}}{A^*} = A$) macierz $A \in M_{n \times n}(\CC)$ diagonalizuje
+    się w pewnej bazie ortonormalnej i wszystkie jej wartości własne są
+    rzeczywiste.
+  \end{itemize}
+\end{tw}
+
+\begin{prz} ~\\
+  $\begin{pmatrix} 1 & 2 \\ 2 & 3 \end{pmatrix}^\top =
+  \begin{pmatrix} 1 & 2 \\ 2 & 3 \end{pmatrix} \\
+    \begin{pmatrix} 1 & 2+i \\ 2-i & 3 \end{pmatrix}^* =
+      \begin{pmatrix} 1 & 2+i \\ 2-i & 3 \end{pmatrix}$
+\end{prz}
+
+\begin{ft} \hfill
+  \begin{enumerate}[(1)]
+    \item Jeśli $\scp{\cdot}{\cdot}$ jest standardowym (rzeczywistym) iloczynem
+    skalarnym na $\RR^n$ to \[ \scp{Av}w = \scp v{A^\top w} \] dla dowolnych $v, w
+    \in \RR^n,\ A \in M_{n \times n}(\RR)$
+    \item Jeśli $\scp{\cdot}{\cdot}$ jest standardowym (zespolonym) iloczynem
+    skalarnym na $\CC^n$ to \[ \scp{Av}{w} = \scp v{A^*w} \] dla dowolnych $v,w \in
+    \CC^n,\ A \in M_{n \times n}(\CC)$
+  \end{enumerate}
+\end{ft}
+\begin{dd} \hfill
+  \begin{enumerate}[(1)]
+    \item $\scp vw = v^\top w = \sum v_i w_i \\
+           \scp{Av}w = (Av)^\top w = v^\top (A^\top w) = \scp v{A^\top w}$
+    \item $\scp vw = \sum v_i \overline{w_i} = v^\top \overline w \\
+           \scp{Av}w = (Av)^\top \overline w =
+           v^\top \overline{\overline{A}^\top} \overline w =
+           v^\top \overline{A^* w} = \scp{v}{A^* w}$
+  \end{enumerate}
+\end{dd}
+
+\begin{wn} \hfill
+  \begin{enumerate}[(1)]
+    \item  Jeśli $A \in M_{n \times n}(\RR)$ i $A^\top = A$ to
+    \[ \scp{Av}{w} = \scp{v}{Aw}\] dla dowolnych dla dowolnych $v,w \in \RR^n$
+    \item Jeśli $A \in M_{n \times n}(\CC)$ i $A^* = A$, to
+    \[ \scp{Av}{w} = \scp{v}{Aw}\] dla dowolnych $v,w \in \CC^n$
+  \end{enumerate}
+\end{wn}
+
+\begin{dd}[tw. Spektralnego]
+  $\lambda$ - wartość własna $A \quad \lambda \in \CC \ (A^* = A)$ \\
+  $Av = \lambda v,\ v \neq 0$ \\
+  $\lambda \scp{v}{v} = \scp{\lambda v}{v} = \scp{Av}v = \scp v{Av} =
+  \scp v{\lambda v} = \overline \lambda \scp vv$, czyli \\
+  $\lambda \scp vv = \overline \lambda \scp vv$, czyli $\lambda \in \RR$ \\
+  Diagonalizacja $A$ przez indukcję ze względu na $n$:
+  $\lambda_1$ - wartosć własna dla $A$ \\
+  $Av_1 = \lambda_1 v_1,\ v_1 \neq 0$ \\
+  $\RR^n = \Lin\{v_1\} \oplus \{v_1\}^\bot$ \\
+  Cel: $\{v_1\}^\bot \quad F_A$ - niezmiennicza tzn.
+  $\forall w \in \RR^n (\scp{w}{v_1} = 0 \Rightarrow \scp{Aw}{v_1} = 0)$ \\
+  $\scp{Aw}{v_1} = \scp{w}{Av_1} = \scp{w}{\lambda_1 v_1} = \overline{\lambda_1}
+  \scp{w}{v_1} = 0$ \hfill \qed
+\end{dd}
+
+\begin{df}[twierdznie]
+  $A \in M_{n \times n}(\RR)$ nazywamy macierzą ortogonalną (lub macierzą
+  izometrii) jeśli spełniony jest jeden/każdy z następujących warunków:
+  \begin{enumerate}[(1)]
+    \item kolumny $A$ stanowią bazę ortonormalną
+    \item wiersze $A$ stanowią bazę ortonormalną
+    \item $A^{-1} = A^\top$ (inaczej $A^\top A = AA^\top = I$)
+    \item $F_A$ jest odwzorowaniem zachowującym iloczyn skalarny
+    \item $F_A$ jest odwozorwaniem zachowującym długości (izometrią)
+  \end{enumerate}
+\end{df}
+\begin{dd}
+  $A = (v_1,\ldots,v_n)$ \\
+  $(1) \Leftrightarrow \underscript{\scp{v_i}{v_j}}{\verteq}{v_i^\top v_j} =
+  \begin{cases} 1, &i = j \\ 0, & i \neq j \end{cases} \Leftrightarrow
+    \begin{pmatrix} v_1^\top \\ \vdots \\ v_n^\top \end{pmatrix}
+    \begin{pmatrix} v_1 & \ldots & v_n \end{pmatrix} = I \Leftrightarrow (3)$ \\
+  Podobnie $(2) \Leftrightarrow (3)$, czyli mamy $(1) \Leftrightarrow (2) \Leftrightarrow (3)$ \\
+  $(4) \Leftrightarrow \scp vw = \scp{Av}{Aw} = \scp{v}{A^\top Aw}$ dla dowolnych
+  $v,w \in \RR^n$ \\
+  $A^\top A w = w$ dla każdego $w$ \\
+  $A^\top A = I$ ($(4) \Rightarrow (3)$) \\
+  $(3) \Rightarrow (4) \ A^\top A = I$ \\ 
+  $\scp vw = \scp v{Iw} = \scp v{A^\top Aw} = \scp{Av}{Aw}$ \\ 
+  $(4) \Rightarrow (5) \ |v| = \sqrt{\scp vv}$ \\
+  $(5) \Rightarrow (4) \ \scp vw = \frac{1}{2} (|v + w|^2 - |v|^2 - |w|^2)$
+\end{dd}
+
+\begin{df}[twierdzenie] 
+  $A \in M_{n \times n}(\CC)$ nazywamy macierzą unitarną, jeśli spełniony jest 
+  jeden (=każdy) z następujących warunków
+  \begin{enumerate}[(1)] 
+    \item kolumny $A$ stanowią bazę ortonormalną $\CC^n$
+    \item wiersze $A$ stanowią bazę ortonormalną $\CC^n$
+    \item $A^{-1} = A^*$ (inaczej $A^* A = AA^* = I$)
+    \item $F_A$ jest odwzorowaniem zachowującym iloczyn skalarny
+    \item $F_A$ jest odwozorwaniem zachowującym długości (izometrią)
+  \end{enumerate} 
+\end{df} 
+\begin{dd} analogiczny \end{dd} 
+\begin{wn}{z tw. spektralnego} \hfill 
+  \begin{enumerate}[(1)] 
+    \item $A \in M_{n \times n}(\RR),\ A^\top = A$, to $A = PDP^{-1} = PDP^\top$ 
+    ,gdzie $D$ - diagonalna ($D \in M_{n \times n}(\RR)$) 
+    $P$ - ortogonalna
+    \item $A \in M_{n \times n}(\CC),\ A^* = A$, to $A = UDU^{-1} = UDU^*$ \\ 
+    $D \in M_{n \times n}(\RR) !!!$ \\ 
+    $U$ - unitarna 
+  \end{enumerate} 
+\end{wn} 
+\section{Macierze prostokątne}
+$A \in M_{m \times n}(\RR)$ \\ 
+$AA^\top \in M_{n \times n}(\RR)$ \\
+$(A^\top A)^\top = A^\top (A^\top)^\top = A^\top A$ \\ 
+$(AA^\top)^\top = (A^\top)^\top A^\top = AA^\top$ \\ 
+$A^\top A, AA^\top$ są symetryczne oraz dodatnio połokreślone \\
+\rule{2cm}{0.4pt} \\
+$Q$ - forma kwadratowa o macierzy $A$ \\ 
+$Q(v) = v^\top A v =\scp v{Av}$ \\ 
+$Q(v,w) = v^\top A w = \scp v{Aw}$ \\ 
+$A^\top A$ jest dodatnio półokreslony, tzn. \\ 
+$\underscript{\scp v{A^\top Av}}{\verteq}{\scp{Av}{Av}} \ge 0$ \\ 
+Podobnie $AA^\top$ \\
+\rule{2cm}{0.4pt} \\
+Zatem wartości własne $AA^\top,\ A^\top A$ to nieujemne liczby rzeczywiste. 
+\begin{tw}[rozkład SVD\footnote{singular value decomposition}]
+    Dla dowolnej macierzy $A \in M_{m \times n}(\RR)$ istnieje rozkład 
+    \[ A = U\Sigma V^\top\] 
+    gdzie $ \left. \begin{array}{l}
+    U \in M_{m \times m}(\RR) \\ V \in M_{n \times n}(\RR) \end{array}\right \}$ macierze ortogonalne \\ 
+    $\Sigma \in M_{m \times n}(\RR) \ \Sigma = \begin{pmatrix} D \\ 0 \end{pmatrix}$ lub 
+    $\Sigma = \begin{pmatrix} D & 0 \end{pmatrix}$, gdzie $D$ - diagonalna. \\
+    Co więcej: 
+    \begin{itemize}
+    \renewcommand\labelitemi{--}
+    \item niezerowe wyrazy $\Sigma$ są dodatnimi liczbami rzeczywistymi 
+    \item kolumnami $U$ sa wektory własne $AA^\top$ 
+    \item kolumnami $V$ są wektory własne $A^\top A$ 
+    \item wyrazy na przekątnej $\Sigma$ to pierwiastki wartości własnych $A^\top A$
+    \end{itemize}
+\end{tw}
+$A = \begin{pmatrix} u_1 & \ldots & u_n \end{pmatrix} 
+\begin{pmatrix} \lambda_1 & & \\ & \ddots & \\ & & \lambda_n \\ & & & \\ & & & \end{pmatrix} 
+\begin{pmatrix} v_1^\top \\ \vdots \\ v_n^\top \end{pmatrix} m > n$ \\ 
+$ \lambda_1 u_1 v_1^\top + \ldots + \lambda_m u_m v_m^\top$ \\ 
+bez starty ogólności $\lambda_1 \ge \lambda_2 \ge \ldots \ge \lambda_m \ge 0$
+\begin{uw} 
+    Jeśli macierz $A \in M_{m \times n}(\RR)$ chcemy przybliczyć macierzą rzędu $r << m, n$, to 
+    najlepsze przybliżenie, to $A \simeq \lambda_1 u_1 v_1^\top + \ldots + \lambda_r u_r v_r^\top$
+\end{uw} 
+\begin{dd} ~\\
+    $A^\top A \overset{\text{tw. spektralne}}{=} VDV^\top$ \\ 
+    $V$ - ortogonalna \\ 
+    $D$ - diagonalna, $D = \begin{pmatrix} \lambda_1 & & \\ & \ddots & \\ & & \lambda_n \end{pmatrix} 
+    \lambda_i \in \RR_+ \cup \{0\}$ \\ 
+    \rule{2cm}{0.4pt} \\ 
+    $m = n$ oraz $\lambda_1,\ldots,\lambda_n > 0$ \\ 
+    $A = (AVD^{-\frac{1}{2}})D^{\frac{1}{2}}V^\top = U\Sigma V^\top$ 
+    gdzie $\begin{pmatrix} \lambda_1 & & \\ & \ddots & \\ & & \lambda_n \end{pmatrix}
+    \overset{\text{ozn.}}{=} \begin{pmatrix} \lambda_1 & & \\ & \ddots & \\ & & \lambda_n \end{pmatrix}$\\
+    $\Sigma = D^{\frac{1}{2}}$ \\ 
+    $U = AVD^{-\frac{1}{2}}$ \\ 
+    $U^\top U = (AVD^{-\frac{1}{2}})^\top AVD^{-\frac{1}{2}} = D^{-\frac{1}{2}}V^\top (A^\top A)V
+    D^{-\frac{1}{2}} = D^{-\frac{1}{2}}(V^\top V)D(V^\top)D^{-\frac{1}{2}} = I$, czyli $U$ jest 
+    ortogonalne.
+\end{dd} 
+\begin{tw}[rozkład SVD (wersja zespolona)]
+    Dla dowolnej $A \in M_{m \times n}(\CC)$ istnieje rozkład $A = U\Sigma V^*$, gdzie $U, V$ - macierze 
+    unitarne. \\
+    $\Sigma = \begin{pmatrix} D \\ 0 \end{pmatrix}$ lub $\begin{pmatrix} D & 0 \end{pmatrix}$ \\ 
+    gdzie $D$ jest diagonalną o nieujemnych rzeczywistach wyrazach na przekątnej. 
+\end{tw} 
+\begin{dd} analogiczny \end{dd} 
+\subsection{Rozpoznawanie twarzy} 
+$F^{(1)},\ldots,F^{(k)}$ - zdjęcia twarzy 
+$\overline F = \frac{1}{k} \sum\limits_i F^{(i)}$ - średnia twarz \\ 
+$\overline F^{(s)} = F^{(s)} - \overline F$ \\ 
+$\overline F^{(s)} \in M_{m \times n}(\RR) \simeq \RR^{mn}$ \\ 
+\begin{tikzpicture}[scale=0.5]
+    \draw[->] (-12,0) -- (12,0) node[below]{$x$};
+    \draw[->] (0,-6) -- (0,6) node[right]{$y$};
+    \draw[->,thick] (-3,-3) -- (3,3) node[above]
+        {kierunek w którym zbiór jest najbardziej rozproszony};
+    \draw[fill] (0.4934858523654501,0.860518298508326) circle[radius=0.025];
+    \draw[fill] (0.6638079607617523,0.19815942051416985) circle[radius=0.025];
+    \draw[fill] (0.9308879903554367,0.8538904904043795) circle[radius=0.025];
+    \draw[fill] (4.974315252850506,2.895189422697958) circle[radius=0.025];
+    \draw[fill] (-2.4576669327864673,-0.4812591393908312) circle[radius=0.025];
+    \draw[fill] (-0.1827234582095264,-1.6895847963414348) circle[radius=0.025];
+    \draw[fill] (2.1836838055594106,2.902378306404439) circle[radius=0.025];
+    \draw[fill] (-2.1537945864657444,-1.6643703685210747) circle[radius=0.025];
+    \draw[fill] (5.033856078800751,3.960378379933209) circle[radius=0.025];
+    \draw[fill] (0.7456581965210345,-2.253855012416922) circle[radius=0.025];
+    \draw[fill] (7.266217688502848,4.864367285652897) circle[radius=0.025];
+    \draw[fill] (0.9103782746960383,-0.1425217815313835) circle[radius=0.025];
+    \draw[fill] (2.839275535937861,1.015473964555969) circle[radius=0.025];
+    \draw[fill] (3.8830386583018695,2.2046007970511496) circle[radius=0.025];
+    \draw[fill] (-3.986594928990235,-2.7510731038422453) circle[radius=0.025];
+    \draw[fill] (-4.262861473155021,-2.2796593375337073) circle[radius=0.025];
+    \draw[fill] (-3.418348420059692,0.12130341159320013) circle[radius=0.025];
+    \draw[fill] (-2.7766926269083405,-2.7899371537491375) circle[radius=0.025];
+    \draw[fill] (2.567203296237186,2.4566695616444685) circle[radius=0.025];
+    \draw[fill] (-0.06511177990686884,1.1860552035291894) circle[radius=0.025];
+    \draw[fill] (4.204469430329178,2.35465469708201) circle[radius=0.025];
+    \draw[fill] (2.780453867204177,1.4895542873394116) circle[radius=0.025];
+    \draw[fill] (-5.780961377189902,-3.514989713464555) circle[radius=0.025];
+    \draw[fill] (0.958628893643957,2.1537887139744574) circle[radius=0.025];
+    \draw[fill] (-0.7670041370598432,-0.20694754637033883) circle[radius=0.025];
+    \draw[fill] (2.6865653144742794,2.6651875508655745) circle[radius=0.025];
+    \draw[fill] (2.91390907393373,1.4875256085679425) circle[radius=0.025];
+    \draw[fill] (3.550563040336469,1.9502677754954652) circle[radius=0.025];
+    \draw[fill] (5.844799684982185,3.5151665210664444) circle[radius=0.025];
+    \draw[fill] (-0.11849303815380102,-0.2944699909639642) circle[radius=0.025];
+    \draw[fill] (4.780421543065727,2.4441954833370283) circle[radius=0.025];
+    \draw[fill] (1.342199718723413,2.0339762610860554) circle[radius=0.025];
+    \draw[fill] (-2.5691111120763828,-2.6314642883678845) circle[radius=0.025];
+    \draw[fill] (-0.21783244909330185,-0.5456624898357506) circle[radius=0.025];
+    \draw[fill] (0.5913296088808833,-1.5666958749421893) circle[radius=0.025];
+    \draw[fill] (9.751211251623273,5.713412285970427) circle[radius=0.025];
+    \draw[fill] (0.7977060847126889,-0.5674209260248292) circle[radius=0.025];
+    \draw[fill] (-0.5740992259645354,-1.3359167384628412) circle[radius=0.025];
+    \draw[fill] (3.861575002067515,3.0380221806075727) circle[radius=0.025];
+    \draw[fill] (1.132152138012633,0.6167104309330096) circle[radius=0.025];
+    \draw[fill] (-2.895284579535973,-2.795601178452311) circle[radius=0.025];
+    \draw[fill] (-1.3965066200708909,-1.5669071022314445) circle[radius=0.025];
+    \draw[fill] (0.2730620521254288,-1.4455755916354587) circle[radius=0.025];
+    \draw[fill] (-9.525416457605019,-3.9043347997291846) circle[radius=0.025];
+    \draw[fill] (-1.160849454268151,-1.5269052310158004) circle[radius=0.025];
+    \draw[fill] (-3.8197950625500754,-3.119565326268457) circle[radius=0.025];
+    \draw[fill] (-11.892183332910005,-5.439892835363576) circle[radius=0.025];
+    \draw[fill] (0.14081105298112456,-0.39421801514711097) circle[radius=0.025];
+    \draw[fill] (2.7678817583059727,-0.08806165759760232) circle[radius=0.025];
+    \draw[fill] (-1.59414285501866,-0.48239584488453446) circle[radius=0.025];
+    \draw[fill] (4.644418790065638,4.655691805228571) circle[radius=0.025];
+    \draw[fill] (3.3438612282404705,-0.2231759309347574) circle[radius=0.025];
+    \draw[fill] (1.3762655582061565,3.405703243633005) circle[radius=0.025];
+    \draw[fill] (-4.076212909757563,-0.2162068171189413) circle[radius=0.025];
+    \draw[fill] (-0.9781089986410438,-0.8785411407659105) circle[radius=0.025];
+    \draw[fill] (-1.9527704686216012,-1.9395877287061447) circle[radius=0.025];
+    \draw[fill] (-3.2181941344772387,-2.379878552069895) circle[radius=0.025];
+    \draw[fill] (3.6051834336716557,0.8824351531227791) circle[radius=0.025];
+    \draw[fill] (3.2141332138993275,1.0242107227612327) circle[radius=0.025];
+    \draw[fill] (-0.03902223313640214,-0.23739994596425357) circle[radius=0.025];
+    \draw[fill] (4.730572693532324,1.284981427773363) circle[radius=0.025];
+    \draw[fill] (-4.154228714171534,-2.8538468489462825) circle[radius=0.025];
+    \draw[fill] (0.9404062309432386,-1.199854859235778) circle[radius=0.025];
+    \draw[fill] (-10.248656206713072,-5.1943994203144985) circle[radius=0.025];
+    \draw[fill] (0.9791582210798115,1.912790057213526) circle[radius=0.025];
+    \draw[fill] (-2.3324135758036304,-1.48985219775803) circle[radius=0.025];
+    \draw[fill] (9.401628647666913,7.252009561782484) circle[radius=0.025];
+    \draw[fill] (1.2593637883708488,3.2906105526652984) circle[radius=0.025];
+    \draw[fill] (2.727452223815179,1.5898709419720134) circle[radius=0.025];
+    \draw[fill] (6.9668206960338095,4.708663661344671) circle[radius=0.025];
+    \draw[fill] (2.1895975209934244,-0.7994117126499718) circle[radius=0.025];
+    \draw[fill] (2.6061680927306066,1.3022009982982075) circle[radius=0.025];
+    \draw[fill] (-0.4271829744837792,1.152509796704273) circle[radius=0.025];
+    \draw[fill] (0.4995627716686687,1.1462350413339912) circle[radius=0.025];
+    \draw[fill] (3.7490394808713776,1.7998927181833189) circle[radius=0.025];
+    \draw[fill] (1.484372035350263,-1.1511776321889946) circle[radius=0.025];
+    \draw[fill] (-1.7921695905315964,1.0505727656733663) circle[radius=0.025];
+    \draw[fill] (-3.6179867160574046,-2.377630744756578) circle[radius=0.025];
+    \draw[fill] (5.472201114781904,0.8816425611954777) circle[radius=0.025];
+    \draw[fill] (-1.9896024802938403,-1.4189025625194163) circle[radius=0.025];
+    \draw[fill] (6.0637798332723065,2.4625583613707636) circle[radius=0.025];
+    \draw[fill] (-7.790997545273577,-3.8048122699406193) circle[radius=0.025];
+    \draw[fill] (5.406798423550952,0.6208255829113367) circle[radius=0.025];
+    \draw[fill] (-4.524932039132841,-0.8112973218829862) circle[radius=0.025];
+    \draw[fill] (-2.9728099927728637,-2.9249430356557893) circle[radius=0.025];
+    \draw[fill] (-3.6854057154600213,-1.4318364581006504) circle[radius=0.025];
+    \draw[fill] (-2.386918816150601,-1.7580096455218093) circle[radius=0.025];
+    \draw[fill] (-6.550469013137169,-2.855390786438701) circle[radius=0.025];
+    \draw[fill] (-4.042200850680477,-0.4110271230417408) circle[radius=0.025];
+    \draw[fill] (-0.020293906179843946,-2.311148450130922) circle[radius=0.025];
+    \draw[fill] (-2.501594200931024,-0.24939785085632216) circle[radius=0.025];
+    \draw[fill] (1.105874927533934,0.20135638920924664) circle[radius=0.025];
+    \draw[fill] (-3.351112466627758,-2.342348786648233) circle[radius=0.025];
+    \draw[fill] (5.167360089558085,1.7934800345329065) circle[radius=0.025];
+    \draw[fill] (-10.335781697491704,-5.552712819417305) circle[radius=0.025];
+    \draw[fill] (-7.8172154680391674,-4.689421447604833) circle[radius=0.025];
+    \draw[fill] (-5.016823748960661,-3.62207968322557) circle[radius=0.025];
+    \draw[fill] (2.4503266858977724,0.3592677326600645) circle[radius=0.025];
+    \draw[fill] (2.3663785502233017,1.3105983618922592) circle[radius=0.025];
+    \draw[fill] (2.940309808409997,2.5193141327609685) circle[radius=0.025];
+\end{tikzpicture}  \\
+macierz kowariancji \\ 
+$C = (c_{ij})$ \\ 
+$c_{ij} = \frac{1}{k} \sum\limits_i \overline F_i^{(s)} \overline F_j^{(s)}$ \\ 
+$\overline F^{(s)} = \begin{pmatrix} \overline F_1^{(s)} \\ 
+    \vdots \\ F_mn^{(s)} \end{pmatrix} \leftarrow$ eigenvector \\ 
+$C$ symetryczna \\
+$F_1,\ldots,F_{100}$ - wektory własne dla największych wartości własnych , eigenfaces
