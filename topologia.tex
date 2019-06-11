@@ -26,6 +26,8 @@
 \fancyhf[ELH,ORH]{\thepage}
 \fancyhead[C]{Topologia}
 
+\baselineskip=1.6\baselineskip
+
 \definecolor{lightgray}{gray}{0.96}
 
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
@@ -570,7 +572,7 @@ $f: X \rightarrow X'$ oraz $f^{-1}: X' \rightarrow X$ są funkcjami ciągłymi.\
         \begin{enumerate}[(1)]
             \item Metryka $\rho$ jest zupełna
             \item Jeżeli $F_1 \supseteq F_2 \supseteq \ldots \supseteq F_n \supseteq \ldots$, gdzie $F_n$ 
-                są domknięte i niepuste oraz $\operatorname{diam}_\rho (F) \to 0$, to $\bigcup\limits_{n=1}^\infty F_n \neq 0$.
+                są domknięte i niepuste oraz $\operatorname{diam}_\rho (F) \to 0$, to $\bigcap\limits_{n=1}^\infty F_n \neq 0$.
         \end{enumerate} 
         \footnotetext{$\operatorname{diam}_\rho(A) = \sup\limits_{x,y \in A} \rho(x,y)$}
 \end{tw} 
@@ -578,10 +580,10 @@ $f: X \rightarrow X'$ oraz $f^{-1}: X' \rightarrow X$ są funkcjami ciągłymi.\
     \begin{itemize} 
         \item[$(1) \Rightarrow (2)$] Niech $x_n \in F_n$. Wtedy $(x_n)$ spełnia warunek Cauchy'ego, bo dla 
             $k > 0 \ \rho(x_k,x_n) \le \operatorname{diam}_\rho (F_n) \to 0$. \\ 
-            Niech $x = \lim\limits_n x_n$. Wtedy $x \in \bigcup\limits_{n=1}^\infty F_n$.
+            Niech $x = \lim\limits_n x_n$. Wtedy $x \in \bigcap\limits_{n=1}^\infty F_n$.
         \item[$(2) \Rightarrow (1)$] Niech $(x_n)$ spełnia warunek Cauchy'ego. 
             $F_n = \overline{\{x_{n+1},x_{n+2},\ldots\}} \ \operatorname{diam}_\rho (F_n) \to 0$ \\
-            $x \in \bigcup\limits_{n=1}^\infty F_n$. Wtedy $x = \lim\limits_n x_n$.
+            $x \in \bigcap\limits_{n=1}^\infty F_n$. Wtedy $x = \lim\limits_n x_n$.
     \end{itemize} 
 \end{dd} 
 \begin{tw} (Baire'a o kategorii) Jeżeli $X$ jest p. metryczną zupełną, $F_n \subseteq X$ są domknięte i $\operatorname{int}(F_n) = \emptyset$,
@@ -605,7 +607,7 @@ to $\bigcup\limits_{n=1}^\infty F_n \neq X$. \end{tw} \begin{dd} Definiujemy ind
 \end{dd} 
 \begin{df} ~\\
     Zbiór $ A \subseteq X$ jest nigdziegęsty, jeżeli $\operatorname{int}(\overline{A}) = \emptyset$ \\
-    Zbiór $A \subseteq X$ jest brzegowy, jeżeli $\operatorname{int}(\overline{A}) = \emptyset$. \\ 
+    Zbiór $A \subseteq X$ jest brzegowy, jeżeli $\operatorname{int}(A) = \emptyset$. \\ 
     Zbiór $A \subseteq X$ jest I-kategorii, jeżeli $A \subseteq \bigcup\limits_{n=1}^\infty B_n$, gdzie $B_n$ jest nigdziegęste.
 \end{df} 
 \begin{uw} Z tw. Baire'a przestrzeń metryczne zupełna nie jest I-kategorii \end{uw}
@@ -1536,4 +1538,269 @@ $f = \underset{t \in T}{\Delta}f_t$
     przekrój $[ \bigcup\limits_{t \in T} F_t \neq \emptyset$ wynika z $\bigcap\limits_{t
     \in S} F_t \neq \emptyset$ dla $ s \subseteq T$ skończonych.]
 \end{uw} 
-\end{document} 
+\begin{tw} 
+    Jeżeli $X$ jest przestrzenią zwartą i $X \subseteq Y$, gdzie $Y \in T_2$, to 
+    $X$ jest domknięta w $Y$.
+\end{tw} 
+\begin{dd} 
+    Skoro $Y \in T_2$, to dla $y \in Y \ \{y\} = \bigcup\limits_{V \in \mathcal T,y \in V} \overline V$ \\ 
+    Rozważmy $y \in \overline X \subseteq Y$ \\ 
+    Chcemy pokazać, że $y \in X$. Rozważmy $\mathcal F = \{ \overline V: y \in V \in \mathcal T_y\}$ 
+\end{dd} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{uw} Każdą przestrzeń $X \in T_{3 \frac{1}{2}}$ można uzwarcić, to znaczy, zanurzyć $X$ w przestrzeni zwartej $K$. 
+    \[ f: X \to f[X] \subseteq K \] 
+    Wtedy $\overline{f[X]}$ nazywamy uzwarceniem. To wynika z faktu, że $X$ zanurza się w $[0,1]^\mathcal T$
+\end{uw} 
+\begin{uw} 
+    $X \in T_{3 \frac 12} \Leftrightarrow X$ ma uzwarcenie.\\ 
+    Jeżeli $X \subseteq K,\ K$ zwarta, to $K \in T_4$ więc $K \in T_{3 \frac 12}$, więc $X \in T_{3\frac 12}$
+\end{uw} 
+\begin{df} 
+    Przestrzeń $X$ jest lokalnie zwarta, gdy $X \in T_3$ oraz dla każdego $x \in X$ istnieje otwarte otoczenie $U \ni x$, takie, że 
+    $\overline U$ jest zwarte.
+\end{df} 
+\begin{tw} 
+    Jeżeli $X$ jest przestrzenią lokalnie zwartą, to $X$ można uzwarcić jednym punktem.
+\end{tw} 
+\begin{dd} 
+    Rozważamy $X \cup \{ \infty \}$, gdzie otoczenie bazowe w $\infty$.  
+    \[ \{ \infty \} \cup (X \setminus F) \text{ dla } F \subseteq X \text{ zwartych }\]
+    \begin{itemize} 
+        \item $F \subseteq X$ jest zwraty, to $F$ jest domknięty w $X$, więc $X \setminus F$ jest domknięty. 
+        \item $X \cup \{ \infty \} \in T_2$ \\ 
+            $x \in X,\infty$. Z lokalnej zwartości istnieje $U \ni x,\ U \subseteq X$ 
+            otwarty, $\overline U$ zwarty. \\ 
+            $\infty \in \{ \infty\} \cup (X \setminus \overline U) = V \quad U \cap V = 
+            \emptyset$ \\ 
+            Jeżeli $\{ W_t: t \in T\}$ jest otwartym pokryciem $X \cup \{ \infty \}$ to 
+            istnieje to $\infty \in W_{t_0}$. Istnieje otoczenie bazowe $\{ \infty \} 
+            \cup (X \setminus F) \ F$ zwarty. \\ 
+            $\infty \in \{ \infty \} \cup (X \setminus F) \subseteq W_{t_0}$ \\ 
+            $F \subseteq \bigcup\limits_{t \in T} W_t \Rightarrow$ istnieją $t_1,\ldots,
+            t_n \ F \subseteq \bigcup\limits_{i = 1}^n W_{t_i}$ \\ 
+            $X \cup \{ \infty \} = W_{t_0} \cup W_{t_1} \cup \ldots \cup W_{t_n}$ 
+    \end{itemize} 
+\end{dd} 
+\begin{wn} 
+    Przestrzeń $X$ jest lokalnie zwarta $\Leftrightarrow \ X$ jest homemorfizmam z
+    otwartm podzbiorem przestrzeni zwartej. 
+\end{wn} 
+\begin{dd} 
+    $X \subset \underbrace{X \cup \{\infty\}}_{\text{zw}} \ X$ jest otwarta. \\ 
+    Jeżeli $X \simeq U \subseteq K,\ K$ zwarta, $U$ jest otwraty. \\ 
+    Sprawdzimy, że $U$ jest lokalnie zwarta. Niech $x \in U$ Istnieje otrwaty $V$, taki, 
+    że $x \in V \subseteq \underset{\text{zw}}{\overline V} \subseteq U$
+\end{dd} 
+\begin{prz} 
+    $\mathbb{R} \cup \{ \infty \},\ \{ \infty \} \cup (-\infty, a) \cup (b,\infty)$ \\ 
+    $\mathbb{R} \simeq S^1 \setminus \{(0,1)\}$  
+\end{prz} 
+\begin{df} 
+    Przestrzeń topologiczna $X$ jest spójna, jeżeli dla otwartych $U, V \subseteq X$, 
+    jeżeli $U \cap V = \emptyset$ i $X = U \cup V$, to $U = \emptyset$ lub $V = \emptyset$
+    \\$X$ nie jest spójna $\Leftrightarrow X = U\cup\mkern-9mu\cdot\mkern5mu V,\ U,\ V$ 
+    domknięte, $U,V \neq \emptyset$\\
+    \textbf{Równoważnie}  $X$ jest spójna $\Leftrightarrow \emptyset, X$ są jedynymi 
+    zbiorami otwarto-domkniętymi.
+\end{df} 
+\begin{tw} \hfill 
+    \begin{enumerate}[(1)]
+        \item Jeżeli $A \subseteq X$ jest spójną podprzestrzenią to $\overline A$ jest
+            spójna 
+        \item Jeżeli $X$ jest przestrzenią spójną i $f: X \xrightarrow{\text{na}} Y$ 
+            jest ciągła to $Y$ jest spójny.
+    \end{enumerate} 
+\end{tw} 
+\begin{uw} 
+    Sprawdzenie, że $B \subseteq X$ jest spójny wymaga, jeżeli $B \subseteq U \cup V$ 
+    gdzie $U, V$ otwarte rozłączne, to $B \subseteq U$ lub $B \subseteq V$
+\end{uw} 
+\begin{dd} \hfill
+    \begin{enumerate}[(1)] 
+        \item Rozważamy $\overline A \subseteq U \cup V,\ U,\ V $ otwarte, $U \cap V = 
+            \emptyset$ \\ 
+            Wtedy $A \subseteq U \cup V$, więc $A \cup U$ lub $A \cup V$ \\ 
+            Gdy $A \subseteq U$, to $\overline A \cap V = \emptyset$, więc $\overline A 
+            \subseteq U$
+        \item Jeżeli $B \subseteq Y$ jest otwarto-domknięty, 
+            gdy $f^{-1}[B]$ jest otwarto-domknięty w $X$, więc $f^{-1} [B] = \emptyset$ 
+            lub $f^{-1} [B] = X$
+    \end{enumerate}
+\end{dd} 
+\begin{tw} 
+    $\mathbb{R}$ jest przestrzenią spójną (podobnie $(a,b),\ [a,b]$)
+\end{tw} 
+\begin{dd} 
+    Rozważamy $\mathbb{R} = \cup\mkern-9mu\cdot\mkern5mu$ $U,V$ otwarte, $U \neq \emptyset
+    V \neq \emptyset$ \\ 
+    Niech $a \in U,\ b \in V$ Załóżmy, że $a < b$ \\ 
+    $S = \{ x \in [a,b]: [a,x] \subseteq U \} \neq \emptyset$ \\ 
+    $s = \sup S$, wtedy $s \notin U,\ s \notin V$ (sprzeczność) \\ 
+    $s \in V$, to $(s-\delta,s+\delta) \subseteq V \ S \cap (s-\delta,s) = \emptyset$
+    sprzeczność
+\end{dd} 
+\begin{wn} 
+    Jeżeli $f: [a,b] \to \mathbb{R}$ jest ciągła to $f$ "przyjmuje wszystkie wartości 
+    pośrednie"
+\end{wn} 
+\begin{dd} 
+    Niech $f(a) < \xi < f(b)$ \\ 
+    Jeżeli $\xi$ nie jest wartością $f$, to $[a,b] = \{x \in [a,b]: f(x) < \xi \} \cup 
+    \{ x \in [a,b]: f(x) > \xi \}$ przez spójność $[a,b]$
+\end{dd} 
+\begin{lem} 
+    Jeżeli $A_t \subseteq X$ są zbiorami spójnymi dla $t \in T$ i $x_0 \in A_t$ dla 
+    każdego $t \in T$, to $A = \bigcup\limits_{t \in T} A_t$ jest spójna. 
+    \begin{dd} 
+        $A \subseteq U \cup V \ U \cap V = \emptyset \ U,V$ otwarte. \\ 
+        Niech $x_0 \in U,\ A_t \subseteq U$ dla wszystkich $t \in T$, $A \subseteq U$
+    \end{dd} 
+\end{lem} 
+\begin{tw} 
+    $\mathbb{R}^d$ jest spójna dla $d \in \mathbb{N}$
+\end{tw} 
+\begin{dd} 
+    Niech $x \in \mathbb{R}^d,\ f:[0,1] \to \mathbb R^d \ f(t) = tx \ f$ jest ciągła. 
+    $I_x = \{f(t): t \in [0,1]\} \subseteq \mathbb R^d$ jest spójny \\ 
+    $\mathbb{R}^d = \bigcup\limits_{x \in \mathbb R^d} I_x$ jest spójna z lematu. 
+\end{dd} 
+\begin{df} 
+    Przestrzeń $X$ jest łukowa spójna, jeżeli dla $x,y \in X$ istnieje ciągła 
+    $f: [0,1] \xrightarrow{1-1} X \ f(0) = x, f(1) = y$
+\end{df} 
+\begin{uw} 
+    Łukowa spójnść $\Rightarrow$ spójność
+\end{uw} 
+\begin{prz} ~\\ 
+    $X = \{0\} \times [-1,1] \cup \{ (x,\sin \frac{1}{x}): x \in (0,2\pi) \} $ \\ 
+    $X$ zwarta
+    $X$ jest spójna, ale nie jest łukowo spójna \\ 
+    $X \subseteq U \cup V, \ U, V \subseteq \mathbb{R}^2$ otwarte $U \cap V = \emptyset$\\
+    Niech $p \in U. S \subseteq U$, bo $S$ jest spójna jako ciągły obraz $(0,2\pi)$ \\ 
+    Nie istnieje ciągła $f:[0,1] \to X \ f(0) = p,\ f(1) = q$
+\end{prz} 
+\section{Odróżnanie przestrzeni} 
+$\mathbb{Q} \nsim \mathbb{R}$ \\ 
+$(0,1) \nsim [0,1]$ \\ 
+$[0,1] \nsim [0,1] \times [0,1]$ \\ 
+$[0,1] \nsim S^1$ 
+\begin{df} 
+    $p \in X$ rozspaja $X$ jeżeli $X \setminus \{p\}$ nie jest spójna 
+\end{df} 
+\subsection{Składowe spójności} 
+\begin{df} 
+    W przestrzeni topologicznej $X$ składową spójności punktu $x_0 \in X$ nazywamy 
+    największy zbiór spójny $C \ni x_0$.
+\end{df} 
+\begin{uw} \hfill 
+    \begin{enumerate}[(1)]
+        \item Rozważamy rodzinę $\mathcal A$ wszystkich spójnych $A \ni x_0$. 
+        Wtedy $\bigcup \mathcal A$ jest spójna.
+        \item Składowe spojności są domknięte w $X$. 
+    \end{enumerate}
+\end{uw} 
+\begin{prz} 
+    $Y \nsim I$ 
+\end{prz} 
+\begin{prz} ~\\ 
+    $\{0,1\}^\mathbb N$ bazowe zbiory otwarte są postaci. \\ 
+    $\varepsilon = (\varepsilon_1,\ldots,\varepsilon_n)$ \\ 
+    $V(\varepsilon) = \{\varepsilon_1\} \times \{\varepsilon_2\} \times \ldots \times 
+    \{\varepsilon_n\} \times \{0,1\} \times \{0,1\} \times \ldots$ \\ 
+    $\{0,1\}^\mathbb N \setminus V(\varepsilon) = \bigcup\limits_{\tau = 
+    (\tau_1,\ldots,\tau_n),\ \tau \neq \varepsilon} V(\tau)$ \\ 
+    Składowe spójności w $\{0,1\}^\mathbb N$ są jednopunktowe.
+\end{prz} 
+\begin{df} 
+    Przestrzeń jest $0-$wymiarowa jeżeli ma bazę złożoną ze zbiorów otwarto-domkniętych. 
+    \begin{itemize} 
+        \item $\operatorname{int}(\emptyset) = -1$ 
+        \item przestrzeń $X \neq \emptyset$ jest zerowymiarowa jeżeli ma bazę zbiorów, 
+            których brzegi mają wymiar $-1$. 
+        \item przestrzeń $X$ ma wymiar $\le 1$, jzęli ma bazę zbiorów, których brzegi mają
+            wymiar 0.
+    \end{itemize} 
+\end{df} 
+\begin{tw} Wymiar $[0,1]^n$ wynosi $n$. \end{tw} 
+\begin{tw}[Brouwera] 
+    Każda funkcja ciągła $f: [0,1]^n \to [0,1]^n$ ma punkt stały. 
+\end{tw} 
+\begin{uw} 
+    Każda ciągła $f: [0,1] \to [0,1]$ ma punkt stały. \\ 
+    Stąd $[0,1] \nsim S^1,\ S^1$ nie ma właśnoci punktu stałego.
+\end{uw} 
+Rozważmy przestrzeń zwartą $K$ oraz $C(K) = \{f: K \to \mathbb R: f \text{ ciągła}\}$ \\ 
+$\norm{f}_\infty = \sup\limits_{x \in K} |f(x)| \quad \rho(f,g) = \norm{f-g}_\infty$
+\begin{df} \hfill 
+    \begin{itemize} 
+        \item $P \subseteq C(K)$ jest pierścieniem, jeżeli $P$ jest zamknięta na dodawanie
+            i mnożenie.
+        \item $P$ rozdziela punkty jeżeli \cancel{to robi}, dla $x,y \in K 
+            x \neq y$ istnieje $p \in P,\ p(x) \neq p(y)$
+    \end{itemize} 
+\end{df} 
+\begin{tw}[Stone'a-Weiestrassa]
+    Jeżeli $K$ jest przestrzenią zwartą i $P \subseteq C(K)$ jest pierścieniem 
+    rozdzielającym punkty $K$ zawierającym funkcję stałe, to $\overline P = C(K)$
+\end{tw} 
+\begin{wn}[Weiestrass] Wielomiany leżą gęsto w $C[a,b]$. \end{wn} 
+\begin{wn} Wielomiany dwóch zmiennych leżą gęsto w $C[0,1]^2$ \end{wn} 
+\begin{wn} Dla dowolnych przestrzeni zwartych $K_1$ i $K_2$ funkcje o rozdzielnych
+zmiennych leżą gęsto w $C(K_1 \times K_2)$ \end{wn}
+\begin{wn} Wielomiany trygonometryczne\footnote{kombinacja liniowa $\sin nx \cos kx$}
+    leżą gęsto w $C[0,2\pi]$ \end{wn} 
+\begin{lem}[Diniego]
+    Jeżeli $f_n \in C[0,1], f_1 \le f_2 \le \ldots$ oraz granica punktowa 
+    $f(x) = \lim\limits_{n \to \infty} f_n(x) $ jest ciągła, to $f_n \rightrightarrows f$
+    \begin{dd} 
+        Nie wprost, załóżmy, że istnieje $\varepsilon > 0 \ \norm{f-f_n} \ge \varepsilon$
+        $F_n = \{x \in [0,1]: |f(x)-f_n(x)| \ge \epsilon \} \neq \emptyset$. 
+        Wtedy $F_1 \supseteq F_2 \supseteq \ldots$ więc istnieje $x_0 \in \bigcap\limits
+        _{n=1}^\infty F_n$ sprzeczność.
+    \end{dd} 
+\end{lem} 
+\begin{lem} 
+    Funkcja $s(t) = \sqrt(t)$ jest jedostajną granica wielomianów.
+    \begin{dd} 
+        $w_1(t) \equiv 0$ \\ 
+        $w_{n+1} (t) = w_n (t) + \frac{1}{2} (t - w_n^2 (t))$ sprawdzimy prez indukcję, 
+        że $w_1(t) \le w_2(t) \le \ldots \sqrt t$ \\ 
+        $g(t) = g(t) + \frac{1}{2} (t - g^2(t)) \to g(t) = \sqrt t$, czyli \\ 
+        $w_n \rightrightarrows s$ z lematu Diniego. 
+    \end{dd} 
+\end{lem} 
+Rozważmy pierścien $P \subseteq C(K),\ P$ rozdziela punkty i zawiera stałe. \\ 
+$a, b \in K$ \\ 
+$a \neq b$ \\ 
+Istnieje $h \in P \ h(a) \neq h(b)$. Niech $g(x) = \frac{h(x) - h(a)}{h(b)-h(a)} \in P$. 
+$g(a) = 0 \ g(b) = 1$ \\ 
+\rule{2cm}{0.4pt} \\ 
+Ustalmy $f \in C(K)$. Dla $ a \neq b$ mamy $g \in P \ g(a) = 0,\ g(b)=1$ \\ 
+Rozważmy $p_{a,b} (x) = (f(b)-f(a))g(x) + f(a)$ \\ 
+$p_{a,b} \in P \ p_{a,b} (a) = f(a), \ p_{a,b} (b) = f(b)$ \\ 
+\rule{2cm}{0.4pt}\\ 
+$|p|  = \sqrt{p^2}$. Stosując $w_n \rightrightarrows s,\ s(t) = \sqrt t$ \\ 
+$|p| = \lim\limits_{n \to \infty} w_n(p^2),\ w_n(p^2) \in P$ \\ 
+\rule{2cm}{0.4pt}\\ 
+Jeżeli $p_1,p_2 \in P$ to $\max(p_1,p_2), \min(p_1,p_2) \in \overline P$ \\ 
+Ogólniej $p_1,\ldots,p_n \in P$, to $\max(p_1,\ldots,p_n) \in \overline P, \ 
+\min(p_1,\ldots,p_n) \in \overline P$ \\ 
+\rule{2cm}{0.4pt}\\ 
+Ustalmy $f \in C(K),\ \varepsilon > 0$ \\ 
+$a \neq b \Rightarrow \exists p_{a,b} \in P \ p_{a,b} = f(a),\ p_{a,b} = f(b)$ \\ 
+$U_{a,b} = \{x: p_{a,b} (x) < f(x)+\varepsilon \}$ \\ 
+$V_{a,b} = \{x: p_{a,b} (x) > f(x)-\varepsilon \}$ \\ 
+Ustalmy $b\ \{U_{a,b}: a \in K\}$ podpokrycie $K$ \\ 
+$K = \bigcup\limits_{i=1}^n U_{a_i,b},\ p_b = \min\limits_{i \le n} p_{a_i,b} \in 
+\overline P$ \\ 
+$p_b (x) < f(x) + \varepsilon \ x \in K$ \\
+Dla $x \in V_b = \bigcap\limits_{n=1}^n V_{a_i,b} \ p_b (x) > f(x) - \varepsilon$ \\ 
+$\{V_b: b \in K\} - $ pokrycie $K$ \\ 
+Istnieje $b_1,\ldots,b_k,\ldots$ $p \in \max\limits_{i \le k} p_{b_i} \in \overline P$ \\ 
+$\bigcup\limits_{i = 1}^k V_{b_i} = K$ \\ 
+$p(x) < f(x) + \varepsilon$ \\ 
+$p(x) > f(x) - \varepsilon$ \\ 
+$B_\varepsilon (f) \cap \overline P \neq \emptyset$ \\ 
+$\overline P = C(K)$ \hfill \qed
+\end{document}
