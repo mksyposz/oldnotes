@@ -20,7 +20,7 @@
         \item $F: C(\RR) \rightarrow \RR \quad F(f) = \int\limits_a^b \ f(x) dx$ 
         \item $F: \RR [x] \rightarrow \RR[x] \quad F(P)(x) = xP(x)$
         \item $F: C(\RR) \rightarrow \RR \quad F(f) =f(7)$
-        \item $L: F(\mathbb{N},\RR)  $ \\ %pierdolona strzałka
+        \item $L: F(\mathbb{N},\RR)  $ \\ 
         $L((a_1,a_2,\dots)) = (a_2,a_3,a_4,\dots)$ \\
         $R((a_1,a_2,\dots)) = (0,a_1,a_2,\dots)$ 
     \end{enumerate}
@@ -59,7 +59,7 @@
 
 \begin{uw}
     $F: V \rightarrow W $ liniowe
-    $F(0) = F(0_{\in K}\cdot 0_{\in V}) = 0_{\in K} \cdot F(0) = 0_{\in W}$ %AHA
+    $F(0) = F(0_{\in K}\cdot 0_{\in V}) = 0_{\in K} \cdot F(0) = 0_{\in W}$ 
     zatem $\{0\} \subseteq ker F$.
 \end{uw}
 
@@ -101,19 +101,15 @@
     bazą $Im F$ jest $\{F(b'_i)\}_{i \in J}$ \\
     Będziemy teraz udowadniać, że to rzeczywiście jest baza\\
     $w \in Im F$ \\
-	%\includegraphics[width=5cm]{wyklad3_obrazek} \\ % konwertowanie:
-    %%%
     $w = F(v) = F(\sum\limits_{i \in I'} \alpha_i b_i + \sum\limits_{i \in J'} \alpha'_i b'_i) = \sum\alpha_i b_i + \sum\alpha'_i b'_i = \sum\alpha'_i b'_i $\\
     $(|I'|, |J'|<\infty \quad I'\subset I, J'\subset J)$\\
     więc $\{F(b'_i)\}_{i \in J} $ generuje $ImF$ \\
     lnz: \\
     $\sum\limits_{i\in J} \alpha'_i F(b_i') = 0$\\
-    $\qquad \rotatebox{90}{$\,=$}$\\%nie umiem zrobić odstępu :(
+    $\qquad \rotatebox{90}{$\,=$}$\\
     $F(\sum \alpha'_i b_i') \quad $więc $ \sum \alpha'_i b_i' \in imF$\\
     $\sum \alpha'_i b_i' =\alpha_i b_i$ \quad kombinacja liniowa bazy $kerF$\\
     $B\cup B'$ jest bazą V więc $\alpha_i' = \alpha_i = 0$ \quad \qed
-     % dopisać resztę linijki 
-    %wniosek generuj Im i dowód lnz
 \end{dd} 
 
 \begin{prz}
@@ -125,11 +121,11 @@
     $ F : \RR_4[x] \rightarrow \RR^4 
         \qquad F(P) = \begin{pmatrix} P'(0) + P(0) \\ P(1) \end{pmatrix} $ \quad $F$ jest liniowe \\
     $V = ker F$, czyli $V < \RR_4[x]$
-    $dim V = dimker F = dim\RR_4 [x] = dimImF$ %skrabione znaki równa się \\
+    $dim V = dimker F = dim\RR_4 [x] = dimImF$ 
     $F(1) = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \in Im F$ \\
     $F(x^2) = \begin{pmatrix} 0 \\ 1 \end{pmatrix} \in Im F$
     $Lin \left\{ \begin{pmatrix} 0 \\ 1 \end{pmatrix} \begin{pmatrix} 1 \\ 1 \end{pmatrix} \right\} < Im F < \RR^2 $, czyli
-    $Im F = \RR^2$ \\%+ popierdolone równa się xD
+    $Im F = \RR^2$ \\
     $dimV = dim\RR[x] - dimImF = 5 - 2 = 3$
 \end{prz}
 
