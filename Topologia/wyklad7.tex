@@ -1,0 +1,124 @@
+\section{Odróżnanie przestrzeni} 
+$\mathbb{Q} \nsim \mathbb{R}$ \\ 
+$(0,1) \nsim [0,1]$ \\ 
+$[0,1] \nsim [0,1] \times [0,1]$ \\ 
+$[0,1] \nsim S^1$ 
+\begin{df} 
+    $p \in X$ rozspaja $X$ jeżeli $X \setminus \{p\}$ nie jest spójna 
+\end{df} 
+\subsection{Składowe spójności} 
+\begin{df} 
+    W przestrzeni topologicznej $X$ składową spójności punktu $x_0 \in X$ nazywamy 
+    największy zbiór spójny $C \ni x_0$.
+\end{df} 
+\begin{uw} \hfill 
+    \begin{enumerate}[(1)]
+        \item Rozważamy rodzinę $\mathcal A$ wszystkich spójnych $A \ni x_0$. 
+        Wtedy $\bigcup \mathcal A$ jest spójna.
+        \item Składowe spojności są domknięte w $X$. 
+    \end{enumerate}
+\end{uw} 
+\begin{prz} 
+    $Y \nsim I$ 
+\end{prz} 
+\begin{prz} ~\\ 
+    $\{0,1\}^\mathbb N$ bazowe zbiory otwarte są postaci. \\ 
+    $\varepsilon = (\varepsilon_1,\ldots,\varepsilon_n)$ \\ 
+    $V(\varepsilon) = \{\varepsilon_1\} \times \{\varepsilon_2\} \times \ldots \times 
+    \{\varepsilon_n\} \times \{0,1\} \times \{0,1\} \times \ldots$ \\ 
+    $\{0,1\}^\mathbb N \setminus V(\varepsilon) = \bigcup\limits_{\tau = 
+    (\tau_1,\ldots,\tau_n),\ \tau \neq \varepsilon} V(\tau)$ \\ 
+    Składowe spójności w $\{0,1\}^\mathbb N$ są jednopunktowe.
+\end{prz} 
+\begin{df} 
+    Przestrzeń jest $0-$wymiarowa jeżeli ma bazę złożoną ze zbiorów otwarto-domkniętych. 
+    \begin{itemize} 
+        \item $\operatorname{int}(\emptyset) = -1$ 
+        \item przestrzeń $X \neq \emptyset$ jest zerowymiarowa jeżeli ma bazę zbiorów, 
+            których brzegi mają wymiar $-1$. 
+        \item przestrzeń $X$ ma wymiar $\le 1$, jzęli ma bazę zbiorów, których brzegi mają
+            wymiar 0.
+    \end{itemize} 
+\end{df} 
+\begin{tw} Wymiar $[0,1]^n$ wynosi $n$. \end{tw} 
+\begin{tw}[Brouwera] 
+    Każda funkcja ciągła $f: [0,1]^n \to [0,1]^n$ ma punkt stały. 
+\end{tw} 
+\begin{uw} 
+    Każda ciągła $f: [0,1] \to [0,1]$ ma punkt stały. \\ 
+    Stąd $[0,1] \nsim S^1,\ S^1$ nie ma właśnoci punktu stałego.
+\end{uw} 
+Rozważmy przestrzeń zwartą $K$ oraz $C(K) = \{f: K \to \mathbb R: f \text{ ciągła}\}$ \\ 
+$\norm{f}_\infty = \sup\limits_{x \in K} |f(x)| \quad \rho(f,g) = \norm{f-g}_\infty$
+\begin{df} \hfill 
+    \begin{itemize} 
+        \item $P \subseteq C(K)$ jest pierścieniem, jeżeli $P$ jest zamknięta na dodawanie
+            i mnożenie.
+        \item $P$ rozdziela punkty jeżeli \cancel{to robi}, dla $x,y \in K 
+            x \neq y$ istnieje $p \in P,\ p(x) \neq p(y)$
+    \end{itemize} 
+\end{df} 
+\begin{tw}[Stone'a-Weiestrassa]
+    Jeżeli $K$ jest przestrzenią zwartą i $P \subseteq C(K)$ jest pierścieniem 
+    rozdzielającym punkty $K$ zawierającym funkcję stałe, to $\overline P = C(K)$
+\end{tw} 
+\begin{wn}[Weiestrass] Wielomiany leżą gęsto w $C[a,b]$. \end{wn} 
+\begin{wn} Wielomiany dwóch zmiennych leżą gęsto w $C[0,1]^2$ \end{wn} 
+\begin{wn} Dla dowolnych przestrzeni zwartych $K_1$ i $K_2$ funkcje o rozdzielnych
+zmiennych leżą gęsto w $C(K_1 \times K_2)$ \end{wn}
+\begin{wn} Wielomiany trygonometryczne\footnote{kombinacja liniowa $\sin nx \cos kx$}
+    leżą gęsto w $C[0,2\pi]$ \end{wn} 
+\begin{lem}[Diniego]
+    Jeżeli $f_n \in C[0,1], f_1 \le f_2 \le \ldots$ oraz granica punktowa 
+    $f(x) = \lim\limits_{n \to \infty} f_n(x) $ jest ciągła, to $f_n \rightrightarrows f$
+    \begin{dd} 
+        Nie wprost, załóżmy, że istnieje $\varepsilon > 0 \ \norm{f-f_n} \ge \varepsilon$
+        $F_n = \{x \in [0,1]: |f(x)-f_n(x)| \ge \epsilon \} \neq \emptyset$. 
+        Wtedy $F_1 \supseteq F_2 \supseteq \ldots$ więc istnieje $x_0 \in \bigcap\limits
+        _{n=1}^\infty F_n$ sprzeczność.
+    \end{dd} 
+\end{lem} 
+\begin{lem} 
+    Funkcja $s(t) = \sqrt(t)$ jest jedostajną granica wielomianów.
+    \begin{dd} 
+        $w_1(t) \equiv 0$ \\ 
+        $w_{n+1} (t) = w_n (t) + \frac{1}{2} (t - w_n^2 (t))$ sprawdzimy prez indukcję, 
+        że $w_1(t) \le w_2(t) \le \ldots \sqrt t$ \\ 
+        $g(t) = g(t) + \frac{1}{2} (t - g^2(t)) \to g(t) = \sqrt t$, czyli \\ 
+        $w_n \rightrightarrows s$ z lematu Diniego. 
+    \end{dd} 
+\end{lem} 
+Rozważmy pierścien $P \subseteq C(K),\ P$ rozdziela punkty i zawiera stałe. \\ 
+$a, b \in K$ \\ 
+$a \neq b$ \\ 
+Istnieje $h \in P \ h(a) \neq h(b)$. Niech $g(x) = \frac{h(x) - h(a)}{h(b)-h(a)} \in P$. 
+$g(a) = 0 \ g(b) = 1$ \\ 
+\rule{2cm}{0.4pt} \\ 
+Ustalmy $f \in C(K)$. Dla $ a \neq b$ mamy $g \in P \ g(a) = 0,\ g(b)=1$ \\ 
+Rozważmy $p_{a,b} (x) = (f(b)-f(a))g(x) + f(a)$ \\ 
+$p_{a,b} \in P \ p_{a,b} (a) = f(a), \ p_{a,b} (b) = f(b)$ \\ 
+\rule{2cm}{0.4pt}\\ 
+$|p|  = \sqrt{p^2}$. Stosując $w_n \rightrightarrows s,\ s(t) = \sqrt t$ \\ 
+$|p| = \lim\limits_{n \to \infty} w_n(p^2),\ w_n(p^2) \in P$ \\ 
+\rule{2cm}{0.4pt}\\ 
+Jeżeli $p_1,p_2 \in P$ to $\max(p_1,p_2), \min(p_1,p_2) \in \overline P$ \\ 
+Ogólniej $p_1,\ldots,p_n \in P$, to $\max(p_1,\ldots,p_n) \in \overline P, \ 
+\min(p_1,\ldots,p_n) \in \overline P$ \\ 
+\rule{2cm}{0.4pt}\\ 
+Ustalmy $f \in C(K),\ \varepsilon > 0$ \\ 
+$a \neq b \Rightarrow \exists p_{a,b} \in P \ p_{a,b} = f(a),\ p_{a,b} = f(b)$ \\ 
+$U_{a,b} = \{x: p_{a,b} (x) < f(x)+\varepsilon \}$ \\ 
+$V_{a,b} = \{x: p_{a,b} (x) > f(x)-\varepsilon \}$ \\ 
+Ustalmy $b\ \{U_{a,b}: a \in K\}$ podpokrycie $K$ \\ 
+$K = \bigcup\limits_{i=1}^n U_{a_i,b},\ p_b = \min\limits_{i \le n} p_{a_i,b} \in 
+\overline P$ \\ 
+$p_b (x) < f(x) + \varepsilon \ x \in K$ \\
+Dla $x \in V_b = \bigcap\limits_{n=1}^n V_{a_i,b} \ p_b (x) > f(x) - \varepsilon$ \\ 
+$\{V_b: b \in K\} - $ pokrycie $K$ \\ 
+Istnieje $b_1,\ldots,b_k,\ldots$ $p \in \max\limits_{i \le k} p_{b_i} \in \overline P$ \\ 
+$\bigcup\limits_{i = 1}^k V_{b_i} = K$ \\ 
+$p(x) < f(x) + \varepsilon$ \\ 
+$p(x) > f(x) - \varepsilon$ \\ 
+$B_\varepsilon (f) \cap \overline P \neq \emptyset$ \\ 
+$\overline P = C(K)$ \hfill \qed
+

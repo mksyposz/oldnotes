@@ -1,0 +1,449 @@
+\section{Topologia}
+\begin{df} Przestrzenią topologiczną nazywamy parę $(X,\mathcal T)$, 
+    gdzie $X \neq \emptyset,\ \mathcal T \subseteq \mathcal P (X)$, taka, że
+    \begin{itemize} 
+        \item $\emptyset,X \in T$
+        \item $\mathcal T$ jest zamknięta na skoczone przkeroje 
+        \item $\mathcal T$ jest zamknięta na dowolne sumy. 
+    \end{itemize} 
+    Zbiór $U \in \mathcal T$ nazywamy otwartym; Zbiór $F \subseteq X$ jest domknięty,
+    jeżeli $X \setminus F \in \mathcal T$. 
+\end{df} 
+\begin{przy}\hfill
+    \begin{enumerate}[(1)]
+        \item $\mathcal T = \{ \emptyset, X \}$ jest topologią antydyskretną. 
+        \item $\mathcal T = \mathcal P (X)$ topologia dyskretna. 
+        \item Jeżeli $(X,\rho)$ jest przestrzenią metryczną, to $U \in \mathcal T 
+            \Leftrightarrow \forall x \in U \ \exists \, \delta > 0 \ B_\delta (x) \in U$.
+    \end{enumerate} 
+\end{przy} 
+\begin{df} 
+    W przestrzeni topologicznej $(X,\mathcal T)$, rodzina $\mathcal B \subseteq \mathcal T$ jest bazą, jezeli 
+    dla każdego $x \in X$ i $X \in U \in \mathcal T$ istnieje $B \in \mathcal B$, taki, że $x \in B \subseteq U$
+\end{df}
+
+\begin{tw} 
+    Niech $\mathcal B \subseteq \mathcal P (x)$ będzie rodziną taką, że 
+    \[ \forall B_1,B_2 \in \mathcal B \ \forall x \in B_1 \cap B_2 \ \exists B \in \mathcal B \ x \in B \subseteq 
+    B_1 \cap B_2 \]
+    Wtedy biorąc z $\mathcal T$ wszystkie możliwe sumy zbiorów z $\mathcal B$ otrzymujemy topologię na $X$.
+\end{tw} 
+
+\begin{df} W przestrzeni topologicznej $(X,\mathcal T)$ rodzinę $\mathcal B(x), \ x \in X$ nazywamy bazę
+    w punkcie x, jeżeli dla każdego $U \in \mathcal T$, takiego, że $x \in U$ istnieje $B \in \mathcal B(x)$, że 
+    $x \in B \subset U$.
+\end{df} 
+
+\begin{tw} 
+    Jeżeli dla kazdego $x \in X$  wybierzemy rodziny $\mathcal B(x)$ (jako bazę lokalną)
+    i spełniony będzie warunek 
+    \[ \forall x \ \forall y \ \forall B \in \mathcal B(x) \ y \in B \Rightarrow 
+    \exists B_1 \in \mathcal B(y) \ y \in B_1 \subseteq B \]
+    to możemy zdefiniować topologię na $X$, przez 
+    \[ U \in \mathcal T \Leftrightarrow \forall x \in U \exists \, B \in \mathcal B(x) \ x \in B \subseteq U \]
+\end{tw} 
+\begin{przy} \hfill
+    \begin{enumerate}[(1)]
+        \item $X = \mathbb R$ \\ 
+            $\mathcal B = \{ (a,b): a < b \}$ jest bazą topoologii natrualnej \\ 
+            $\mathcal B(x) = \{(x-\delta,x+\delta): \delta > 0 \}$ - baza lokalna w $X$.
+        \item Niech $\mathcal B = \{[a,b]: a < b \}$ \\ 
+            $\{ x\} = [x-1,x]\cap[x,x+1]$ jest otwarty \\ 
+            $\mathcal T = \mathcal P (\mathbb R)$
+        \item $\mathcal B = \{[a,b): a < b\}$ jest bazą topologii Sorgenfrey'a. $\mathbb R$ z tą 
+            topologią nazywamy strzałką.
+    \end{enumerate} 
+\end{przy} 
+\begin{df} 
+    Przestrzeń topologiczna $(X,\mathcal T)$ jest metryzowalna jezeli istnieje metyrka $\rho$ na $X$ taka, że
+    \[ U \in \mathcal T \Leftrightarrow \forall x \in U \exists \, \delta > 0 \ B_\delta (x) \subseteq U \]
+\end{df} 
+\begin{przy} \hfill
+    \begin{enumerate}[(1)]
+        \item $\rho (x,y) = |x-y|$
+        \item $d(x,y) = \begin{cases} 1 & x \neq y \\ 0 &x = y \end{cases}$
+        \item Strzałka nie jest metryzowalna. Przypuśćmy ,że metryka $\rho$ wyznacza topologię strzałki. 
+            \[ \forall x \in \mathbb R \ \exists \, \delta(x) \ \forall y < x \ \rho (y,x) \ge \delta (x)\]
+            \[ \mathbb R = \bigcup^\infty_{n=1} A_n, \quad A_n = \{ x \in \mathbb R : \delta(x) \ge \frac{1}{n} \} \]
+            Z tw. Baire'a istnieje $n_0 \in \mathbb N$, takie, że $\operatorname{Int}(\overline{A_{n_0}}) \neq 
+            \emptyset$. Istnieje $a < b, \ (a,b) \subseteq \overline{A_{n_0}}$. Tzn. zbiór 
+            $A_{n_0}$ jest gęsty w $(a,b)$.\\[1cm]
+            \begin{tikzpicture} 
+                \draw (-5,0) -- (5,0); 
+                \draw (-4.5,-0.1) -- (-4.5,0.1) node[above]{$a$};
+                \draw (4.5,-0.1) -- (4.5,0.1) node[above]{$b$};
+                \draw (-2,-0.2) -- (-2,0.2) node[above]{$y \in A_{n_0}$};
+                \draw[fill] (0.5,0) circle[radius=0.025] node[below]{$x_1$};
+                \draw[fill] (-0.8,0) circle[radius=0.025] node[below]{$x_2$};
+                \draw[fill] (-1.3,0) circle[radius=0.025] node[below]{$x_3$};
+                \draw[fill] (-1.75,0) circle[radius=0] node[below]{$\ldots$};
+            \end{tikzpicture} \\[1cm] 
+            Niech $x_k \in A_{n_0},\ x_1 > x_2 > \ldots > y,\ |x_k - y| < \frac{1}{k}$. 
+            $\rho(x_k,y) \ge \frac{1}{n_0}$ \\ 
+            $r > \frac{1}{n_0} \ B_r (y) \ni X_k$ dla prawie wszystkich $k$.
+    \end{enumerate} 
+\end{przy} 
+\begin{df} 
+    W przestrzeni topoligcznej $X$ definiujemy $\overline A,\ \operatorname{Int} A$ dla $A \subseteq X$
+    \begin{gather*} 
+        x \in \overline A \Leftrightarrow \forall U \in \mathcal T x \in U \Rightarrow U \cap A \neq \emptyset \\ 
+        x \in \operatorname{Int} A \Leftrightarrow \exists U \in \mathcal T \ x \in U \subseteq A
+    \end{gather*} 
+\end{df} 
+\begin{tw} 
+    $\overline{A \cup B} = \overline A \cup \overline B$
+\end{tw} 
+\begin{dd} ~\\
+    $C \subseteq D \Rightarrow \overline C \subseteq \overline D$ \\ 
+    $A \subseteq A \cup B \quad B \subseteq A \cup B$ \\ 
+    $\overline A \subseteq \overline{A \cup B} \quad \overline B \subseteq \overline{A \cup B}$ \\ 
+    $\overline A \cup \overline B \subseteq \overline{A \cup B}$ \\ 
+    Chcemy sprawdzić, że $\overline{A \cup B} \subseteq \overline A \cup \overline B$. \\ 
+    Niech $x \neq \overline A \cup \overline B$. Wtedy
+    \begin{tabular}[t]{l} 
+    $x \notin \overline A$, więc istnieje $U \in \mathcal T,\ x \in U \quad U \cap A = \emptyset$ \\ 
+    $x \notin \overline B$, więc istnieje $V \in \mathcal T,\ x \in V \quad V \cap B = \emptyset$ \\ 
+    $W = U \cap V$. Wtedy $W$ jest otoczeniem $x$ tj. \\ 
+    $W \ni X, \ W \in \mathcal T, \ W \cap (A \cup B) = \emptyset,
+    \ x \notin \overline{A \cup B}$
+    \hfill \qed
+    \end{tabular}
+\end{dd} 
+\begin{przyp} 
+    W przestrzeni metrycznej $(X,\rho)$ 
+    \[ x \in \overline A \Leftrightarrow \text{istnieje } a_n \in A \text{, że} \lim_n a_n = x \]
+    W przestrzeni topologicznej $X$ definiujemy zbieżność $(x_n)$ do $x$ 
+    \[ \lim_n x_n = x \Leftrightarrow \forall U \in \mathcal T \ x \in U \Rightarrow x_n \in U \text{dla prawie 
+    wszystkin n}\]
+\end{przyp} 
+\begin{przy} \hfill 
+    \begin{enumerate}[(1)]
+        \item $X = \mathbb R \cup \{-\infty,\infty\}$ \\ 
+            Dla $x \in \mathbb R$ rodzina $\{(x-\delta,x+\delta): \delta > 0\}$ jest bazą lokalną. \\
+            Dla $\infty$ za bazą lokalną bierzemy zbiory postaci $\{\infty\} \cup (a,\infty)$ dla $a \in \mathbb R$\\
+            Dla $-\infty$ odpowiednio $\{-\infty\} \cup (-\infty,a)$ dla $a \in \mathbb R$
+        \item $X = \mathbb N \cup \{\infty\}$ Definiujemy topologię na $X$. \\ 
+            Dla $n \in \mathbb N$ deklarujemy, że $\{n\}$ jest otwarty. \\ 
+            Otoczenia $\infty$ bedą postaci $\{\infty\} \cup (\mathbb N \setminus I)$, gdzie $I \subseteq \mathbb N$
+            jest skończony.
+        \item Istnieje przsestrzeń topologiczna $X$ (przeliczalna!) oraz $A \subseteq X$ i $x \in \overline A$, 
+            takie, że $x$ nie jest granicą elementów z $A$. \\ 
+            $X = \mathbb N \cup \{ \ast \}$ \\
+            Rozważmy rodzinę $\mathcal I$ tych podzbiorów $\mathbb N$, dla których $\sum\limits_{n \in A} 
+            \frac{1}{n} < \infty$. \\ 
+            Otoczenie $\ast$: $V_I = \{\ast\} \cup (\mathbb N \setminus I)$ dla $I \in \mathcal I$ \\ 
+            $\ast \in \overline{\mathbb N}$. Nie istnieje ciąg $n_k \in \mathbb N$ zbieżny do $\ast$.
+    \end{enumerate} 
+\end{przy}
+\textbf{Koncepcja Kuratowskiego:} Rozważmy $X$ i operację $\overline A$, dla $ A \subseteq X$.
+\begin{align*}
+    \overline \emptyset &= \emptyset \\  
+    A &\subseteq \overline A \\ 
+    \overline{ A \cup B} &= \overline A \cup \overline B \\ 
+    \overline{\overline A} &= \overline A    
+\end{align*}
+Definiujemy \begin{tabular}[t]{l} $A$ jest domknięty, gdy $\overline A = A$. \\ 
+$A$ jest otwarty, gdy $X \setminus A$ jest domknięty.\end{tabular} 
+\begin{df} 
+    Jeżeli $f: X \to Y$, gdzie $(X,\mathcal T _X)$ i $(Y,\mathcal T_Y)$ są przestrzniami topologicznymi, to 
+    $f$ jest ciągłe, jezeli $f^{-1}[V] \in \mathcal T_x$ dla $V \in \mathcal T_y$.
+    \footnotetext{$f: X \to Y$ jest homeomorfizmem jeżeli $f$ jest bijekcją oraz $f$ i $f^{-1}$ są ciągłe.}
+\end{df} 
+\begin{prz} ~\\ 
+    $X = \mathbb N \cup \{\infty\}$ \\ 
+    $\{ \infty \} \cup (\mathbb N \setminus I \quad I$ jest skończony \\
+    $Y = \{0\} \cup \{1,\frac{1}{2},\ldots,\frac{1}{n},\ldots\} \subseteq \mathbb R$ \\ 
+    $X \simeq Y$ \\ 
+    $f(x) = \begin{cases} \frac{1}{n}, &\text{gdy } x = n \\ 0, &\text{gdy }  x = \infty \end{cases}$\\
+    $V = Y \cap (-\delta,\delta) = \{0\} \cup \{\frac{1}{n}: \frac{1}{n} < \delta\}$ \\ 
+    $f^{-1}[V] = \{\infty\} \cup \{n: n > \frac{1}{\delta}\}$
+\end{prz}
+\begin{tw} 
+    Dla $f: X \to Y$ NWSR: 
+    \begin{enumerate}[(1)]
+        \item $f$ jest ciągłe
+        \item $f^{-1} [B] \in \mathcal T_X$ dla $B$ z ustalonej bazy $Y$.
+        \item $f^{-1} [F]$ jest domknięty w $X$ dla dowolnego $F \subseteq Y$ domkniętego. 
+        \item $f[\overline A] \subseteq \overline{f[A]}$ dla dowolnego $A \subseteq X$.
+        \item $\overline{f^{-1}[B]} \subseteq f^{-1}[\overline B]$ dla dowolnego $B \subseteq Y$. 
+    \end{enumerate} 
+\end{tw} 
+\begin{dd} \hfill
+    \begin{itemize} 
+        \item[$(1) \Rightarrow (2)$] 
+        \item[$(2) \Rightarrow (1)$] Niech $V \subseteq X$ otwarty. \\ 
+            $\mathcal B -$ baza $Y$, $B_0 = \{ B \in \mathcal B : B \subseteq V \} \quad \bigcup B_0 = V$ \\ 
+            $f^{-1} [V] = \bigcup\limits_{B \in B_0} \underbrace{f^{-1} [B]}_{\text{otwarty}} \in \mathcal T_x$
+        \item[$(1) \Leftrightarrow (3)$] prawa de' Morgana
+        \item[$(3) \Rightarrow (4)$] $A \subseteq f^{-1} [f[A]] \subseteq \underbrace{f^{-1}[\overline{f[A]}]}_{\text{domknięte}}$ \\
+            $\overline A \subseteq f^{-1}[ \overline{f[A]}$ \\ 
+            $f[\overline A] \subseteq \overline{ f[A]}$
+        \item[$(3) \Rightarrow (5)$] $f^{-1}[B] \subseteq \underbrace{f^{-1}[\overline B]}_{\text{domknięty}}$ \\ 
+            $\overline{ f^{-1}[B]} \subseteq f^{-1}[\overline B]$
+        \item[$(5) \Rightarrow (3)$] Niech $F \subseteq F$ będzie domknięty. $\overline F = F$ \\ 
+            $f^{-1}[F] \subseteq f^{-1}[\overline F] = f^{-1}[F]$ \\ 
+            $\overline{f^{-1}[F]} \supseteq f^{-1}[F]$ stąd $\overline{f^{-1}[F]} = f^{-1}[F]$
+    \end{itemize} 
+\end{dd} 
+\begin{wn} 
+    Dla $f: X \to \mathbb R,\ $ jest ciągła $\Leftrightarrow \{x: f(x) > a\},\ \{x: f(x) < a\}$ są 
+    otwarte dla każdego $a \in \mathbb R$.
+\end{wn} 
+\begin{dd} ~\\ 
+    $\{x : f(x) > a\} = f^{-1}[(a,\infty)]$\\
+    $f^{-1}[(a,b)] = \underset{\text{otwarte}}{\{x : f(x) > a\}} \cap \underset{\text{otwarte}}{\{x : f(x) < b\}}$ \\ 
+    $\mathcal B = \{(a,b): a < b\}$ jest bazą.
+\end{dd} 
+\begin{przyp} Przestrzeń $X$ jest ośrodkowa, gdy istnieje $D \subseteq X$ przeliczalny, $\overline D = X$. 
+    \end{przyp} 
+\begin{df} Przestrzeń topologiczna ma przeliczalny ciężar, gdy istnieje przeliczalna baza. \end{df} 
+\begin{przyp} Dla przestrzeni metrycznej $X$, $X$ jest ośrodkowa $\Leftrightarrow \ X$ ma przeliczalny ciężar
+\end{przyp}
+\begin{df} 
+    Przestrzeń topologiczna $X$ ma przeliczalny charakter, jeżeli ma bazę przeliczalną w każdym punkcie. \\[5mm]
+    $\mathcal B(x)$ jest bazą w $x \in X$, jeżeli 
+    \[ \forall \mathcal U \in \mathcal T_x \ \exists B \in \mathcal B(x) \ x \in B \subseteq U \]
+\end{df} 
+\begin{uw} Jeżeli topologia $X$ jest zadana przez metrykę $\rho$, to $B(x) = \{ B_{\frac{1}{n}} (x): n \in \mathbb N \}$ \end{uw} 
+\begin{prz} 
+    Strzałka $S$, czyli $\mathbb R$ z topologią zadaną przez $\{ [a,b): a < b \}$ 
+    \begin{itemize} 
+        \item $S$ jest ośrodkowa: $\mathbb Q$ jest gęsty w $S$. 
+        \item $S$ ma przeliczalny charakter: $\{ [x,x+\frac{1}{n}): n \in \mathbb N \}$ - baza w $x$.
+        \item $S$ nie ma przeliczalnej bazy
+            \begin{lem}  \hfill
+                \begin{enumerate}[(1)] 
+                    \item Jeżeli $X$ ma przeliczalną bazę i $\{U_t : t \in T\} \subseteq \mathcal T_x$, to 
+                        istnieje przeliczalny $T_0 \subseteq T$, taki, że 
+                        \[ \bigcup_{t \in T} U_t = \bigcup_{t \in T_0} U_t\]
+                        \begin{dd} 
+                            Niech $\mathcal B_0$ będzie przeliczalną bazą $X$. $U = \bigcup\limits_{t \in T} U_t
+                            \quad U_t \in \mathcal T_x$. \\ 
+                            $\forall x \in U \, \exists t_x \in T \ x \in U_{t_x}$ \\ 
+                            $\forall x \in U \, \exists B_x \in \mathcal B_0 \ x \in B_x \subseteq U_{t_x}$ \\ 
+                            Rodzina $\{B_x: x \in U \} \subseteq \mathcal B_0$ jest przeliczalna. \\ 
+                            $\{B_x: x \in U\} = \{B_1,B_2,\ldots\}$ \\ 
+                            $\forall n \, \exists t_n \in T \ B_n \subseteq U_{t_n}$
+                            Wtedy $\bigcup\limits_{t \in T} U_t = \bigcup\limits_{n=1}^\infty U_{t_n}$
+                        \end{dd} 
+                    \item Jeżeli $X$ ma przeliczalną bazę $\mathcal B_0$ to z każdej bazy $B$ przestrzeni $X$
+                        można wybrać bazę $B' \subseteq B$. 
+                        \begin{dd} 
+                            $\mathcal B_0 = \{ B_1,B_2,\ldots\} \ B - $ dowolna baza \\ 
+                            $B_n$ jest sumą przeliczalnie wielu zbiorów z $B$. \\ 
+                            $B_n = \bigcup\limits_{k=1}^\infty A_k^n,\ A_k^n \in B$ \\ 
+                            Wtedy $\{ A^n_k : n, k \in \mathbb N\}$ jest bazą $X$.
+                        \end{dd} 
+                \end{enumerate}
+            \end{lem} 
+            \begin{dd} 
+                Przypuścimy, że $S$ ma przeliczalną bazę. $\mathcal B = \{[a,b) : a < b \} \supseteq \mathcal B'$
+                nie jest bazą $S$. Jeżeli $\mathcal B'$ jest przeliczalna to istnieje $x \in \mathbb R$ taki, że 
+                $[a,b) \notin \mathcal B'$ dla dowolnego $b$.
+            \end{dd} 
+    \end{itemize} 
+\end{prz}
+\begin{wn} $S$ nie jest metryzowalna \end{wn} 
+\begin{prz} 
+    Topologia zbieżności punktowej $X = C[0,1]$. \\ 
+    $f_n \in C[0,1]$ \\ 
+    $f_n \rightrightarrows f$ jest równoważna zbieżności w przestrzeni metrycznej\\ 
+    $\rho(f,q) = \sup\limits_{x \in [0,1]} |f(x) - g(x)|$ \\ 
+    Rozważmy topologię na $C[0,1]$. \\ 
+    Dla $f \in C[0,1]$ za bazę w $f$ bierzemy zbiory postaci
+    \[ V_f (x_1,\ldots,x_n,\varepsilon) = \{ g \in C[0,1] \ \forall i \le n \ |g(x_i) - f(x_i)| < \varepsilon \} \]
+\end{prz}
+\begin{tw} 
+    $f_n$ zbiega punktowo do $f \Leftrightarrow f_n \to f$ w topologii zbiezności punktowej. 
+    tzn. każde otoczenie $f$ zawiera prawie wszystkie $f_n$.
+\end{tw}    
+\begin{uw} 
+    Topologia zbieżności punktowej ma nieprzeliczalny charakter
+\end{uw} 
+\begin{dd} 
+    Rozważmy $f \equiv 0$. Nie istnieje przeliczalna baza w $f$. \\ 
+    Rozważmy $\mathcal V = \{ V_f (x_1^k,\ldots,x_n^k,\varepsilon): n,k \in \mathbb N\}$ \\ 
+    $D = \bigcup\limits_{k,n \in \mathbb N} \{ x_i^k : i \le n_k \}$ \\ 
+    Istnieje $x \in [0,1] \setminus D$ \\ 
+    Wtedy $V_f(x,\frac{1}{2})$ nie zawiera zbiorów z $\mathcal V$. 
+\end{dd}
+\vspace{1cm}
+Rozpatrywanie wszystkich topologi nie ma sensu.
+\begin{prz} 
+    $X = \mathbb R, \ \mathcal T = \{ (a,\infty): a \in \mathbb R \} \cup \{\emptyset,\mathbb R\}$ - topologia na $\mathbb R$. \\ 
+    $x \in \overline A \Leftrightarrow \forall U \in \mathcal T_x \ x \in U \Rightarrow U \cap A \neq \emptyset$ \\ 
+    $\overline{\{7\}} = (-\infty,7]$
+\end{prz}
+\begin{df} Aksjomaty oddzielania: 
+    \begin{itemize} 
+        \item[$T_1$] $\forall x,y \in X, x \neq y \Rightarrow \exists \, U \in \mathcal T_x \ x \in U, y \notin U$
+        \item[$T_2$] $\forall x,y \in X, x \neq y \Rightarrow \exists \, U,V \in \mathcal T_x 
+            \ x \in U, y \in V, U \cap V = \emptyset$
+        \item[$T_3$] $\forall x \in X \, \forall F \underset{\text{domknięty}}{\subseteq} X \ x \notin F 
+            \Rightarrow \exists \, U, V \in \mathcal T_x \ x \in U, F \subseteq V, U \cap V = \emptyset$
+        \item[$T_4$] $\forall F, W \underset{\text{domknięty}}{\subseteq} X \ F \neq W \Rightarrow 
+            \exists \, U, V \in \mathcal T_x \ F \subseteq U, W \subseteq V, U \cap V = \emptyset$
+    \end{itemize} 
+    \noindent \rule{2cm}{0.4pt} \\ 
+    \footnotesize{$T_2$ - Hausdorffa
+    $T_3$ - regularne 
+    $T_4$ - normalne}
+    
+\end{df} 
+\begin{lem} 
+    W przestrzeni topologicznej $X$ NWSR: 
+    \begin{enumerate}[(1)] 
+        \item $X \in T_1$
+        \item $\forall x \in X \ \overline{\{x\}} = \{x\}$
+    \end{enumerate} 
+    \begin{dd} \hfill 
+        \begin{itemize} 
+            \item[$(1) \Rightarrow (2)$] Ustal $x$. $\forall y \neq x \, \exists U_y \ y \in U_y, x \notin U_y$
+                $\bigcup\limits_{y \neq x} U_y = X \setminus \{x\}$. Stąd $\{x\}$ jest domknięty.
+            \item[$(2) \Rightarrow (1)$] $x \neq y \ x \in  \underbrace{X \setminus \{y\}}_{\text{otwarty}}$
+        \end{itemize} 
+    \end{dd}
+\end{lem} 
+\begin{tw} 
+    Niech $X$ będzie metryzowalna (istnieje metryka $\rho$, która wyznacza topologię). Dla dowolnych domkniętych 
+    i rozłącznych $A, B \subseteq X$ istnieje $ f: X \to [0,1]$ ciągła, taka, że $f |_A \equiv 0$, 
+    $f |_B \equiv 1$. W szczególności $X$ jest normalna.
+\end{tw} 
+\begin{dd} 
+    $f(x) = \frac{\rho(x,A)}{\rho(x,A)+\rho(x,B)}$ \\ 
+    $U = \{ x : f(x) < \frac{1}{3} \} \supseteq A$ \\ 
+    $V = \{ x: f(x) > \frac{2}{3} \} \supseteq B$
+\end{dd}    
+\begin{tw}[Lemat Urysohna] 
+    Niech $X \in T_4$. Jeżeli $A,B \subseteq X$ są domknięte i rozłączne to istnieje ciągła $f: X \to [0,1]$ 
+    taka, że $f|_A \equiv 0$, $f|_B \equiv 1$.
+\end{tw} 
+\begin{dd} 
+    $T_4$ jest równoważny stwierdzeniu: Jeżeli $F \subseteq U$, $F$ domknięty, $U$ otwarty, to istnieje 
+    owarty $V$, taki, że $ F \subseteq V \subseteq \overline V \subseteq U$. 
+    \begin{itemize} 
+        \item[$\Rightarrow$] Stosujemy $T_4$ do zbiorów $F, X\setminus U$. Istnieją otwarte $V,V', V \cap V' =
+            \emptyset, F \subseteq V, X \setminus U \subseteq V'$. \\
+            $V \subseteq X \setminus V'$ \\ 
+            $\overline V \subseteq X \setminus V'$ \\ 
+            $F \subseteq V \subseteq \overline V \subseteq U$
+            Wybieramy $V_0$ i $V_1$, takie, że $A \subseteq V_0 \subseteq \overline V_0 \subseteq 
+            V_1 = X \setminus B$. \\ 
+            Dla liczb $r \in \mathbb Q \cap (0,1)$ definijuemy otwarte $V_r$, w ten sposób, że 
+            $r < r' \Rightarrow \overline V_r \subseteq V_{r'}$ \\ 
+            Indukcja: $(0,1) \cap \mathbb Q = \{ r_1,r_2,\ldots \}$, Dla danych $V_{r_1},\ldots,V_{r_n}$. 
+            Rozważamy $r_{n+1}$. \\ 
+            Wybieramy $i,j \le n, \ V_{r_i} \subseteq V_{r_j},\ (r_i,r_j) \cap \{r_1,\ldots,r_n\} = \emptyset$.\\
+            Wiemy, że $\overline{V_{r_i}} \subseteq V_{r_j}$, stosujemy $T_4$. \\ 
+            Istnieje $V_{r_{n+1}}$ otwarty, takie, że $\overline V_{r_j} \subseteq V_{r_{n+1}} \subseteq 
+            \overline{ V_{r_{n+1}}} \subseteq V_{r_j}$ \\ 
+            Definiujemy $f : X \to [0,1]$. $f(x) = \begin{cases} \inf \{r \in (0,r) \cap 
+                \mathbb Q : x \in V_r \} &\text{gdy } x \in V_1 \\ 
+            1 & \text{gdy } x \notin V_1 \end{cases}$
+            Funkcja $f$ jest ciągła: \\ 
+            $\{ x : f(x) > b \} \ f(x) > b \Rightarrow \exists r,r' \in \mathbb Q\ f(x) > r > r' > b$. Wtedy 
+            $x \notin V_r \supseteq \overline V_r \ \{x : f(x) > b\} = \bigcup\limits_{r' > b} (X \setminus 
+            \overline V_r)$\\ 
+            $\{x : f(x) < a \} \ f(x) < a \Rightarrow \exists r \in \mathbb Q \ f(x) < r < a \
+            \{ x: f(x) < a \} = \bigcup\limits_{r < a} V_r$ - otwarte
+    \end{itemize} 
+\end{dd} 
+$T_3$ oznacza $T_1$ (punkty są domknięte) + oddzielenie punktów od zbiorów domkniętych. \\ 
+$T_4$ oznacza $T_1$ + iddzielenie zbiorów domkniętych.
+\begin{df} 
+    Mówimy, że $X \in T_{3 \frac{1}{2}}$ (przestrzeń całkowicie regularna, przestrzeń Tichonowa), jezeli 
+    $T_1$ oraz $x \in X, F \subseteq X$ domknięte, jeżeli $x \notin F$, 
+    to istnieje funkcja ciągła $f : X \to [0,1]$, taka, że $f(x) = 1, f|_F = 0$. \\
+    \rule{2cm}{0.4pt}\\ 
+    Równoważnie, jeżeli $x \in U,\ U$ otwarty to istnieje ciągła $f: X \to [0,1],\ f(x) = 1, f|_{X\setminus U}= 0$
+\end{df} 
+\subsection{Podprzestrzenie} 
+Dla danej przestrzeni topologicznej $(X,\mathcal T_X)$ i $Y \subseteq X$ topologię na $Y$ definujemy, jako 
+$\{U \cap Y: U \in \mathcal T_X \} = \mathcal T_Y$
+\begin{prz} 
+    $X = \mathbb R,\ Y = [0,1]$ \\ 
+    $(0,1]$ nie jest otwarty na $\mathbb R$ \\
+    $(0,1] = (0,2) \cap [0,1]$ jest otwarty w $Y$
+\end{prz} 
+\begin{prz}
+    $X = \mathbb R,\ Y = \mathbb N$ \\ 
+    Topologia na $\mathbb N$ jako podprzestrzeni $\mathbb R$ jest dyskrenta, bo $ \{n\} = \mathbb N \cap (n-1,n+1)$
+\end{prz}
+\begin{tw} 
+    Niech $Y$ będzie podprzestrzenią $X$
+    \begin{enumerate}[(1)]
+        \item jeżeli $X$ ma bazę przeliczalną to $Y$ ma bazę przeliczalną 
+        \item jeżeli $X$ ma przeliczalny charakter (baza przeliczalna w każdym punkcie), to $Y$ też
+        \item jezeli $X \in T_i$ dla $i \le 3 \frac{1}{2}$, to $Y \in T_i$
+    \end{enumerate} 
+\end{tw} 
+\begin{prz} Ośrodkowość nie jest dziedziczna \\
+    Płaszczyzna Niemytzkiego. \\ 
+    Dla $p = (x,t), t > 0$ definujemy kulę w p $B_{\frac{1}{n}} = \{ q \in X : \norm{p-q}_2 < \frac{1}{n} \}$ \\
+    Dla $p = (x,0)$. Otoczenie bazowe w $p \ \{p\} \cup B_r (x,r)$. \\ 
+    Płaszczyzna Niemytzkiego jest ośrodkowa. $D = \mathbb Q \times \mathbb Q_+$ jest gęsty. \\
+    $Y = \{ (x,0) : x \in \mathbb R\}$ Topologia podprzestrzeni $Y$ jest dyskretna.
+\end{prz} 
+\begin{dd} 
+    \begin{enumerate}[(1)] \hfill
+        \item Niech $\mathcal B \subseteq \mathcal T_x$ będzie przeliczalną bazą, tzn. $\forall x \, \forall U_{\text{otw}} 
+        \ x \in U \Rightarrow \exists B \in \mathcal B \ x \in B \subseteq U$. \\ 
+        Wtedy $\mathcal B_Y = \{ B \cap Y : B \in \mathcal B\}$ jest bazą Y. 
+        \item podobnie
+        \item Obcięcie funkcji ciągłej $f: X \to \mathbb R$ jest ciągłe, $f|_Y : Y \to \mathbb R$. \\ 
+        $(f|_Y)^{-1} [(a,b)] = \overbrace{\underbrace{f^{-1} [(a,b)]}_{\text{otw w X}} \cap Y}^{\text{otw w Y}}$\\
+        Rozważmy $y \notin F \subseteq Y$. $F$ domknięty w $Y$. Wtedy istnieje $H \subseteq X$ domknięty, 
+        $H \cap Y = F$. Mamy $y \notin H,\ H \subseteq X$ domknięty. Istnieje ciągła $f: X \to [0,1] \ f(y) = 1,
+        f|_H = 0, \ g: Y \to \mathbb R,\ g = f|_Y$ jest ciągła $g(y) = 1,g|_F = 0$
+    \end{enumerate} 
+\end{dd} 
+Rozważmy podprzestrzeń $Y$ przestzreni $X$. \\ 
+Jeżeli $f: X \to \mathbb R$ jest ciągła, to $f|_Y: Y \to \mathbb R$ jest ciągła.
+\begin{prz}  W drugą stronę nie działa
+    $X = [0,1], Y = [0,1), g: [0,1) \to \mathbb R, \ g(x) = \frac{1}{1-x}$
+\end{prz} 
+\begin{tw}[Tietze'go]
+    Załóżmy, że $X \in T_4$ i $Y \subseteq X$ jest podprzestrzenią domkniętą. Jeżeli $f: Y \to I$ jest funkcją
+    ciągłą $(I = [a,b], I = \mathbb R)$ to istnieje przedłużenie $f$ do ciągłej $\widetilde f : X \to I$
+    [$\widetilde f |_Y = f$]
+\end{tw} 
+\begin{lem} 
+    Niech $g: Y \to \mathbb R$ będzie ciągła $|g(x)| \le c$ dla $x \in Y$. \\ 
+    Istnieje $h: X \to \mathbb R$ ciągła, taka, że $|h(x)| \le \frac{c}{3}$ dla $x \in X$ oraz $|h(x) - g(x)| 
+    \le \frac{2}{3}c$ dla $x \in Y$
+    \begin{dd} 
+        $A = \{ x \in Y: g(x) \le -\frac{c}{3} \}$\\
+        $B = \{ x \in Y: g(x) \ge \frac{c}{3} \}$ 
+        Zbiory $A, B$ są domknięte w $X$. Z lematu Urysohna istnieje $\xi: X \xrightarrow{\text{ciągła}} [0,1]$.\\
+        $h(x) = \frac{2}{3} c (\xi (x) - \frac{1}{2})$. Funkcja $h$ działa. 
+    \end{dd} 
+\end{lem} 
+\begin{dd}[tw. Tietze'ego]
+    $f : Y \to [-1,1]$.\\ 
+    Definujemy $g_n: X \to [-1,1]$ takie, że dla każdego $n \in \mathbb N$ \\
+    $|g_n (x) | \le \frac{1}{3} (\frac{2}{3})^{n-1}$ \\ 
+    $|f(x) - \sum\limits_{i = 1}^n g_i (x)| \le (\frac{2}{3})^n, \ $
+    $\sum\limits_{n=1}^\infty \frac{1}{3} (\frac{2}{3})^{n-1} = 1$ \\ 
+    Wtedy $\widetilde f(x) = \sum\limits_{n=1}^\infty g_n(x)$ \\ 
+    Dla $x \in Y \ \widetilde f(x) = f(x)$ \\ 
+    Trzeba sprawdzić, że $\widetilde f(x) \in [-1,1]$. \\ 
+    $\widetilde f$ jest ciągła jako suma jednostajnie zbieżnego szeregu funkcyjnego. \\ 
+    $g_1 - $ funkcja $h$ z lematu zastoswana do $c = 1$ i $f$. \\ 
+    Dla ganych $g_1,\ldots,g_n$ stosujemy od lematu do $f-(\sum\limits_{i=1}^n g_i)|_Y$ i $c = (\frac{2}{3})^n$.
+    Lemat daje $g_{n+1}$ \\ 
+    Niech $ f: F \to [a,b] \subseteq \mathbb R $ \\
+    Rozważmy $h \circ f: F \to [-1,1]$ \\ 
+    Istnieje $\widetilde{h \circ f}: X \to [-1,1]$ \\ 
+    $h^{-1} \circ \widetilde{h \circ f}: X \to [a,b]$ \\ 
+    Rozważmy $f: F \to \mathbb R$ \\ 
+    Mamy $\xi \circ f: F \to (0,1) \subseteq [0,1]$ \\ 
+    istnieje $\widetilde{\xi \circ f} : X \to [-1,1]$ \\ 
+    $L = \{ x \in X: \widetilde{\xi \circ f} (x) \in [-1,1] \} \subseteq X$ domknięty \\ 
+    stosujemy lemat Urysohna do $F$ i $L$  \\ 
+    Istnieje ciągła $\eta: X \to [0,1],\ \eta |_F \equiv 1, \eta |_L \equiv 0$
+    Rozważmy $g = \eta \circ (\widetilde{\xi \circ f}) : X \to (-1,1)$ \\ 
+    $\widetilde f = \xi^{-1} \circ g : X \to \mathbb R$ rozszerza $f$ \\ 
+    $x \in F \Rightarrow \widetilde f (x) = (\xi ^{-1} \circ (\eta \circ (\widetilde{
+    \xi \circ f})))(x) = f(x)$ 
+\end{dd} 
+

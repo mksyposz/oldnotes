@@ -1,0 +1,188 @@
+\section{Własności metryczne}
+\subsection{Zwartość}
+\begin{df} Przestrzeń metryczna $X$ jest zwarta, jeżeli z każdego pokrycia $X$ zbiorami otwartmi można wybrać podpokrycie skończone. \\
+    Zbiór $A \subseteq X$ jest zwarty jeżeli dla dowolnej rodziny $\{U_t : t \in T\}$ zbiorów otwartych w X, z faktu, że $A \subseteq \bigcup\limits_{t \in T} U_t$,
+    wynika, że $A \subseteq U_{t_1} \cup U_{t_2} \cup \ldots \cup U_{t_n}$ dla pewnych $t_1,\ldots,t_n \in T$. \end{df}
+\begin{tw} Dla przestrzeni metrycznej $X$ NWSR:
+    \begin{enumerate}[(i)]
+        \item Z każdego pokrycia otwartego $X$ można wybrać podpokrycie skończone.
+        \item Z każdego pokrycia przeliczalnego $X$ można wybrać podpokrycie skończone. 
+        \item dla każdego ciągu $(x_n)$ w $X$ istnieje $x \in X$ i $n_1 < n_2 < n_3 < \ldots$ t. że $\lim\limits_{k \rightarrow \infty} x_{n_k} = x$
+    \end{enumerate} 
+\end{tw}
+\begin{dd} \hfill
+    \begin{itemize}
+        \item[(i) $\Rightarrow$ (ii)] oczywiste
+        \begin{lem}
+            Jeżeli $F_n \subseteq X \ F_n$ - domknięte, $\bigcap\limits_{i=1}^n F_i \neq \emptyset$, to $\bigcap\limits_{n=1}^\infty F_n \neq \emptyset$.
+            \begin{dd} 
+                Zał. że $\bigcap\limits_{n=1}^\infty F_n = \emptyset$. \\ 
+                $ X = \bigcup\limits_{n=1}^\infty (X \setminus F_n) \overset{\text{z (ii)}}{=} \bigcup\limits_{n=1}^n(X \setminus F_i) = \bigcap\limits_{i=1}^n F_n = \emptyset$ \lightning
+            \end{dd}
+        \end{lem} 
+        \item[(ii) $\Rightarrow$ (iii)] 
+            Niech $x_n \in X, \ F_n = \overline{\{x_{n+1},x_{n+2},\ldots\}}. \ F_1 \supseteq F_2 \supseteq \ldots \supseteq F_n \neq \emptyset$.\\
+            Z lematu istnieje $x \in \bigcap\limits_{i=1}^\infty F_i$. Zdefinnujmy $n_1 < n_2 < \ldots < n_k < \ldots, \quad \rho(x_{n_k},x) < \frac{1}{k}$. \\
+            Dla danych $n_1 < \ldots < n_k \quad x \in F_{n_k} = \overline{\{x_{n_k+1},x_{n_k+2},\ldots\}}$, czyli $B_{\frac{1}{k}}(x) \cap \{x_{n_k+1},\ldots\} \neq \emptyset$, 
+            więc $x_{n_k} \in B_{\frac{1}{k}}(x)$.
+        \begin{lem} 
+            Jeżeli przestrzeń $X$ spełnia wzór (iii) to $X$ jest ośrodkowa (ma bazę przeliczalną).
+            \begin{dd} 
+                Rozważmy $A \subseteq X$ taki, że $x,y \in A x \neq y$ to $\rho(x,y) \ge 1$. Wtedy $A$ jest skończony. Gdyby $A$ 
+                zawierał $(x_n)$ t. że $(x_n \neq x_k)$ to ciąg $(x_n)$ nie zawierałby podciągu zbieżnego.
+                Niech $A_n$ będzie maksymalnym zbiorem w $X$ t. że $x,y \in A_n \Rightarrow \rho(x,y) \ge \frac{1}{n}. A_n$ skończony. 
+                $D = \bigcup\limits_{n=1}^\infty A_n$ - przeliczalny. $X = \overline{D}. D \cap B_\delta(x) \neq \emptyset$
+            \end{dd} 
+        \end{lem}
+        \item[(iii) $\Rightarrow$ (i)] Wiem, że $X$ ma przeliczalnę bazę. W przestrzeni z przeliczalną bazą, jeżeli $X = \bigcup\limits_{t \in T}U_t$ jest pokryciem otwarty, 
+            to istnieje przeliczalny $T_0 \subseteq T \  X = \bigcup\limits_{t \in T_0} U_t$. Wystarczy pokazać (iii) $\Rightarrow$ (ii). \\ 
+            Przypuścmy, że $X = \bigcup\limits_{n=1}^\infty U_n, \ U_n$ otwarte, ale $\bigcup\limits_{i=1}^n U_i \neq X$. Niech $x_n \in X \setminus \bigcup\limits_{i=1}^n U_i$,
+            wtedy $(x_n)$ nie ma podciągu zbieżnego. Niech $x \in X$, wtedy $x \in U_{n_0}$ otwarta, czyli istnieje $\delta$, t. że $B_\delta(x) \subseteq U_{n_0}$. \\ 
+            $n > n_0 \Rightarrow x_n \notin B_\delta(x)$ czyli prawie wszystkie wyr $(x_n)$ są daleko. 
+            \hfill \qed
+    \end{itemize} 
+\end{dd} 
+
+\begin{tw} \hfill 
+    \begin{enumerate}[(1)]
+        \item Jeżeli $X$ jest przestrzenią metryczną zwartą i $Y \subseteq X$ jest domknięta to $Y$ jest zwarta.
+        \item Jeżeli $Y$ jest p. zwartą i $Y \subseteq X$ to $Y$ jest domknięte w $X$. 
+        \item Jeżeli $f: X \underset{\text{na}}{\rightarrow} Y$ jest ciągłą suriekcją na p. zwartej $X$, to $Y$ jest p. zwartą.
+    \end{enumerate} 
+\end{tw} 
+\begin{dd} \hfill  
+    \begin{enumerate}[(1)] 
+        \item $Y \subseteq \bigcup\limits_{t \in T} U_t,\  U_t \in X$ otwarte. Wtedy $X = \bigcup\limits_{t \in T} U_t \cup ( X \setminus Y)$
+        Ze zwartości $X \subseteq U_{t_1} \cup \ldots \cup \subseteq U_{t_n} \cup (X \setminus Y)$, wtedy $Y \subseteq U_{t_1} \cup \ldots \cup \subseteq U_{t_n}$. 
+        \item Zał, że $Y$ nie jest domknięty. Istnieje $x \notin Y$, ale $ x = \lim\limits_n y_n, \ y_n \in Y$. Ciąg $y_n$ nie ma podciągu zbieżnego w $Y$. \lightning
+        \item $f: X \underset{\text{na}}{\rightarrow} Y$. Niech $Y = \bigcup\limits_{t \in T} V_t, \ V_t$ - otwarte, wtedy $X = \bigcup\limits_{t \in T} \overbrace{f^{-1}[V_t]}{\text{otwarte}}$.
+        $X = \bigcup\limits_{n=1}^k f^{-1}[V_{t_n}]$, czyli $Y = \bigcup\limits_{n=1}^k V_{t_n}$.
+    \end{enumerate}
+\end{dd}
+\begin{tw} 
+    Niech $(X_1,\rho_1),\ (X_2,\rho_2)$ będą zwarte. Rozważmy na $X_1 \times X_2$ metrykę $\rho$, t. że
+    zbieżność w $\rho$ jest równoważna zbieżnosci "po współrzędnych". Wtedy $X_1 \times X_2$ jest zwarta.
+\end{tw} 
+\begin{dd} 
+    Weżmy $(x_n). \ x_n = (x_n(1), x_n(2)) \subseteq X_1 \times X_2$. Mamy $x_n(1) \in X_1. \ X_1$ - zwarta, czyli $x_{n_k}(1) \underset{n}{\rightarrow} x(1)$. 
+    $x_{n_k} \in X_2. \ X_2$ - zwarta, czyli $x_{n_{k_l}} \underset{n}{\rightarrow} x(2)$. 
+\end{dd} 
+\begin{tw} W przestrzeni euklidesowej $\mathbb{R}^d, \ A \subseteq \mathbb{R}^d$ jest zwarty $\Leftrightarrow A$ jest domknięty i ograniczony. \end{tw} 
+\begin{dd}\hfill 
+    \begin{itemize} 
+        \item[$\Rightarrow$] Jeżeli $A$ jest zwarty, to $A$ jest domknięty (było) \\ 
+            Jeżeli $A$ jest zwarty, to musi być ograniczony
+        \item[$\Leftarrow$] $A \subseteq \mathbb{R}^d$ \\ 
+            $ A \subseteq [-M,M]^d$ dla pewnego $M$. $[-M,M]$ jest zwarty, więc $[-M,M]^d$ jest zwarty. 
+            $A$ jest domknięty, stąd $A$ jest zwarty.
+    \end{itemize} 
+\end{dd} 
+\begin{wn} Jeżeli $X$ jest p. metryczną zwartą i $f: X \rightarrow \mathbb{R}$ jest ciągła to $f$ jest ograniczona i osiąga swoje kresy. \end{wn}
+\subsection{Zupełność} 
+\begin{df} Ciąg $(x_n)$ w przestrzeni metrycznej $(X,\rho)$ jest ciągiem Cauchy'ego jeżeli $\forall \varepsilon \ \exists N \ 
+    \forall n, k > N \ \rho(x_n,x_k) < \varepsilon$. \\ 
+    Metryka jest zupełna, jeżeli każdy ciąg Cauchy'ego jest zbieżny. \end{df} 
+\begin{tw} Przestrzeń euklidesowa $\mathbb{R}^d$ jest zupełna \end{tw} 
+\begin{dd} 
+    Dla $d=1$ wynika z aksjomatu Dedekina. \\
+    Niech $(x_n)$ będzie ciągiem Cauchy'ego w $\mathbb{R}^d$. Dla każdego $ j \le d \ |x_n(j)-x_k(j) \le \norm{x_n - x_k}_2$. \\
+    $(x_n(j))$ jest ciągiem Cauchy'ego na $\mathbb{R}$. Stąd $x(j) = \lim\limits_n x_n(j)$ jest dobrze określone. \\
+    $x = (x(1),x(2),\ldots,x(d)) = \lim\limits_n x_n$ \hfill \qed
+\end{dd} 
+\begin{tw} Dla dowolnej p. metrycznej $(X,\rho)$ przestrzeń $C_b(x)$ jest zupeła w metryce zbieżności jednostajnej (czyli $\norm{\cdot}_\infty$) \end{tw} 
+\begin{dd} Niech $(f_n)$ będzie ciągiem Cauchy'ego w $C_b(x)$. \\ 
+    Dla ustalonego $x \in X \ |f_n(x) - f_k(x)| \le \norm{f_n-f_k}_\infty$, więc $(f_n(x))$ jest ciągiem Cauchy'ego w $\mathbb{R}$. \\ 
+    $f  \overset{\text{def}}{=} \lim\limits_n f_n$. Musimy spr. że $\norm{f_n-f} \underset{n}{\rightarrow} 0$ oraz $f \in C_b(x)$. \\
+    Dla $\varepsilon > 0$ istnieje N, ,że $|f_k(x) - f_n(x)| < \varepsilon$ dla wszystkich $x \in X \ n,k > N$.
+    Niech $k \rightarrow \infty, \ |f_n(x)-f(x)| < \varepsilon$ dla wszystkich $x \in X$, czyli $\norm{f_n-f} \le \varepsilon$ dla $n > N$.
+    Druga część dowodu na ćwiczeniach. \hfill \qed
+\end{dd}
+
+\begin{tw} Jeżeli $(X,\rho)$ jest przestrzenią zupełną i $Y$ jest podprzestrzenią $X$, to $Y$ jest 
+    zupełna w metryce $\rho \Leftrightarrow Y$ jest domknięta.
+\end{tw}
+\begin{dd} \hfill 
+    \begin{itemize} 
+        \item[$\Leftarrow$] Zał, że $Y$ jest domknięta. Niech $(y_n)$ będzie ciągiem Cauchy'ego w $Y$. 
+            Ale wtedy $(y_n)$ jest ciągiem Cauchy'ego w $X$, zatem z zupełności $X$, istnieje $y \in X$ takie, że
+            $ y= \lim\limits_n y_n$. Ale wtedy z domknniętości $Y \ y \in Y$.
+        \item[$\Rightarrow$] Niech $y_n \in Y, \ x = \lim\limits_n y_n$ Chcemy sprawdzić, że 
+            $x \in Y$. Skoro $y_n$ jest zbieżny to spełnia warunek Cauchy'ego. $Y$ jest zupełna, więc $(y_n)$
+            ma granicę $y \in Y$. Wtedy $x = y \in Y$ (bo ciąg ma tylko jedną granicę).
+    \end{itemize} 
+\end{dd} 
+\begin{tw}[Banacha o odwozorowaniu zwężającym] Niech $(X,\rho)$ będzie przestrzenią metryczną zupełną 
+    i niech $T: X \to X$ będize odwozorowaniem zwężającym, tzn istnieje $c < 1$, takie, że 
+    $\forall x,y \in X \ \rho( T (x), T (y)) \le c \cdot \rho(x,y)$. Wtedy istnieje dokładnie 
+    jeden punkt $x_0 \in X$, taki, że $ T (x_0) = x_0$.
+\end{tw} 
+\begin{uw} $T$ jest funkcją ciągła \end{uw} 
+\begin{dd} 
+    Niech $x_1 \in X$. Rozważmy ciąg $x_{n+1} =  T (x_n)$. \\ 
+    Niech $M = \rho(x_1, T (x1)).$
+    \begin{align*}
+        \rho ( T (x_1), T( T (x_1))) &\le c \cdot \rho(x_1, (x_1)) = c \cdot M \\ 
+        \rho ( T ^n (x_1), T ^ {n+1}(x_1)) &\le c \rho( T^{n-1} (x_1), T^n (x_1)) \\
+        \rho( T ^ {n+1}(x_1), T ^ n (x_1)) &\le M \cdot c^n 
+    \end{align*} 
+    \[
+        \rho( T^{n+k} (x_1), T^n (x_1)) \le \rho ( T ^{n+1} (x_1), T^n(x_1)) + 
+    \rho ( T^{n+2}(x_1), T^{n+1}(x_1)) + \ldots + \rho( T^{n+k}(x_1), T^{n+k-1}(x_1)) \le \]
+    \[\le M(c^n + c^{n+1} + \ldots + c^{n+k-1}) < M \frac{c^n}{1-c} \]
+    \[ \forall n \ \forall k > 0 \ \rho( T^{n+k}(x_1), T ^n(x_1)) \le 
+    \overscript{\frac{M c^n}{1+c}}{\downarrow}{\text{dowolnie małe}} \]
+    Ciąg $( T^n (x_1))_n$ jest ciągiem Cauchy'ego (zatem ma granicę bo jesteśmy w przestrzeni metrycznej zupełnej).
+    Niech $x_0 = \lim\limits_n ( T^n (x_1))$. Wtedy $ T(x_0) = \lim\limits_n  T^{n+1}(x+1) = x_0$. \\ 
+    Jeżeli $x_0 = T(x_1)$ oraz $\tilde x_0 = T(\tilde x_0) \ \rho(T(\tilde x_0),T(x_0)) \le c \rho(\tilde x_0,x_0)$. 
+    Ponieważ $c < 1$, to $\rho(\tilde x_0,x_0) = 0$, czyli $\tilde x_0 = x_0$. \hfill \qed 
+\end{dd} 
+\begin{tw} 
+        Niech $(X,\rho)$ będzie przestrzenią metryczną. NWSR: 
+        \begin{enumerate}[(1)]
+            \item Metryka $\rho$ jest zupełna
+            \item Jeżeli $F_1 \supseteq F_2 \supseteq \ldots \supseteq F_n \supseteq \ldots$, gdzie $F_n$ 
+                są domknięte i niepuste oraz $\operatorname{diam}_\rho (F) \to 0$, to $\bigcap\limits_{n=1}^\infty F_n \neq 0$.
+        \end{enumerate} 
+        \footnotetext{$\operatorname{diam}_\rho(A) = \sup\limits_{x,y \in A} \rho(x,y)$}
+\end{tw} 
+\begin{dd} \hfill 
+    \begin{itemize} 
+        \item[$(1) \Rightarrow (2)$] Niech $x_n \in F_n$. Wtedy $(x_n)$ spełnia warunek Cauchy'ego, bo dla 
+            $k > 0 \ \rho(x_k,x_n) \le \operatorname{diam}_\rho (F_n) \to 0$. \\ 
+            Niech $x = \lim\limits_n x_n$. Wtedy $x \in \bigcap\limits_{n=1}^\infty F_n$.
+        \item[$(2) \Rightarrow (1)$] Niech $(x_n)$ spełnia warunek Cauchy'ego. 
+            $F_n = \overline{\{x_{n+1},x_{n+2},\ldots\}} \ \operatorname{diam}_\rho (F_n) \to 0$ \\
+            $x \in \bigcap\limits_{n=1}^\infty F_n$. Wtedy $x = \lim\limits_n x_n$.
+    \end{itemize} 
+\end{dd} 
+\begin{tw} (Baire'a o kategorii) Jeżeli $X$ jest p. metryczną zupełną, $F_n \subseteq X$ są domknięte i $\operatorname{int}(F_n) = \emptyset$,
+to $\bigcup\limits_{n=1}^\infty F_n \neq X$. \end{tw} \begin{dd} Definiujemy indukcyjnie ciąg $x_n \in X$ i $r_u > 0$, tak aby: 
+    \begin{itemize} 
+        \item $B_{r_n}(x_n) \cap (F_1 \cup \ldots \cup F_n) = \emptyset$
+        \item $B_{r_{n+1}}(x_{n+1}) \subseteq B_{r_n}(x_n) $
+        \item $\lim\limits_n r_n = 0$
+    \end{itemize} 
+    Z zupełności istnieje $x \in \bigcap\limits_{n=1}^\infty \overline{B_{r_n}(x_n)}$. Wtedy 
+    $x \notin \bigcap\limits_{n=1}^\infty F_n$. 
+\end{dd} 
+\begin{tw} (Baire'a) W p. zupełnej $X$ suma $\bigcup\limits_{n=1}^\infty F_n$ zbiorów domkniętych o pustym wnętrzu ma puste wnętrze. \\ 
+    \textbf{Dualnie}, jeżeli $G_n \subseteq X$ są otwarte i gęste to $\bigcap\limits_{n=1}^\infty G_n$ jest gęsty.
+\end{tw} 
+\begin{dd} 
+    Niech $U \subseteq X$ będzie otwarty, $U \neq \emptyset$. \\ 
+    $B_r(y) \subseteq U$ dla $y \in X,\ r > 0$ \\
+    $B_s(z) \subseteq \overline{B_s(z)} \subseteq B_r(y)$ \\ 
+    $x_0 = \overline{B_s(z)} \leftarrow$ teraz stosujemy tę samą konstrukkcję jak w poprzednim dowodzie.
+\end{dd} 
+\begin{df} ~\\
+    Zbiór $ A \subseteq X$ jest nigdziegęsty, jeżeli $\operatorname{int}(\overline{A}) = \emptyset$ \\
+    Zbiór $A \subseteq X$ jest brzegowy, jeżeli $\operatorname{int}(A) = \emptyset$. \\ 
+    Zbiór $A \subseteq X$ jest I-kategorii, jeżeli $A \subseteq \bigcup\limits_{n=1}^\infty B_n$, gdzie $B_n$ jest nigdziegęste.
+\end{df} 
+\begin{uw} Z tw. Baire'a przestrzeń metryczne zupełna nie jest I-kategorii \end{uw}
+\begin{df} (liczb Liouville'a)
+    $$ x \in L \Leftrightarrow \forall n \ \exists q \ge 2, q \in \mathbb{N} \ \exists p \in \mathbb{Z} \ |x - \frac{p}{q}| < \frac{1}{q^n}. $$
+    $x \in L \rightarrow x$ jest przestępna. \end{df}
+    "Typowa" $x \in \mathbb{R}$ jest liczbą Liouville'a. $\mathbb{R} = L \cup \overbrace{\bigcup\limits_{n=1}^\infty F_n,}^{\text{I kategorii}} \ F_n$
+    domknięte, $\operatorname{int}(F_n) = \emptyset$. 
+

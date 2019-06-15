@@ -1,0 +1,170 @@
+\section{Metryka i norma}
+Niech X będzie przestrzenią liniową.
+\begin{df} 
+    \underline{Normą} na X nazywamy funkcję $\norm{\cdot}: X \rightarrow [0,\infty)$, spełniającą: 
+    \begin{itemize} 
+        \item[(N1)] $\norm{x} = 0 \Leftrightarrow x = 0\footnotemark$
+        \item[(N2)] $\norm{a\cdot x} = |a| \cdot \norm{x} \qquad a \in K, x \in X$ (jednorodność)
+        \item[(N3)] $\norm{x+y} \le \norm{x} + \norm{y} \qquad x,y \in X$ (nierówność trójkąta)
+    \end{itemize} 
+\end{df} 
+    \footnotetext{Chodzi o 0 przestrzeni liniowej X}
+\begin{uw}
+    W przestrzeni unormowanej $(X,\norm{\cdot})$ wielkość $\norm{x-y}$ jest odległością $x$ do $y$.
+\end{uw}
+\begin{df} 
+    \underline{Przestrzenią metryczną} nazywamy $(X,\rho)$, gdzie $\rho: X \times X \rightarrow [0,\infty)$ spełnia
+    \begin{itemize} 
+        \item[(M1)] $\rho(x,y) = 0 \Leftrightarrow x = y$
+        \item[(M2)] $\rho(x,y) = \rho(y,x)$
+        \item[(M3)] $\rho(x,y) \le \rho(x,z)+\rho(z,y)$
+    \end{itemize} 
+\end{df} 
+\begin{uw}
+    Jeżeli $(X,\norm{\cdot})$ jest p. unormowaną, to wzór $\rho(x,y) = \norm{x-y}$ określa metrykę na X.
+\end{uw}
+
+\begin{uw} 
+    Dla danej przestrzeni metrycznej $(X,\rho)$ i $Y \subseteq X$, to $(Y,\widetilde\rho)$, gdzie $\widetilde\rho \neq \rho |_{Y \times Y}$.
+\end{uw}
+\begin{ozn}
+    W p. metrycznej $(X,\rho)$ zbiór $B_r(X) = \{y \in X: \rho(x,y) < r\}$ nazywamy kulą o środku $x$ i promieniu $r \ (r > 0)$.
+\end{ozn}
+\begin{df} ~\newline
+    Zbiór $U \subseteq X$ jest \underline{otwarty}, jeśli $\forall x \in U \ \exists \delta > 0, \ B_\delta (x) \subseteq U$. \\ 
+    Zbiór $F \subseteq X$ jest \underline{domknięty}, gdy $X \setminus F$ jest otwarty ($\forall x \notin F \ \exists \, \delta > 0 \ B_\delta(x) \cap F = \emptyset$).
+\end{df} 
+\begin{df} 
+    Dla dowolnego $A \subseteq X$ definiujemy $\overline{A}$:
+    \[ x \in \overline{A} \Leftrightarrow \forall \delta > 0 \quad B_\delta(X) \cap A \neq \emptyset \]
+\end{df} 
+
+\begin{tw} 
+    W dowolnej p. metrycznej $(X,\rho)$: 
+    \begin{enumerate}[(1)]
+        \item $A \subseteq X$ jest dokmnięty $\Leftrightarrow \ A = \overline{A}$ 
+        \item $\overline{A}$ jest najmniejszym zbiorem domkniętym zawierającym A
+        \item \begin{itemize}
+            \item Jeżeli $A \subseteq B$ to $\overline{A} \subseteq \overline{B}$ 
+            \item $\overline{A \cup B} = \overline{A} \cup \overline{B}$ 
+            \item $\overline{A} = \overline{\overline{A}}$
+            \end{itemize}
+        \item Jeżeli $A,B$ są domknięte to $A \cup B$ jest domknięty. \\ 
+            Jeżeli $A_t$ jest domknięty dla $t \in T$ to $\bigcap\limits_{t \in T} A_t$ jest domknięty.
+    \end{enumerate}
+\end{tw} 
+\begin{dd} \hfill
+    \begin{enumerate}[(1)] 
+        \item Wynika z def.
+        \item z (1) wiemy, że $\overline{A}$ jest domknięty oraz $A \overset{\text{def} \overline{A}}{\subseteq} \overline{A}$. Należy pokazać, że jeżeli $A \subseteq F$ to $\overline{A} \subseteq F$ i $F$ domknięty. \\ 
+        Zał, że $A \subseteq F$ i $F$ jest domknięty. Niech $x \notin F$, istnieje $\delta$ t. że $B_\delta (x) \cap F = \emptyset$, wtedy $B_\delta (x) \cap A = \emptyset$, więc $x \notin \overline{A}$. 
+    \end{enumerate}
+    Pozostałe punkty zostawione na ćwiczenia. 
+\end{dd} 
+
+\begin{df} 
+    Ciąg $(x_n)$ w przestrzeni metrycznej $(X,\rho)$ jest zbieżny do $x \in X$ jeżeli $\lim\limits_n \rho(x_n,x) = 0$.\\
+    tzn. $\forall \ \varepsilon > 0 \ \exists N \ \forall n > N \ \rho(x_n,x) < \varepsilon$
+\end{df} 
+
+\begin{tw} 
+    Dla zbioru $A \subseteq X$ NWSR: 
+    \begin{enumerate}[(1)]
+        \item A jest domknięty 
+        \item dla dowolnego $(x_n)$, jeżeli $(x_n) \in A$ i $x_n \underset{n}{\rightarrow} x$, to $x \in A$.
+    \end{enumerate} 
+\end{tw} 
+\begin{dd} Pozostawiony na ćwiczenia. \end{dd}
+
+\section{Trochę o funkcjach ciągłych}
+\begin{tw}[o ciągłości] 
+    Niech $(X,\rho), (X',\rho ')$ będą p. metrycznymi. Dla $f: X \rightarrow X'$ NWSR:
+    \begin{enumerate}[(i)]
+        \item $\forall x \in X \ \forall \varepsilon > 0 \ \exists \delta > 0 \ \forall y \in X \quad \rho(x,y) < \delta \Rightarrow \rho'(f(x),f(y)) < \varepsilon$
+        \item Dla dowolnego ciągu $(x_n) \ x_n \in X$, jeżeli $x_n \underset{n}{\rightarrow} x$, to $f(x_n) \underset{n}{\rightarrow} f(x)$
+        \item Dla dowolnego $F \subseteq X'$ domkniętego $f^{-1}[F]$ jest domknięty w $X$.
+        \item Dla dowolnego $V \subseteq X'$ otwartego $f^{-1}[V]$ jest otwraty w $X$.
+    \end{enumerate}
+\end{tw} 
+
+\begin{dd} \hfill 
+    \begin{itemize} 
+        \item[(i) $\Rightarrow$ (ii)] Rozważmy $x_n \in X$ t. że $x_n \underset{n}{\rightarrow} x \in X$. 
+        Chcemy pokazać, że $f(x_n) \underset{n}{\rightarrow} f(x)$, czyli $\forall \varepsilon > 0 \quad f(x_n) \subseteq B_\varepsilon (f(x))$ dla prawie wszystkich $n$.
+        Dobieramy $\delta > 0$ tak jak w (i), wtedy, jeżeli $y \in B_\delta(x)$, to $f(y) \in B_\varepsilon (f(x))$. Skoro $x_n \underset{n}{\rightarrow} x$, 
+        to $x_n \in B_\delta (x)$ dla prawie wszystkich $n$, więc $f(x_n) \subseteq B_\varepsilon (f(x))$ dla prawie wszystkich $n$.
+        \item[(ii) $\Rightarrow$ (iii)] Rozważmy $F \subseteq X'$ domknięty. Chcemy pokazać, że $f^{-1}[F]$ jest domknięty w $X$. Rozważmy $x_n \in f^{-1}[F]$, zał. że jest zbieżny do $x$, Chcemy spr. że $x \in f^{-1}[F]$.
+        Gdyby $x \notin f^{-1}[F]$ tzn $f(x) \notin F$. Istnieje $\varepsilon$ t. że $B_\varepsilon (f(x)) \cap F = \emptyset$. 
+        Z zał. $f(x_n) \underset{n}{\rightarrow} f(x)$, czyli $f(x_n) \in F$ \lightning
+        \item[(iii) $\rightarrow$ (iv)] weźmy $V \subseteq X'$ otwarty, wtedy $F = X' \setminus V$ - domknięty. $ f^{-1} [X' \setminus V]$ - domknięty, $f^{-1}[F]$ domknięty. \\
+        A $f^{-1}[X' \setminus V] = X' - f^{-1}[V]$ jest domknięty, czyli $f^{-1}[V]$ otwarty. \lightning
+        \item[(iv) $\rightarrow$ (i)] Ustalmy $x \in X$. Weźmy $\varepsilon > 0$. Szukamy $\delta > 0$ t. że jeżeli $\rho (x,y) < \delta \Rightarrow \rho ' (f(x),f(y)) < \varepsilon$.
+        $ V = B_\varepsilon (f(x))$ jest zbiorem otwartym, więc $f^{-1}[V]$ jest otwarty, ponieważ $x \in f^{-1}[V]$.
+        Istnieje $\delta > 0$ t. że $B_\delta (x) \subseteq f^{-1}[V]$. \\
+        $y \in B_\delta (x) \Rightarrow f(y) \in V = B_\varepsilon (f(x))$\\
+        $\rho (x,y) < \delta \Rightarrow \rho'(f(y),f(x)) < \varepsilon$. \hfill \qed
+    \end{itemize} 
+\end{dd} 
+
+\begin{tw} Złożenie funkcji ciągłych jest ciągłe \end{tw}
+\begin{dd} 
+    Niech $f: X \rightarrow X', \ g: X' \rightarrow X''$ będą ciągłe. $g \circ f: X \rightarrow X''$. Niech $V \subseteq X''$ będzie otwarty, wtedy $g^{-1}[V]$ jest otwarty w $X'$.
+    $(g \circ f)^{-1}[V] = f^{-1}[g^{-1}[V]]$ jest otwarty w X. \hfill \qed
+\end{dd} 
+
+\begin{tw} Jeżeli $f,g: X \rightarrow \mathbb{R}$ są ciągłe, to $f+g$ i $f \cdot g$ też są ciągłe. \end{tw} 
+\begin{dd} Z def. na ciągach \end{dd} 
+\begin{tw} Funkcja $\rho(\cdot,x): X \rightarrow [0,\infty)$ jest ciągła. \end{tw} 
+\begin{dd} $| \rho(y,x) - \rho(z,x)| \le \rho(y,z)$ \end{dd} 
+\begin{ozn} Przestrzenią euklidesową nazywamy $(\mathbb{R}^d,\norm{\cdot}_2\footnotemark)$. \end{ozn}
+\footnotetext{$ \norm{x}_2 = \sqrt{\sum\limits_{i=1}^d |x(i)|^2} $}
+\begin{tw} W $\mathbb{R}^d$ ciąg $x_n = (x_n(1),x_n(2),\ldots,x_n(d))$ jest zbieżny do $x = (x(1),x(2),\ldots,x(d))$ wtedy i tylko wtedy gdy $\forall i \le d \ \lim\limits_n x_n(i) = x(i)$. \end{tw}
+\begin{dd} na ćwiczeniach \end{dd}
+
+\subsection{Zbiory gęste, przestrzeń ośrodkowa}
+
+\begin{df} Zbiór $D \subseteq X$ jest gęsty, jeśli $\overline{D} = X$. \end{df}
+\begin{uw} $\overline{D} = X \Leftrightarrow \ \forall r > 0 \ \forall x \ B_r(x) \cap D \neq \emptyset \Leftrightarrow \forall x \ \exists d_n \in D \ \rho(x,d_n) \underset{n}{\rightarrow} 0$ \end{uw}
+\begin{df} $X$ jest przestrzenią ośrodkową (separable), jeżeli $X$ zawiera przeliczalny zbiór gęsty.\end{df}  
+\begin{tw} Przestrzenie euklidesowe są ośrodkowe \end{tw} 
+\begin{dd} $\mathbb{Q}^d \subseteq \mathbb{R}^d $ \end{dd} 
+\begin{tw}(Weiestrassa) Jeżeli $f \in C[a,b]$ to dla każdego $\varepsilon > 0$ istnieje wieloman $P$, taki, że $|P(x)-f(x)| < \varepsilon$ \end{tw}
+\begin{wn} Zbiór wielomianów jest gęsty w $C[a,b]$ \end{wn} 
+\begin{wn} Przestrzeń $C[a,b]$ jest ośrodkowa \end{wn}
+\begin{dd} 
+    Niech $A = \{P : P(x) = a_0 + a_1 x + \ldots + a_n x^n, n \in \mathbb{N} , \{a_n\} \in \mathbb{Q} \}$. $A$ jest gęsty w $C[a,b]$. \\ 
+    Niech $f \in C[a,b]$ i $ \varepsilon > 0$. Z tw. Weiestrassa istnieje wieloman $W$, t. że $\forall x \ |W(x) - f(x)| < \frac{\varepsilon}{2}$.
+    $W(x) = b_0 + b_1 x + \ldots + b_n x^n, \quad b_n \in \mathbb{R}$. Niech $M = max\{|a|,|b|\}$. Bierzemy $p(x) = a_0 + a_1 x + \ldots + a_n x^n$,t. że: 
+    \begin{align*}
+        a_0 \in \mathbb{Q} \quad |b_0 - a_0| &< \frac{\varepsilon}{2(n+1)}\\ 
+        a_1 \in \mathbb{Q} \quad |b_1 - a_1| &< \frac{\varepsilon}{2(n+1)M} \\ 
+        \vdots
+    \end{align*}
+    Wtedy $\norm{W-p}_\infty < \frac{\varepsilon}{2}$, czyli $\norm{p-f} < \varepsilon$ \hfill \qed  
+\end{dd} 
+\begin{uw} Przestrzeń ośrodkowa nie zawiera nieprzeliczalnej rodziny rozłącznych kul. \end{uw} 
+
+\section{Baza Topologii} 
+Topologia to rodzina wszystkich zbiorów otwartych. 
+\begin{df} W przestrzeni $X$ rodzina zbiorów otwartych $\mathcal{B}$ jest bazą topologiczną, jeżeli dla dowolnego otwartego $U \subseteq X$ i $x \in U$ istnieje $B \in \mathcal{B}, x \in B \subseteq U$. \end{df}
+\begin{tw} Przestrzeń metryczna jest ośrodkowa $\Leftrightarrow X$ ma przeliczalną bazę. \end{tw}
+\begin{dd}\hfill 
+    \begin{itemize} 
+        \item[$\Rightarrow$] Niech $A \subseteq X$ będzie przeliczalny, gęsty. 
+            $B = \{B_q(a): a \in A, q \in \mathbb{Q}\}$. Niech $U \subseteq X$ będzie otwarty i $x \in U$.
+            Istnieje $\delta > 0$ t. że $B_\delta(x) \subseteq U$. 
+            Z gęstości $A: \ A \cap B_{\frac{\delta}{2}} \neq \emptyset$. Wtedy 
+            $\rho(a,x) < \frac{\delta}{2}$. Dobieramy $q \in \mathbb{Q} \ \rho(a,x) < q < \frac{\delta}{2}$. Wtedy 
+            $x \in B_q(a)$ oraz $B_q(a) \subseteq B_\delta (x)$
+        \item[$\Leftarrow$] Niech $\mathbb{B} = \{ B_1,B_2,\ldots\}$\footnotemark. Niech $B_n \neq \emptyset$. Wybieramy $a_n \in B_n.\ A = \{a_1,a_2,\ldots\}$ jest gęsty. 
+    \end{itemize} 
+\end{dd} 
+\footnotetext{chodzi o kule o kolejnych promieniach}
+
+\begin{df} Przestrzenie metryczne $(X,\rho), \ (X',\rho')$ są homeomorficzne, jeżeli istnieje $f: X \xrightarrow[1-1]{\text{na}} X'$, t. że
+$f: X \rightarrow X'$ oraz $f^{-1}: X' \rightarrow X$ są funkcjami ciągłymi.\end{df}
+
+\begin{df} Metryki $\rho_1$ i $\rho_2$ na $X$ są równoważne, jeżeli wyznaczają te same zbiory otwarte (tę samą topologię). \end{df} 
+\begin{tw} Metryki są równoważne $\Leftrightarrow \ \rho_1$ i $\rho_2$ wyznaczają te same ciągi zbieżne. \end{tw}
+\begin{ozn} Własność topologiczna jest niezmiennikiem homeomorfizmu \end{ozn}
+

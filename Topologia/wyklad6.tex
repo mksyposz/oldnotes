@@ -1,0 +1,483 @@
+\section{Produkty} 
+\begin{df} 
+    Rozważamy przestrzenie topologiczne $X$ i $Y$. Topologia na $X \times Y$ jest 
+    wyznaczona przez bazę $U \times V,\ U \subseteq X, V \subseteq Y$ otwarte. \\ 
+    $(U_1 \times V_1) \cap (U_2 \times V_2) = (U_1 \cap U_2) \times (V_1 \cap V_2)$ \\
+    Dla $X_1 \times \ldots \times X_n$ topologię produktową na 
+    $X = X_1 \times \ldots \times X_n$ 
+    definujemy przez bazę $U_1 \times \ldots \times U_n$, gdzie $U_i \subseteq X_i$ są 
+    otwarte. 
+\end{df} 
+\begin{tw} 
+    Topologia (produktowa) na $X = X_1 \times \ldots \times X_n$ jest to najmniejsza 
+    topologia na $X$, dla której rzuty $\pi_i: X \to X_i$ są ciągłe 
+\end{tw} 
+\begin{dd} 
+    $\pi_i^{-1} (v) = X_1 \times \ldots \times X_{-1} \times v \times \ldots \times X_n$ 
+    więc rzut jest ciągły. 
+\end{dd} 
+\begin{df} 
+    Niech $X_n$ będą przestrzeniami topologicznymi i $X = \prod\limits_{n=1}^\infty
+    X_n$, to topologię na $X$ definujemy jako najmniejszą topologię dla której rzuty 
+    $\pi_n : X \to X_n$ są ciągłe 
+\end{df} 
+\begin{tw} 
+    Zbiory postaci $U = U_1 \times U_2 \times \ldots \times U_n \times X_{n+1} 
+    \times X_{n+2} \ldots$
+    stanowią bazę topologi na $X$.
+\end{tw} 
+\begin{prz} 
+    W przestrzeni $X = \mathbb R ^{\mathbb N} \ A = (0,1)^{\mathbb N}, \operatorname{Int}
+    (A) = \emptyset$
+\end{prz} 
+\begin{tw} 
+    Niech $X = X_1 \times X_2 \times \ldots$ będzie produktem przestrzeni topologicznych 
+    \begin{enumerate}[(a)] 
+        \item Jeżeli każde $X_n$ ma przeliczalną bazę, to $X$ ma przeliczalną bazę. 
+        \item Jeżeli każda $X_n$ jest metryzowalna, to $X$ jest metryzowalna. 
+        \item Jeżeli każda $X_n$ jest ośrodkowa, to $X$ jest ośrodkowa. 
+    \end{enumerate} 
+\end{tw}
+\begin{dd} \hfill 
+    \begin{enumerate}[(a)] 
+        \item Niech $\mathcal B_n$ będzie przeliczalną bazą $X_n$. Wtedy zbiory postaci 
+            $B_1 \times B_2 \times \ldots \times B_n \times X_{n+1} \times \ldots$, gdzie 
+            $B_i \in \mathcal B_i,\ n \in \mathbb N$ stanowią bazę $X$. 
+        \item Niech $\rho_n$ będzie metryką na $X_n$, wyznaczającą topologię $X_n$, 
+            $\rho_n(\cdot,\cdot) \le 1$. \\
+            Wtedy $\rho (x,y) = \sum\limits_{n=1}^\infty
+            \frac{1}{2^n} \rho_n (x(n),y(n))$ metryzuję topologię na $X$. \\ 
+            Funkcja $\rho(\cdot,y): X \to \mathbb R$ jest ciągła. \\ 
+            $g_n=\rho_n (\cdot,y(n)): X_n \to \mathbb R$ jest ciągła.  \\ 
+            $\rho(\cdot,y)$ jest sumą jednostajnie zbieżnego szeregu funkcyjnego ciągłych
+            na $X$. $\rho(\cdot,y) = \sum\limits_{n=1}^\infty g_n \circ \pi_n$ \\ 
+            Kule $B_r (x) = \{y: \rho (x,y) < r \}$ są otwarte w topologii produktowej.
+        \item $D_n \subseteq X_n$ przeliczalny $\overline D_n = X_n$ \\ 
+            Wtedy $D_1 \times D_2 \times \ldots $ jest gęsty. Ale nie jest na ogól przeliczalny. 
+            Ustalmy $z_n \in X_n$ \\ 
+            $D = \{ x \in X: \exists N \in \mathbb N (\forall n > N x(n) = z_n) \land 
+            (\forall i \le N x(i) \in D_i) \}$. \\ 
+            Wtedy $\overline D = X$. Rozważmy $U = U_1 \times \ldots \times U_n \times X_{n+1} \times 
+            \ldots  \neq \emptyset$. $U \cap D \neq \emptyset$.
+    \end{enumerate} 
+\end{dd}
+\begin{wn} 
+    W przestrzeni $\mathbb R ^ \mathbb N$ zbiór  $D = \{x \in \mathbb R ^ \mathbb N 
+    (\exists N \forall n > N x(n) = 0) \land \forall i \le N x(i) \in \mathbb Q \}$. \\ 
+    $D = ( \mathbb Q \times \{0\} \times \{0\} \times \ldots) \cup 
+        (\mathbb Q \times \mathbb Q \times \{0\} \times \ldots) \cup \ldots$
+\end{wn} 
+\begin{uw} 
+    Przestrzeń euklidesowa $\mathbb R ^d$ jest topologicznym produktem $\underbrace{\mathbb R 
+    \times \ldots \times \mathbb R}_{d}$
+\end{uw} 
+\begin{prz} 
+    $\{0,1\}^\mathbb N = \{0,1\} \times \{0,1\} \times \ldots$ \\ 
+    $d(x,y) = \begin{cases} 0 & x = y \\ \frac{1}{n} & n = \min \{k: x(k) \neq y(k)\} \end{cases}$ \\ 
+    Bazą w $\{0,1\}^\mathbb N$ są $\{\varepsilon_1\} \times \{\varepsilon_2\} \times 
+    \ldots \times \{\varepsilon_n\} \times \{0,1\} \times \{0,1\} \times \ldots$
+\end{prz}      
+\begin{prz} 
+    Istnieje ciągła funkcji $[0,1] \xrightarrow{\text{na}} [0,1] \times [0,1]$
+    \begin{dd}\hfill 
+        \begin{itemize} 
+            \item Istnieje ciągła $g: \{0,1\}^\mathbb N \xrightarrow{\text{na}} [0,1]$
+            \item $\{0,1\} ^\mathbb N \times \{0,1\}^ \mathbb N \simeq \{0,1\}^\mathbb N$ \\ 
+                $h(x,y) = (x(1),y(1),x(2),y(2),\ldots)$ (aby pokazać heomemorfizm badamy przeciwobraz)
+            \item Istnieje ciągła funkcja $\alpha: \{0,1\}^\mathbb N \to [0,1]^2$ \\ 
+                $\{0,1\} \ni x \to h^{-1} (x) \in \{0,1\}^\mathbb N \times \{0,1\}^\mathbb N$ 
+                Funkcja $\xi$ taka, że $\xi(h^{-1} (x)) \in [0,1]^2$ \\ 
+                $\alpha : \{0,1\}^\mathbb N \to [0,1]^2 \ \alpha = (\alpha_1,\alpha_2)$ \\ 
+                z tw Titzy'ego \\ 
+                $\widetilde \alpha_1 [0,1] \to [0,1]$ \\ 
+                $\widetilde \alpha_2 [0,1] \to [0,1]$ \\ 
+                $\widetilde \alpha = (\widetilde \alpha_1,\widetilde \alpha_2): 
+                [0,1] \to [0,1] \times [0,1]$
+        \end{itemize} 
+    \end{dd}
+\end{prz} 
+\begin{tw} Jeżeli $X,Y \in T_i$, to $X \times Y \in T_i$ dla $i \le 3\frac{1}{2}$ \end{tw} 
+\begin{dd} $i = 3\frac{1}{2}$ \\ 
+    $(x,y) \in G \subseteq X \times Y$ otwarty \\ 
+    Istnieją $U,V$ takie, że $(x,y) \in U \times V \subseteq G$ \\ 
+    $x \in U,\ y \in V$ Istnieją $g: X \to [0,1] g(x) = 1,\ g|_{U^c} \equiv 0$ \\ 
+    $h: Y \to [0,1] h(y) = 1 \ h|_{V^c} \equiv 0$ \\ 
+    $f(\cdot,;) = g(\cdot)h(j) \ f: X \times Y \to [0,1]$ \\ 
+    $f(x,y) = 1 \ f|_{(U \times V)} \equiv 0 \ f = (g \circ pi_1)(h \circ pi_2)$
+\end{dd} 
+\begin{ft} 
+    Normalność nie jest dziedziczna
+\end{ft} 
+\begin{prz} 
+    $S - $ strzałka ($\mathbb R$ topologia wyznaczona przez $[a,b)$)
+    $S \in T_4$ \\ 
+    $S \times S \notin T_4$
+    $L = \{ (x,y): y = -x \}$ \\ 
+    $L$ jest dyskretna w topologii podprzestrzeni $(x,y) \in L \to \{(x,y)\} = 
+    L \cap ([x,x+1] \times [y,y+1])$ \\ 
+    $L$ jest domkniętym podzbiorem $S \times S$. 
+    Jest $\mathfrak{c}$ wiele funkcji ciągłych na $S \times S$ (bo $S \times S$ zawiera
+    przeliczalnie gęsty $Q\times Q\, C(S \times S) \ni f\xrightarrow{1-1} f|_{Q\times Q}$)
+    \\Jest $2^{\mathfrak{c}}$ funkcji ciągłych na $L$ \\ 
+    Stąd $S \times S$ nie może być normalna (patrz tw. Tietze'ego).\\[1cm] 
+    Rozważamy rodzinę $\{X_t : t \in T\}$ przestrzeni topologiznych i $x = \prod\limits
+    _{t \in T} x_t \ni x = (x_t)_{t \in T} \ x_t \in X_t$ 
+\end{prz} 
+\begin{df} 
+    Topologia produktowa na $X$ jest to najmniejsza topologia dla której rzuty 
+    \begin{gather} 
+        \pi_s : X \to X_s \\ 
+        \pi_s (x) = x_s 
+    \end{gather} są ciągłe.
+\end{df} 
+\begin{tw} 
+    W produkcie $X = \prod\limits_{t \in T} X_t$ zbiory postaci 
+    \[ \pi_{t_1}^{-1}[V_1] \cap \ldots \cap \pi_{t_n}^{-1} [V_n] \] 
+    gdzie $V_i \subseteq X_n$ są otwarte, staniową bazę topologii na $X$.
+\end{tw} 
+\begin{uw} 
+    Jeżeli $|X_t| \ge 2$ dla $t \in T,\ T$ nieprzeliczalny, to $X = \prod\limits_{t \in T}
+    X_t$ nie jest metryzowalna, bo nie ma bazy przeliczalnej w żadnym punkcie
+\end{uw} 
+W szczególności przestrzeń $\mathbb R ^ \mathbb R = \{ f : \mathbb R \to \mathbb R\}$ nie
+jest metryzowalna. \\ 
+$\mathbb R ^ \mathbb R$ jest ośrodkowa (tw. Marczewskiego).
+\begin{tw} 
+    Jeżeli $X$ jest przestrzenią topologiczną całkowicie regularną ($T_{3 \frac{1}{2}}$)
+    to istnieje $T$, taki, że $X$ jest homeomorfizmem z podzbiorem $[0,1]^T$ (kostka
+    Tichiniowa). Można przyjąć, że $|T| \le |B|$, gdzie $B$ to baza $X$.
+\end{tw} 
+\begin{df} 
+    Dla przestrzeni topologicznych $X$ i $Y$ funkcję $f: X \to Y$ nazywamy zanurzeniem,
+    jeżeli $f$ jest $1-1$, ciągła i $f^{-1}: f[X] \to X$ jest ciągła. 
+\end{df} 
+Jak zdefiniować $f: X \to [0,1]^T?$ \\ 
+$f = (f_t)_{t \in T}, \ f_t = \pi_t \circ f$ \\ 
+Należy zdefiniowaćA rodzinę funkcji ciągłych $f_t: X \to [0,1]$. Wtedy definujemy 
+$f: X \to [0,1]^T \ f(x) = (f_t(x))_{t \in T}$ \\ 
+$f = \underset{t \in T}{\Delta}f_t$
+\begin{df} 
+    Rodzina funkcji $\{f_t : t \in T\},\ f_t: X \to [0,1]$ 
+    \begin{itemize} 
+        \item rozdziela punkty, jeżeli $\forall x,x' \in X \ x \neq x' \Rightarrow 
+            \exists t \ f_t (x) \neq f_t (x)$
+        \item oddziela punkty od zbiorów domkniętych, jeżeli dla $x \in X \setminus F,\ F$
+             domknięty istnieje $t \in T$ $f_t(x) \notin \overline{f_t[F]}$
+    \end{itemize} 
+\end{df} 
+\begin{tw}["o przekątnej"] 
+    Niech $\mathcal F = \{f_t: t \in T\}$ będzie rodziną ciągłych funkcji $f_t: X \to [0,1]$. \\ 
+    Wtedy $f = \underset{t \in T}{\Delta} f_t: X \to [0,1]^T$ jest ciągła
+    \begin{enumerate}[(1)]
+        \item Jeżeli$\mathcal F$ rozdziela punkty $X$, to $f=\underset{t\in T}{\Delta}f_t$
+                jest różnowartościowa
+        \item Jeżeli $\mathcal F$ oddziela punkty od zbiorów domkniętych, to 
+            $f = \underset{t \in T}{\Delta} f_t$ jest zanurzeniem. 
+    \end{enumerate} 
+\end{tw} 
+\begin{dd} 
+    Ponieważ $\pi_s \underset{t \in T}{\Delta}f_t = f_s$ jest ciągła dla $s \in T$, to 
+    stosujemy uwagę, że na to, aby $g: Z \to \prod\limits_{t \in T} X_t$ była ciągła 
+    potrzeba i wystarcza, aby $\pi_s \circ g : Z \to X_S$ były ciągłe dla $s \in T$ 
+    \begin{enumerate}[(1)] 
+        \item $x \neq x \Rightarrow \exists t \ f_t (x) \neq f_t (x') \Rightarrow 
+            f(x) \neq f(x') \ f = \underset{t \in T}{\Delta} f_t$
+        \item Chcemy sprawdzić, że $f^{-1}: f[X] \to X$ jest ciągła \\ 
+            Sprawdzimy, że dla domkniętego $F \subseteq X, \ f[F] = f[X] \cap 
+    \overline{f[F]}$, bo wtedy $f[F]$ jest domknięty w $f[X]$, czyli $f: X \to Y = f[X]$
+    domknięte. \\ 
+            Załóżmy, że $f(x) \in \overline{f[F]} \ F \subseteq X$ domknięty \\ 
+            $t \in T \quad f_t (x) = \pi_t \circ f(x) \in \pi_t [ \overline{f[F]} 
+            \subseteq \overline{pi_t[f[F]} = \overline{f_t[F]}$, stąd $x \in F$
+            (bo $\{ f_t : t \in T\}$ oddziela punkty od zbiorów domkniętych)
+    \end{enumerate} 
+\end{dd} 
+\begin{tw} 
+    Jeżeli $X \in T_{3 \frac{1}{2}}$ ma bazę mocy $\le |T|$ to $X$ zanurza się w $[0,1]^T$
+\end{tw} 
+\begin{dd} 
+    Istnieje rodzina $\{f_t: t \in T\} \ f_t : X \xrightarrow{\text{ciągła}} [0,1]$ taka, 
+    że $U_t = \{ x: f_t (x) > 0\}$ staniową bazę $X$. Stosujemy $f: \underset{t \in T}
+    {\Delta} f_t: X \to [0,1]^T$ \\ 
+    $x \in U \subseteq X$ otwarty \\ 
+    Istnieje $f: X \to [0,1] \ f(x) = 1 \ f|_{X \setminus U} \equiv 0$ \\ 
+    $V = \{y : f(y) > 0\}$ \\ 
+    $x \in V \subseteq U$ 
+\end{dd} 
+\begin{tw} 
+    $[0,1]^T$ jest zwarta dla każdego $T$
+\end{tw} 
+\begin{df} 
+    Przestrzeń topologiczna $X$ jest zwarta, jeżeli spełnia $T_2$ oraz z każdego pokrycia 
+    $X$ zbiorami otwartymi można wybrać podpokrycie skończone.
+\end{df} 
+\begin{lem} 
+    Jeżeli $X$ jest przestrzenią zwartą i $Y \subseteq X$ jest domkniętym podzbiorem to 
+    $Y$ jest przestrzenią zwartą. 
+    \begin{dd} 
+        Wiemy, że $Y \in T_2$. Rozważamy $Y = \bigcup\limits_{i \in I} V_i,\ V_i$ sa
+        otwarte w $Y$. \\ 
+        $V_i = Y \cap U_i,\ U_i \subseteq X$ otwarty \\ 
+        $Y \subseteq \bigcup\limits_{i \in I} U_i$ \\ 
+        $X = \bigcup\limits_{i \in I} U_i \cup (X \setminus Y)$ \\ 
+        Istnieją $i_1,\ldots,i_n \in I$ \\ 
+        $X = \bigcup\limits_{k = 1}^n U_{i_k} \cup (X \setminus Y)$ \\ 
+        $Y \subseteq \bigcup\limits_{k=1}^n U_{i_k} \ Y = \bigcup\limits_{k=1}^n V_{i_k}$
+    \end{dd} 
+\end{lem} 
+\begin{tw} 
+    Każda przestrzeń zwarta jest normalna. \\ 
+    \rule{2cm}{0.4pt} \\
+    \footnotesize{$T_2 + $ zwartości $\Rightarrow T_4$}
+\end{tw} 
+\begin{dd} ~\\ 
+    $T_2 +$ zwartość $\Rightarrow T_3$ \\ 
+    $x \in X \setminus F,\ F$ domknięty \\
+    $y \in F, x \neq y$. Z $T_2$ istnieją otwarte $U_y, V_y, Uy
+    \cap V_y = \emptyset,\ x \in U_y, y \in V_y$ \\ 
+    Wtedy $F \subseteq \bigcup\limits_{y \in F} V_y,\ F$ jest zwarta. \\ 
+    $F \subseteq \bigcup\limits_{k=1}^n V_{y_k} =: V$ \\ 
+    $U := \bigcap\limits_{k=1}^n U_{y_k} \ni x$ \\
+    $V \cap U = \emptyset$ \\ 
+    $T_3 +$ zwartość $\Rightarrow T_4$ \\ 
+    $x \in A$ istnieją otwarte $H_x \ni x,\ G_x \supseteq B,\ H_x \cap G_x = \emptyset$ \\
+    $A \subseteq \bigcup\limits_{x \in A} H_x, \ A \subseteq \bigcup\limits_{k=1}^m
+    H_{x_k} := H$ \\ 
+    $G := \bigcap\limits_{k=1}^m G_{x_k} \supseteq B$
+\end{dd} 
+\begin{uw} 
+    Jeżeli $X \in T_2$ to do zwartości $X$ potrzeba i wystaracza, aby każda rodzina
+    zbiorów domkniętych w $x$, mająca własność skończonego przekroju, miała niepusty 
+    przekrój $[ \bigcup\limits_{t \in T} F_t \neq \emptyset$ wynika z $\bigcap\limits_{t
+    \in S} F_t \neq \emptyset$ dla $ s \subseteq T$ skończonych.]
+\end{uw} 
+\begin{tw} 
+    Jeżeli $X$ jest przestrzenią zwartą i $X \subseteq Y$, gdzie $Y \in T_2$, to 
+    $X$ jest domknięta w $Y$.
+\end{tw} 
+\begin{dd} 
+    Skoro $Y \in T_2$, to dla $y \in Y \ \{y\} = \bigcup\limits_{V \in \mathcal T,y \in V} \overline V$ \\ 
+    Rozważmy $y \in \overline X \subseteq Y$ \\ 
+    Chcemy pokazać, że $y \in X$. Rozważmy $\mathcal F = \{ \overline V: y \in V \in \mathcal T_Y\}$ \\ 
+    $\mathcal F_X = \{ \overline V \cap X : y \in V \in \mathcal T_y\}$ - rodzina domkniętych podzbiorów $X$.
+    Dla dowolnych $\overline V_n \cap X, \ldots, \overline V_k \cap X \in \mathcal F_X$ \\ 
+    $\bigcap\limits_{i=1}^n \overline V_i \cap X \supseteq \overline{ \bigcup\limits_{i=1}^n V_i} \cap X \neq \emptyset$
+    (bo $y \in \overline X$).\\ Ze zwartości $\bigcap \mathcal F_x \neq \emptyset$ 
+\end{dd} 
+\begin{tw} Jeżeli $X$ jest przestrzenią zwartą i $f: X \xrightarrow{\text{na}} Y$ jest ciągłą surjekcją, gdzie $Y \in T_2$, to $Y$ 
+jest przestrzenią zwartą. \end{tw} 
+\begin{dd} ~\\ 
+    $Y = \bigcup\limits_{t \in T} V_t \quad V_t \subseteq \mathcal T_Y$ \\ 
+    $X = \bigcup\limits_{t \in T} \underscript{f^{-1}[V_t]}{\vertin}{\mathcal T_X}$ ze zwartości $X$, istnieje 
+    $T_0 \in T$ skończone, takie, że $X = \bigcup\limits_{t \in T_0} f^{-1} [V_t]$ \\ 
+    $Y = \bigcup\limits_{t \in T_0} V_t$
+\end{dd} 
+\begin{wn} 
+    Niech $X$ będzie przestrzenią zwartą i $Y \in T_2$
+    \begin{enumerate}[(1)] 
+        \item Każda funkcja ciągła $f: X \to Y$ jest odwzorowaniem domkniętym 
+        \item Każda ciągła, różnowartościowa $f: X \to Y$ jest zanurzeniem (w szczególności ciągła bijekcja, jest homemorfizmem)
+        \item Jeżeli $(X,\mathcal T_X)$ jest przestrzenią zwartą i $\mathcal T_1 \subset \mathcal T \subset T_2$ są topologiami na $X$, to 
+            $(X,\mathcal T_1)$ nie jest $T_2$ i $(X,T_2)$ nie jest zwarta 
+    \end{enumerate} 
+\end{wn} 
+\begin{dd} \hfill  
+    \begin{itemize} 
+        \item[$(1)$] Niech $F \subseteq X$ będzie domknięty $F$ jest przestrzenią zwartą i $f[F]$ też jest przestrzenią zwartą, stąd 
+            $f[Y]$ jest domknięty w $Y$ 
+        \item[$(3)$] $id: (X,\mathcal T_X) \to (X,\mathcal T_1)$ \\ 
+            $\mathcal T_1 \subseteq T_X$, więc $id$ jest ciągła, Jeżeli $(X,T_1) \in T_2)$, to $id: (X,\mathcal T_1) \to (X,\mathcal T_X)$
+            musiałaby być ciągła $\mathcal T_X \subseteq T_1$ sprzeczność.
+    \end{itemize} 
+\end{dd} 
+\begin{tw} 
+    Jeżeli $X, Y$ zwarte, to $X \times Y$ jest przestrzenią zwartą.
+\end{tw} 
+\begin{uw} 
+    Jeżeli $X \in T_2$ i $B$ jest bazą topologii na $X$, tkaą, że z każdego pokrycia elementami z $B$ można wybrać podpokrycie skończone to $X$ 
+    jest przestrzenią zwartą. 
+\end{uw} 
+\begin{dd} 
+    Rozważamy $X = \bigcup\limits_{t \in T} U_t \quad U_t \in \mathcal T_X$. Dla $x \in X$, istnieje $t \in T \ x \in U_t$ \\ 
+    Istnieje $B_x \in B$  \\ 
+    $\{ B_x : x \in X \}$ jest pokryciem $X$. 
+    Z założenia istnieje $B_{x_1}, B_{x_2}, \ldots,B_{x_k} \ X = \bigcup\limits_{i=1}^{k} B_{x_i} \quad \bigcup\limits_{t = 1}^k U_{t_x} = X$
+\end{dd} 
+\begin{dd} 
+    Rozważmy $X \times Y,\ X, Y$ zwarte. 
+    Mamy sprawdzić, że jeżeli $X \times Y = \bigcup\limits_{t \in T} U_t \times V_t$, to istnieje 
+    $t_1,\ldots,t_n \in T \ X \times Y = \bigcup\limits_{i = 1}^n U_{t_i} \times V_{t_i}$ 
+    Dla każdego $x \in X$ istnieje otwarte otoczenie $x, G_x$, takie, że $G_x \times Y$ przykrywa skończoną ilość 
+    zbiorów $U_t \times V_t$. $\{x\} \times Y \subseteq \bigcup\limits_{t \in T} U_t \times V_t$ \\ 
+    Ze zwartości istnieje $t_1,\ldots,t_k \ \{x\} \times Y \subseteq \bigcup\limits_{i=1}^k U_{t_i} \times V_{t_i}$ \\ 
+    $G_x = \bigcap\limits_{i=1}^k U_{t_i}$ \\ 
+    Mamy pokrycie $X = \bigcup\limits_{x \in X} G_x$. Ze zwartości $X,\ X = \bigcup\limits_{j=1}^n G_{x_j}$. 
+    $X \times Y = \bigcup\limits_{j=1}^n G_{x_j} \times Y$, gdzie $G_{x_j} \times Y$ zawiera się w skończonej ilości 
+    $U_t \times V_t$
+\end{dd} 
+\begin{wn} Jeżeli $n \in \mathbb N$ i $X_1,\ldots,X_n$ są zwarte, to $X_1 \times \ldots \times X_n$ jest zwarty. \end{wn} 
+\begin{dd} $X_1 \times \ldots \times X_n$ można utożsamić z $(X_1 \times \ldots \times X_{n-1}) \times X_n$. Indukcyjnie. \end{dd} 
+\begin{tw}[Tichonowa]
+    Jeżeli $\{ x_t : t \in T \}$ jest rodziną przestrezni zwartych, to $X = \prod\limits_{t \in T} X_t$ jest przestrzenią zwartą. \\ 
+    \rule{2cm}{0.4pt} \\ 
+    Niech $X$ będzie zbiorem i niech $A \subseteq P(X)$ $A$ ma własność FIP (finnite intersection property), jeżeli $\forall n \in \mathbb N 
+    \forall A_1,\ldots,A_n \in A \bigcup\limits_{i=1}^n A_i \neq \emptyset$
+\end{tw} 
+\begin{ft} 
+    Dla dowolnego $A$ z FIP istnieje maksymalna rodzina $\mathcal F \supseteq A \ \mathcal T$ ma FIP.
+\end{ft} 
+\begin{wn} Jeżeli $\mathcal F$ jest maksymalną rodziną z FIP, to $(A,B \in \mathcal F \Rightarrow A \cap B \in \mathcal F)$ \end{wn} 
+\begin{dd}[twierdzenia Tichonowa] ~\\ 
+    $X = \prod\limits_{t \in T} X_t$. Wiemy, że $X \in T_2$. \\ 
+    Rozważmy rodzinę $H$ domkniętych podzbiorów $X$ z własnością FIP. \\ 
+    Mamy sprawdzić, że $\bigcap H \neq \emptyset$. \\ 
+    Niech $\mathcal F \supseteq H$ będzie maksymalną rodziną dowolnych podzbiorów $X$, taką, że $\mathcal F$ ma FIP. \\ 
+    Ustalmy $t \in T \ \pi_t: X \to X_t$ \\ 
+    Rodzina $\{\overline{\pi_t [A]} : A \in F \}$ jest rodziną domkniętych podzbiorów $X_t$ oraz rodzina ta ma FIP. \\ 
+    $\{ \overline{\pi_t [A_1]} \cap \ldots \cap \overline{\pi_t [A_n]}\} \supseteq \pi_t[A_1 \cap \ldots \cap A_n] \neq \emptyset$ \\
+    Niech $x_t \subseteq X_t, x_t \in \overline{\pi_t [A]} \ A \in \mathcal F \ x = (x_t)_{t \in T} \in X$. \\ 
+    Sprawdzimy, że $x \in h$ dla każdego $h \in H$. \\ 
+    Przy ustalonym $t \in T$, jeżeli $V \ni x_i$ jest otoczeniem $x_t \in X$, to dla dowolnego $A \in \mathcal F \ V \cap \pi_t [A] \neq \emptyset$. \\ 
+    Stąd $\pi_t^{-1} [V] \cap A \neq \emptyset$ \\ 
+    Niech $h \in H$. Wiemy, że $\pi_t ^{-1} [X] \cap H \neq \emptyset$. \\ 
+    Stąd, jeżeli $V_i \subseteq X_{t_i} \ i = 1,\ldots,n$ są otwarte. i $X_{t_i} \in V_i$. \\ 
+    $[ \bigcap\limits_{i=1}^n \pi_{t_i}^{-1} [V_i] ] \cap H \neq \emptyset$ \\ 
+    Stąd $x \in H$. 
+\end{dd} 
+\begin{wn} Przestrzenie $[0,1]^T$ i $\{0,1\}^T$ (kostka Tichonowa i kostka Cantora) są zwarte dla każdego $T$ \end{wn} 
+\begin{wn} Przestrzeń $X = \prod\limits_{t \in T} X_t$ jest zwarta $\Leftrightarrow \forall t \in T \ X_t$ jest zwarta. \end{wn} 
+\begin{dd} $(\Rightarrow) \ X_t = \pi_t [x]$ \end{dd} 
+\begin{wn} Każda przestrzeń $X \in T_{3 \frac{1}{2}}$ zanurza się w przestrzeni zwartej \end{wn} 
+\begin{dd} $X \in T_{3 \frac{1}{2}} \Rightarrow X$ zanurza się w $[0,1]^T$ dla pewnego $T$. \end{dd} 
+\begin{uw} Każdą przestrzeń $X \in T_{3 \frac{1}{2}}$ można uzwarcić, to znaczy, zanurzyć $X$ w przestrzeni zwartej $K$. 
+    \[ f: X \to f[X] \subseteq K \] 
+    Wtedy $\overline{f[X]}$ nazywamy uzwarceniem. To wynika z faktu, że $X$ zanurza się w $[0,1]^\mathcal T$
+\end{uw} 
+\begin{uw} 
+    $X \in T_{3 \frac 12} \Leftrightarrow X$ ma uzwarcenie.\\ 
+    Jeżeli $X \subseteq K,\ K$ zwarta, to $K \in T_4$ więc $K \in T_{3 \frac 12}$, więc $X \in T_{3\frac 12}$
+\end{uw} 
+\begin{df} 
+    Przestrzeń $X$ jest lokalnie zwarta, gdy $X \in T_3$ oraz dla każdego $x \in X$ istnieje otwarte otoczenie $U \ni x$, takie, że 
+    $\overline U$ jest zwarte.
+\end{df} 
+\begin{tw} 
+    Jeżeli $X$ jest przestrzenią lokalnie zwartą, to $X$ można uzwarcić jednym punktem.
+\end{tw} 
+\begin{dd} 
+    Rozważamy $X \cup \{ \infty \}$, gdzie otoczenie bazowe w $\infty$.  
+    \[ \{ \infty \} \cup (X \setminus F) \text{ dla } F \subseteq X \text{ zwartych }\]
+    \begin{itemize} 
+        \item $F \subseteq X$ jest zwraty, to $F$ jest domknięty w $X$, więc $X \setminus F$ jest domknięty. 
+        \item $X \cup \{ \infty \} \in T_2$ \\ 
+            $x \in X,\infty$. Z lokalnej zwartości istnieje $U \ni x,\ U \subseteq X$ 
+            otwarty, $\overline U$ zwarty. \\ 
+            $\infty \in \{ \infty\} \cup (X \setminus \overline U) = V \quad U \cap V = 
+            \emptyset$ \\ 
+            Jeżeli $\{ W_t: t \in T\}$ jest otwartym pokryciem $X \cup \{ \infty \}$ to 
+            istnieje to $\infty \in W_{t_0}$. Istnieje otoczenie bazowe $\{ \infty \} 
+            \cup (X \setminus F) \ F$ zwarty. \\ 
+            $\infty \in \{ \infty \} \cup (X \setminus F) \subseteq W_{t_0}$ \\ 
+            $F \subseteq \bigcup\limits_{t \in T} W_t \Rightarrow$ istnieją $t_1,\ldots,
+            t_n \ F \subseteq \bigcup\limits_{i = 1}^n W_{t_i}$ \\ 
+            $X \cup \{ \infty \} = W_{t_0} \cup W_{t_1} \cup \ldots \cup W_{t_n}$ 
+    \end{itemize} 
+\end{dd} 
+\begin{wn} 
+    Przestrzeń $X$ jest lokalnie zwarta $\Leftrightarrow \ X$ jest homemorfizmam z
+    otwartm podzbiorem przestrzeni zwartej. 
+\end{wn} 
+\begin{dd} 
+    $X \subset \underbrace{X \cup \{\infty\}}_{\text{zw}} \ X$ jest otwarta. \\ 
+    Jeżeli $X \simeq U \subseteq K,\ K$ zwarta, $U$ jest otwraty. \\ 
+    Sprawdzimy, że $U$ jest lokalnie zwarta. Niech $x \in U$ Istnieje otrwaty $V$, taki, 
+    że $x \in V \subseteq \underset{\text{zw}}{\overline V} \subseteq U$
+\end{dd} 
+\begin{prz} 
+    $\mathbb{R} \cup \{ \infty \},\ \{ \infty \} \cup (-\infty, a) \cup (b,\infty)$ \\ 
+    $\mathbb{R} \simeq S^1 \setminus \{(0,1)\}$  
+\end{prz} 
+\begin{df} 
+    Przestrzeń topologiczna $X$ jest spójna, jeżeli dla otwartych $U, V \subseteq X$, 
+    jeżeli $U \cap V = \emptyset$ i $X = U \cup V$, to $U = \emptyset$ lub $V = \emptyset$
+    \\$X$ nie jest spójna $\Leftrightarrow X = U\cup\mkern-9mu\cdot\mkern5mu V,\ U,\ V$ 
+    domknięte, $U,V \neq \emptyset$\\
+    \textbf{Równoważnie}  $X$ jest spójna $\Leftrightarrow \emptyset, X$ są jedynymi 
+    zbiorami otwarto-domkniętymi.
+\end{df} 
+\begin{tw} \hfill 
+    \begin{enumerate}[(1)]
+        \item Jeżeli $A \subseteq X$ jest spójną podprzestrzenią to $\overline A$ jest
+            spójna 
+        \item Jeżeli $X$ jest przestrzenią spójną i $f: X \xrightarrow{\text{na}} Y$ 
+            jest ciągła to $Y$ jest spójny.
+    \end{enumerate} 
+\end{tw} 
+\begin{uw} 
+    Sprawdzenie, że $B \subseteq X$ jest spójny wymaga, jeżeli $B \subseteq U \cup V$ 
+    gdzie $U, V$ otwarte rozłączne, to $B \subseteq U$ lub $B \subseteq V$
+\end{uw} 
+\begin{dd} \hfill
+    \begin{enumerate}[(1)] 
+        \item Rozważamy $\overline A \subseteq U \cup V,\ U,\ V $ otwarte, $U \cap V = 
+            \emptyset$ \\ 
+            Wtedy $A \subseteq U \cup V$, więc $A \cup U$ lub $A \cup V$ \\ 
+            Gdy $A \subseteq U$, to $\overline A \cap V = \emptyset$, więc $\overline A 
+            \subseteq U$
+        \item Jeżeli $B \subseteq Y$ jest otwarto-domknięty, 
+            gdy $f^{-1}[B]$ jest otwarto-domknięty w $X$, więc $f^{-1} [B] = \emptyset$ 
+            lub $f^{-1} [B] = X$
+    \end{enumerate}
+\end{dd} 
+\begin{tw} 
+    $\mathbb{R}$ jest przestrzenią spójną (podobnie $(a,b),\ [a,b]$)
+\end{tw} 
+\begin{dd} 
+    Rozważamy $\mathbb{R} = \cup\mkern-9mu\cdot\mkern5mu$ $U,V$ otwarte, $U \neq \emptyset
+    V \neq \emptyset$ \\ 
+    Niech $a \in U,\ b \in V$ Załóżmy, że $a < b$ \\ 
+    $S = \{ x \in [a,b]: [a,x] \subseteq U \} \neq \emptyset$ \\ 
+    $s = \sup S$, wtedy $s \notin U,\ s \notin V$ (sprzeczność) \\ 
+    $s \in V$, to $(s-\delta,s+\delta) \subseteq V \ S \cap (s-\delta,s) = \emptyset$
+    sprzeczność
+\end{dd} 
+\begin{wn} 
+    Jeżeli $f: [a,b] \to \mathbb{R}$ jest ciągła to $f$ "przyjmuje wszystkie wartości 
+    pośrednie"
+\end{wn} 
+\begin{dd} 
+    Niech $f(a) < \xi < f(b)$ \\ 
+    Jeżeli $\xi$ nie jest wartością $f$, to $[a,b] = \{x \in [a,b]: f(x) < \xi \} \cup 
+    \{ x \in [a,b]: f(x) > \xi \}$ przez spójność $[a,b]$
+\end{dd} 
+\begin{lem} 
+    Jeżeli $A_t \subseteq X$ są zbiorami spójnymi dla $t \in T$ i $x_0 \in A_t$ dla 
+    każdego $t \in T$, to $A = \bigcup\limits_{t \in T} A_t$ jest spójna. 
+    \begin{dd} 
+        $A \subseteq U \cup V \ U \cap V = \emptyset \ U,V$ otwarte. \\ 
+        Niech $x_0 \in U,\ A_t \subseteq U$ dla wszystkich $t \in T$, $A \subseteq U$
+    \end{dd} 
+\end{lem} 
+\begin{tw} 
+    $\mathbb{R}^d$ jest spójna dla $d \in \mathbb{N}$
+\end{tw} 
+\begin{dd} 
+    Niech $x \in \mathbb{R}^d,\ f:[0,1] \to \mathbb R^d \ f(t) = tx \ f$ jest ciągła. 
+    $I_x = \{f(t): t \in [0,1]\} \subseteq \mathbb R^d$ jest spójny \\ 
+    $\mathbb{R}^d = \bigcup\limits_{x \in \mathbb R^d} I_x$ jest spójna z lematu. 
+\end{dd} 
+\begin{df} 
+    Przestrzeń $X$ jest łukowa spójna, jeżeli dla $x,y \in X$ istnieje ciągła 
+    $f: [0,1] \xrightarrow{1-1} X \ f(0) = x, f(1) = y$
+\end{df} 
+\begin{uw} 
+    Łukowa spójnść $\Rightarrow$ spójność
+\end{uw} 
+\begin{prz} ~\\ 
+    $X = \{0\} \times [-1,1] \cup \{ (x,\sin \frac{1}{x}): x \in (0,2\pi) \} $ \\ 
+    $X$ zwarta
+    $X$ jest spójna, ale nie jest łukowo spójna \\ 
+    $X \subseteq U \cup V, \ U, V \subseteq \mathbb{R}^2$ otwarte $U \cap V = \emptyset$\\
+    Niech $p \in U. S \subseteq U$, bo $S$ jest spójna jako ciągły obraz $(0,2\pi)$ \\ 
+    Nie istnieje ciągła $f:[0,1] \to X \ f(0) = p,\ f(1) = q$
+\end{prz} 
